@@ -82,10 +82,13 @@
     }
   }
   @include e(no_access){
-    margin: 100px 0;
+    margin: 70px 0;
     text-align: center;
     img{
       margin: 0 auto 30px;
+    }
+    @include m(text){
+      margin-bottom: 30px !important;
     }
   }
   @include e(close){

@@ -10,12 +10,11 @@
           <!-- <div class="user_key__touch_line"></div> -->
           <div v-show="getUserAccessState() != 'DENIED'">
             <p class="user_key__title">Hola, bienvenido a Sportlife</p>
-            <p class="user_key__text">Próximamente podrás ingresar al gimnasio<br>con éste código</p>
-            <div class="user_key__qr--container" style="" v-if="qr">
+            <p class="user_key__text">Puedes ingresar al gimnasio<br>con éste código</p>
+            <div class="user_key__qr--container" style="" v-if="qr" id="qrcontent">
               <div
                 class="col-xs-12 text-center user_key__qr"
-                id="qrcodekey"
-                >
+                id="qrcodekey">
               </div>
               <div
                 class="col-xs-12 text-center user_key__qr"
@@ -48,11 +47,12 @@
           <div
             class="user_key__no_access"
             v-show="getUserAccessState() == 'DENIED'">
+            <p class="user_key__text user_key__no_access--text">Espera unos segundos a que se genere tu QR</p>
             <img
               src="./src/assets/images/pago.svg"
               alt="">
-            <p class="user_key__text">
-              Al momento no hemos registrado el pago de tu mensualidad.
+            <p class="user_key__text" style="padding: 0 15px">
+              Puede ser que al momentono hayamos registrado tu pago.
               Acércate a un punto de pago y continúa entrenando.
             </p>
           </div>
@@ -77,20 +77,37 @@ export default {
       loaded: false,
       add: '',
       counter: 0,
-      generate_qr: null
+      generate_qr: null,
+      times: 1,
+      qrcode: null,
+      flag: 0
     }
   },
   mounted(){
     var vm = this;
+    console.log(window.cordova.plugins.Brightness);
+    var brightness = cordova.plugins.brightness;
+    console.log(brightness);
+    var vm = this
+    brightness.setBrightness(0.9, vm.success(), vm.error());
+    // success([-1,0-1]) float 0-1 is a brightness level, -1 represents a system default
+    // brightness.getBrightness(([-1,1]), alert("Error"));
+    // prevents sleep
+
+
     navigator.geolocation.getCurrentPosition(vm.findPosition);
     this.qr = true;
-    // this.qrcode = new QRCode(document.getElementById("qrcodekey"), {correctLevel : QRCode.CorrectLevel.L});
+    console.log("Inicio QR");
+    // this.qrcode = new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L});
+    console.log("QR Preparado");
+    // this.qrcodes = [new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L})];
     this.qrcodes = [new QRCode(document.getElementById("qrcodekey"), {correctLevel : QRCode.CorrectLevel.L}),
                     new QRCode(document.getElementById("qrcodekey2"), {correctLevel : QRCode.CorrectLevel.L}),
                     new QRCode(document.getElementById("qrcodekey3"), {correctLevel : QRCode.CorrectLevel.L}),
                     new QRCode(document.getElementById("qrcodekey4"), {correctLevel : QRCode.CorrectLevel.L}),
                     new QRCode(document.getElementById("qrcodekey5"), {correctLevel : QRCode.CorrectLevel.L}),
                     new QRCode(document.getElementById("qrcodekey6"), {correctLevel : QRCode.CorrectLevel.L}),]
+
     window.setTimeout(function(){
       vm.loaded = true
     }, 400)
@@ -120,21 +137,35 @@ export default {
         }
         this.updateUserAccessState(response.body.data.status)
         console.log(this.getUserAccessState());
-        if((this.getUserAccessState() == 'INVITED' || this.getUserAccessState() == 'GRANTED') && document.getElementById("qrcodekey") != null){
+        if((this.getUserAccessState() == 'INVITED' || this.getUserAccessState() == 'GRANTED') && document.getElementsByClassName("user_key__qr")[0] != null){
           clearInterval()
+          // this.qr = false;
+          // this.qrcode = new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L});
+          // this.qrcodes = [new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L})];
           vm.makeQRCode()
           vm.generate_qr = window.setInterval(function(){
             this.qr = false;
-            this.qrcodes = [new QRCode(document.getElementById("qrcodekey")),
-                           new QRCode(document.getElementById("qrcodekey2")),
-                           new QRCode(document.getElementById("qrcodekey3")),
-                           new QRCode(document.getElementById("qrcodekey4")),
-                           new QRCode(document.getElementById("qrcodekey5")),
-                           new QRCode(document.getElementById("qrcodekey6"))]
+
+            // this.qrcode = new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L});
+            this.qrcodes = [new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L})];
+            // this.qrcodes = [new QRCode(document.getElementById("qrcodekey")),
+            //                new QRCode(document.getElementById("qrcodekey2")),
+            //                new QRCode(document.getElementById("qrcodekey3")),
+            //                new QRCode(document.getElementById("qrcodekey4")),
+            //                new QRCode(document.getElementById("qrcodekey5")),
+            //                new QRCode(document.getElementById("qrcodekey6"))]
             document.getElementById("qrcodekey") != null ? vm.makeQRCode() : '';
+            // const parent = document.getElementById("qrcontent");
+            // while (parent.childElementCount > 1) {
+            //   parent.lastChild.remove();
+            // }
+            // for (var i = 0; i < 5; i++) {
+            //   var item = document.getElementsByClassName("user_key__qr")[0].cloneNode(true)
+            //   document.getElementById("qrcontent").appendChild(item);
+            // }
           }, 9000)
         } else if(response.body.data.status != 'DENIED'){
-          this.show_error_modal(response.body.data.status, " ")
+          // this.show_error_modal(response.body.data.status, " ")
           this.updateUserAccessState('DENIED')
           this.qr = false;
         }
@@ -145,18 +176,24 @@ export default {
             this.checkToken(response.body.meta.authentication_token)
           }
         }
-        if((this.getUserAccessState() == 'INVITED' || this.getUserAccessState() == 'GRANTED') && document.getElementById("qrcodekey") != null){
+        if((this.getUserAccessState() == 'INVITED' || this.getUserAccessState() == 'GRANTED') && document.getElementsByClassName("user_key__qr")[0] != null){
           vm.add = vm.getUserIdEncrypt()
+          // this.qr = false;
+          // this.qrcode = new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L});
+          // this.qrcodes = [new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L})];
           vm.makeQRCode()
           vm.generate_qr = window.setInterval(function(){
             this.qr = false;
-            this.qrcodes = [new QRCode(document.getElementById("qrcodekey")),
-                           new QRCode(document.getElementById("qrcodekey2")),
-                           new QRCode(document.getElementById("qrcodekey3")),
-                           new QRCode(document.getElementById("qrcodekey4")),
-                           new QRCode(document.getElementById("qrcodekey5")),
-                           new QRCode(document.getElementById("qrcodekey6"))];
+            // this.qrcode = new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L});
+            this.qrcodes = [new QRCode(document.getElementsByClassName("user_key__qr")[0], {correctLevel : QRCode.CorrectLevel.L})];
+            // this.qrcodes = [new QRCode(document.getElementById("qrcodekey")),
+            //                new QRCode(document.getElementById("qrcodekey2")),
+            //                new QRCode(document.getElementById("qrcodekey3")),
+            //                new QRCode(document.getElementById("qrcodekey4")),
+            //                new QRCode(document.getElementById("qrcodekey5")),
+            //                new QRCode(document.getElementById("qrcodekey6"))];
             document.getElementById("qrcodekey") != null ? vm.makeQRCode() : '';
+
           }, 9000)
         }
         response.body.data.message != undefined ? this.show_error_modal(response.body.data.message) : ''
@@ -167,6 +204,7 @@ export default {
     this.counter += 1
   },
   destroy(){
+
     this.loaded = false
     this.destroy = true
     clearInterval(vm.generate_qr)
@@ -185,9 +223,13 @@ export default {
       let vm = this
       vm.loaded = false
       console.log("down");
+      var brightness = cordova.plugins.brightness;
+      brightness.setBrightness(-1, vm.success(), vm.error());
       window.setTimeout(function(){
         vm.updateShowUserKey(false)
-        qrcode.clear()
+        this.qrcodes.map(function(qrcode){
+          qrcode.clear()
+        })
         clearInterval(vm.generate_qr)
       }, 500)
     },
@@ -197,9 +239,36 @@ export default {
       console.log(this.getUserId()+"//"+time_send+"//"+this.getDeviceId()+"."+this.add);
       console.log(this.encrypt(this.getUserId()+"//"+time_send+"//"+this.getDeviceId()).toString()+"."+this.add);
       var vm = this;
+      console.log(this.qrcode);
+      // this.qrcode.makeCode("<"+vm.encrypt(vm.getUserId()+"//"+time_send+"//"+vm.getDeviceId()).toString()+"."+vm.add+">");
+
+
+
       this.qrcodes.map(function (qrcode){
+        // qrcode.clear();
         qrcode.makeCode("<"+vm.encrypt(vm.getUserId()+"//"+time_send+"//"+vm.getDeviceId()).toString()+"."+vm.add+">");
       })
+
+      if(this.flag > 0){
+        this.flag += 1
+        const parent = document.getElementById("qrcontent");
+        while (parent.childElementCount > 1) {
+          parent.lastChild.remove();
+        }
+        for (var i = 0; i < 5; i++) {
+          var item = document.getElementsByClassName("user_key__qr")[0].cloneNode(true)
+          document.getElementById("qrcontent").appendChild(item);
+          console.log(item);
+        }
+      }
+
+    },
+    success(e){
+      console.log(e);
+      // alert("Brightness set successfully");
+    },
+    error(e){
+      // alert("Error setting brightness");
     }
   }
 }

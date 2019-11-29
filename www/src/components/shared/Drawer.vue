@@ -130,7 +130,7 @@
                 <img src="https://s3-us-west-2.amazonaws.com/fuserewards/karrot.png" alt="">
               </div>
               <div class="drawer__user--footer__fusepong_icon">
-                <span>v1.0.45</span>
+                <span>v1.1.0</span>
                 <p class="">Developed by
                   <a href="http://www.fusepong.com" taget="_blank"><img src="https://s3-us-west-2.amazonaws.com/karrottsportlife/profile_icons/menu_fusepong.svg"></a></p>
               </div>
@@ -174,7 +174,7 @@
                 <img src="https://s3-us-west-2.amazonaws.com/fuserewards/karrot.png" alt="">
               </div>
               <div class="drawer__user--footer__fusepong_icon">
-                <span>v1.0.45</span>
+                <span>v1.1.0</span>
                 <p class="">Developed by
                   <a href="http://www.fusepong.com" taget="_blank"><img src="https://s3-us-west-2.amazonaws.com/karrottsportlife/profile_icons/menu_fusepong.svg"></a></p>
               </div>

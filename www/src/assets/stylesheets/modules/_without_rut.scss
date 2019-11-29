@@ -1,0 +1,115 @@
+.without_rut{
+  background-image: url('./src/assets/images/backgrounds/img-fondo.png');
+  background-size: contain;
+  background-position: right 110%;;
+  background-repeat: no-repeat;
+  padding: 60px 13% 20px;
+  height: 100vh;
+  @include flex(none, space-between);
+  flex-direction: column;
+  @include e(logo){
+    @include flex(center, center);
+    margin: 0!important;
+    margin-bottom: 30px!important;
+    img{
+      height: 45px!important;
+    }
+  }
+  @include e(principal_text){
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #000;
+    margin-bottom: 25px;
+    span{
+      font-size: 30px;
+      font-weight: 300;
+    }
+  }
+  @include e(input){
+    border: 0.5px solid #AFAFAF;
+    box-shadow: none!important;
+    max-width: 45%!important;
+    &:last-of-type{
+      margin-left: 30px!important;
+    }
+  }
+  @include e(label){
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  @include e(button){
+    font-size: 17px !important;
+    border-radius: 5px!important;
+  }
+  @include e(link){
+    width: 100%;
+    margin-top: 20px;
+    @include flex(center, center);
+    span{
+      text-align: center;
+      font-size: 12px;
+      text-decoration:  underline;
+    }
+  }
+  @include e(header){
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    padding: 20px;
+  }
+  .new_login__rut_content{
+    &::after{
+      left: 55%;
+      right:inherit;
+    }
+  }
+  .schedule_loader{
+    background: rgba(0,0,0,0.7)!important;
+  }
+}
+
+
+.with_rut{
+  padding: 20px 0!important;
+  @include e(input){
+    border: 0.5px solid #AFAFAF !important;
+    box-shadow: none!important;
+  }
+  @include e(content){
+    margin-top: 0 !important;
+    @include m(container){
+      padding-left: 25px!important;
+      padding-right: 25px!important;
+    }
+  }
+  @include e(container){
+    background: #fff;
+    padding: 25px 25px 0!important;
+    border-top: 0.5px solid #AFAFAF !important;
+    margin-top: 20px;
+  }
+  @include e(title){
+    width: 100%;
+  }
+  @include e(details){
+    margin-top: 20px;
+    font-size: 13px;
+    color: #000;
+  }
+  .new_login__rut_content{
+    &::after{
+      left: 55%;
+      right:inherit;
+    }
+  }
+  .without_rut__header{
+    position: absolute!important;
+  }
+
+}

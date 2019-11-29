@@ -22,7 +22,7 @@
       color: #263238;
       position: absolute;
       right: 15%;
-      font-size: 24px;
+      font-size: 36px;
       transform: translateX(-20px);
     }
   }
@@ -62,8 +62,9 @@
       margin-bottom: 10px;
       position: relative;
       label{
-        font-size: 13px;
-        color: #4E4E4E;
+        font-size: 14px;
+        color: #000000;
+        font-weight: 500;
       }
       select{
         -webkit-appearance: none;
@@ -123,6 +124,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        border: 0.5px solid #AFAFAF !important;
         p{
           color: #4E4E4E;
           font-size: 15px;

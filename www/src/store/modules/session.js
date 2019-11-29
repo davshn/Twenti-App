@@ -25,7 +25,7 @@ const state = {
     redemptions_count: 0,
     favorites_count: 0,
     server_image: "",
-    // server_image: "http://192.168.1.128:4000",
+    // server_image: "http://192.168.1.116:4000",
     device_id: '',
     categories: [],
     show_drawer: false,

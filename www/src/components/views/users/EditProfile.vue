@@ -17,7 +17,6 @@
         <input type="text"
                name=""
                class="form__input"
-               readonly
                v-model="data.attributes.email"
                @input="changed = true">
       </div>
@@ -120,9 +119,18 @@
       </div>
       <div class="edit_profile__form__input_section">
         <label for="">Selecciona tu sede:</label>
-        <select v-model="data.attributes.user_info_attributes.location_id" @input="changed = true">
-          <option :value='null' selected disabled>Seleccione una sede</option>
-          <option v-for="location in locations" :value="location.id">{{location.attributes.name}}</option>
+        <select
+          v-model="data.attributes.user_info_attributes.location_id"
+          @input="changed = true">
+          <option
+            :value='null'
+            selected
+            disabled>Seleccione una sede</option>
+          <option
+            v-for="location in locations"
+            :value="location.id"
+            v-if="location.attributes.location_type == 'Centro Deportivo'">{{location.attributes.name}}</option>
+          <option value='158'>Otro</option>
         </select>
       </div>
       <!-- <div class="edit_profile__form__input_section">

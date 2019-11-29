@@ -12,12 +12,13 @@ Vue.use(VueResource);
 //         }
 //     }
 // });
-Vue.http.options.root = 'http://192.168.1.128:4000/api';
+// Vue.http.options.root = 'http://192.168.1.116:4000/api/';
+// Vue.http.options.root = 'http://192.168.0.6:4000/api/';
 // Vue.http.options.root = 'http://ec2-34-220-12-153.us-west-2.compute.amazonaws.com/api/'
 
 
 // Servidor Sportlife
-// Vue.http.options.root = 'https://srv-back-20181017.karrott.cl/api/';
+Vue.http.options.root = 'https://srv-back-20181017.karrott.cl/api/';
 // Servidor Karrott
 // Vue.http.options.root = 'http://ec2-54-184-17-138.us-west-2.compute.amazonaws.com/api/'
 
