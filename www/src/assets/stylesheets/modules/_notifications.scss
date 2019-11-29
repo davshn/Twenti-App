@@ -1,0 +1,89 @@
+#notifications-body{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.little-padding{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.notification{
+  margin-top: 5px;
+  padding: 15px;
+  padding-left: 20px;
+  border-radius: 2px;
+}
+.notification.created{
+  background: #DDD;
+}
+.notification p{
+  margin: 0!important;
+  text-indent: 0!important;
+}
+.CREATED{
+  background-color: #F0F3F7;
+}
+.SEEN{
+  background-color: #FFFFFF;
+}
+.icon-img{
+  background: #CCC;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+}
+
+.notifications{
+  background-color: #fafafa;
+  @include e(container){
+    position: relative;
+    @include m(flex){
+      @include flex(center);
+    }
+    @include m(image){
+      position: relative;
+
+    }
+    @include m(content){
+      @include e(title){
+        font-size: 15px;
+        color: #1D1D1D;
+        font-weight: 600;
+      }
+      @include e(message){
+        font-size: 12px;
+        color: #4E4E4E;
+        font-weight: 300;
+      }
+      .indicator{
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        &.new_reward{
+          &::after{
+            content: url('https://s3-us-west-2.amazonaws.com/karrottsportlife/notification_rewards.svg');
+            width: 18px;
+            height: 18px;
+          }
+        }
+        &.message{
+          &::after{
+            content: url('https://s3-us-west-2.amazonaws.com/karrottsportlife/notification_bell.svg');
+            width: 18px;
+            height: 18px;
+          }
+        }
+        &.redeem{
+          &::after{
+            content: url('https://s3-us-west-2.amazonaws.com/karrottsportlife/notification_redeem.svg');
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+
+  }
+}

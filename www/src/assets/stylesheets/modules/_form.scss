@@ -1,0 +1,119 @@
+.form {
+
+    %label {
+        @include ms-respond(font-size, -3);
+        line-height: em(16px, ms(-3));
+        letter-spacing: em(.32px, ms(-3));
+        max-height: em(16px, ms(-3));
+        overflow: hidden;
+    }
+
+    @include e(labelWrapper) {
+        display: flex;
+        flex-flow: row nowrap;
+        max-height: em(18px);
+    }
+
+    @include e(label) {
+        @extend %label;
+        color: $color-grey;
+        flex: 1 0 auto;
+        text-align: left;
+    }
+
+    @include e(help) {
+        @extend %label;
+        padding-left: em(8px, ms(-3));
+        margin-left: auto;
+        flex: 0 1 auto;
+        text-align: right;
+
+        @include m(danger) {
+            color: $color-danger;
+        }
+    }
+
+    @include e(field) {
+        transition: all 0.2s linear;
+        position: relative;
+        background-color: $white;
+        border-radius: em(4px, ms(0));
+        padding: em(6px, ms(0)) em(8px, ms(0)) em(8px, ms(0));
+
+        & + & {
+            margin-top: em(8px, ms(0));
+        }
+    }
+
+    @include e(input) {
+        border: none;
+        line-height: (46px);
+        color: $color-base;
+        letter-spacing: em(.24px);
+        display: block;
+        @include ms-respond(font-size, 0);
+        @include flex(center);
+        vertical-align: middle;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          color: $color-light-grey;
+          letter-spacing: em(.24px);
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          color: $color-light-grey;
+          letter-spacing: em(.24px);
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+          color: $color-light-grey;
+          letter-spacing: em(.24px);
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          color: $color-light-grey;
+          letter-spacing: em(.24px);
+        }
+
+        &[type="password"] {
+            letter-spacing: em(8px);
+        }
+
+        @include m(profile) {
+            display: inline-block;
+        }
+    }
+
+    @include e(icon) {
+        transform: translate(em(-8px), em(-10px));
+        min-height: em(24px);
+
+        @include m(eye) {
+            opacity: 0.12;
+        }
+    }
+
+    @include e(forgot) {
+        display: block;
+        @include ms-respond(font-size, -3);
+        text-align: center;
+        line-height: em(16px, ms(-3));
+        color: $gull-gray;
+        margin-top: em(8px, ms(-3));
+        margin-bottom: em(16px, ms(-3));
+        letter-spacing: em(.6px, ms(-3));
+    }
+
+    &:small {
+        font-family: "Work Sans Regular";
+        font-size: em(11px, ms(0));
+        line-height: ms(0);
+        color: #9E9E9E;
+    }
+}
+
+/*
+    Alert states.
+ */
+
+.is-danger {
+    box-shadow: 0 0 0px 1px $color-danger;
+    background-color: #fff2f4;
+}

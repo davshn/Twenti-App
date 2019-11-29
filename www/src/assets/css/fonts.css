@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('../fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-ExtraBold.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-ExtraLight.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/Work_Sans/WorkSans-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Abril Fatface';
+  src: url('../fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: url('../fonts/Hind/Hind-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: url('../fonts/Hind/Hind-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: url('../fonts/Hind/Hind-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: url('../fonts/Hind/Hind-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hind';
+  src: url('../fonts/Hind/Hind-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}

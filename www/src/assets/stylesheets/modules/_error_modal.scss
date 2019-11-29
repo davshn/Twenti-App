@@ -1,0 +1,74 @@
+.error_modal{
+  @include e(body){
+    padding: 40px;
+    padding-bottom: 0;
+    position: relative;
+    max-height: 80vh
+  }
+  @include e(close){
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    top: 20px;
+    right: 20px;
+    z-index: 99;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @include e(image){
+    margin-top: 30px;
+    display: none;
+  }
+  @include e(image_container){
+    background-color: $client-principal-color;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    &.error{
+      background-color: #F33443 !important;
+    }
+    @include m(close){
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+    }
+  }
+  @include e(title){
+    // font-size: 21px;
+    font-size: 19px;
+    font-weight: 700;
+    // text-align: center;
+  }
+  @include e(text){
+    font-size: 13px;
+    color: #1D1D1D;
+    // text-align: center;
+  }
+  @include e(footer){
+    @include flex(center, space-around)
+    padding: 10px 40px !important;
+    padding-top: 0 !important;
+  }
+  @include e(button){
+    font-size: 12px;
+    color: #DCDEE2;
+    text-transform: uppercase;
+    border-radius: 2px;
+    height: 42px;
+    margin-top: 15px;
+    -webkit-appearance: none !important;
+    font-weight: bold;
+    @include flex(center, center);
+    @media screen and(max-height: 330px){
+      padding: 0!important;
+    }
+    &.active{
+      color: $client-principal-color;
+    }
+  }
+}

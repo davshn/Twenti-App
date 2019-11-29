@@ -1,0 +1,81 @@
+.my-vouchers {
+    -webkit-overflow-scrolling: touch;
+
+    @include e(menu){
+        background: $white;
+        padding: 0;
+        height: 35px;
+        // border-top: 1px solid $athens_gray;
+        z-index: 3;
+        box-shadow: 0 em(8px) em(24px) 0 rgba($color-secondary, .08);
+        svg {
+            margin-right: em(5px);
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+
+    @include e(tab) {
+      color: $color-light-grey;
+      @include flex(center, center);
+      position: relative;
+
+    }
+
+    @include e(text) {
+      font-family: $font-hind;
+      font-style: normal;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @include e(body) {
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+
+      @include e(not-favorites){
+        width:100%;
+        svg{
+          margin-top:35%;
+          width:100%;
+          height:100px;
+        }
+        @include m(text){
+          display:flex;
+          justify-content:center;
+          p{
+            font-size:13px;
+            color:#4E4E4E;
+            width:70%;
+            text-align:center;
+          }
+          b{
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    // .active {
+    //     // color: $color-accent !important;
+    //     &::after{
+    //       content: '';
+    //       bottom: 0;
+    //       left: 50%;
+    //       position: absolute;
+    //       width: 60%;
+    //       height: 2px;
+    //       border-top-left-radius: 1px;
+    //       border-top-right-radius: 1px;
+    //       border-bottom-left-radius: 1px;
+    //       border-bottom-right-radius: 1px;
+    //       background-color: $client-principal-color;
+    //       transform: translateX(-50%);
+    //     }
+    //     p{
+    //       color: $client-principal-color !important;
+    //       font-weight: 600;
+    //     }
+    // }
+}

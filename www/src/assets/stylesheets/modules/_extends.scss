@@ -1,0 +1,25 @@
+
+/*------------------------------------*\
+  #EXTENDS
+\*------------------------------------*/
+
+
+
+/**
+ * Animations.
+ * 1. Default.
+ */
+
+%transition {
+  transition: all $base-duration $base-timing;
+}
+
+
+
+/**
+ * Shadows.
+ */
+
+%box-shadow {
+  box-shadow: 0 em(6px) em(24px) 0 rgba($color-secondary, .4);
+}

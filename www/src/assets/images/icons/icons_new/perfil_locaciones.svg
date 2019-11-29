@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.82 16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1d;
+      }
+    </style>
+  </defs>
+  <g id="perfil_locaciones" transform="translate(-50.885)">
+    <g id="Group_7" data-name="Group 7" transform="translate(54.324 3.439)">
+      <g id="Group_6" data-name="Group 6">
+        <path id="Path_15" data-name="Path 15" class="cls-1" d="M163.917,110.062a2.97,2.97,0,1,0,2.97,2.97A2.974,2.974,0,0,0,163.917,110.062Zm0,4.69a1.72,1.72,0,1,1,1.72-1.72A1.722,1.722,0,0,1,163.917,114.752Z" transform="translate(-160.947 -110.062)"/>
+      </g>
+    </g>
+    <g id="Group_9" data-name="Group 9" transform="translate(50.885)">
+      <g id="Group_8" data-name="Group 8">
+        <path id="Path_16" data-name="Path 16" class="cls-1" d="M57.295,0a6.417,6.417,0,0,0-6.41,6.41v.177c0,1.787,1.025,3.871,3.046,6.191a26.35,26.35,0,0,0,2.971,2.9l.393.318.393-.318a26.343,26.343,0,0,0,2.971-2.9c2.021-2.321,3.046-4.4,3.046-6.191V6.41A6.417,6.417,0,0,0,57.295,0Zm5.159,6.587c0,3.021-3.892,6.678-5.159,7.788-1.267-1.11-5.159-4.767-5.159-7.788V6.41a5.159,5.159,0,1,1,10.318,0Z" transform="translate(-50.885)"/>
+      </g>
+    </g>
+  </g>
+</svg>

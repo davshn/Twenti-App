@@ -1,0 +1,155 @@
+
+/*------------------------------------*\
+  #VARIABLES
+\*------------------------------------*/
+
+
+
+/**
+ * Browser support fallbacks.
+ */
+
+$stack-sans-serif:    Arial, "Helvetica Neue", Helvetica, sans-serif !default;
+$stack-serif:         "Times New Roman", Times, serif !default;
+$font-stack:          'Work Sans', $stack-sans-serif;
+$font-stack-serif:    'Libre Baskerville', $stack-serif;
+$font-abrilfatface:   'Abril Fatface', $font-stack-serif;
+$font-hind:            'Hind', $stack-sans-serif;
+
+$modularscale: (
+  base: 16px,
+  ratio: $major-second,
+  320px: (
+    base: 16px,
+  ),
+  480px: (
+    base: 25.629px,
+  ),
+);
+
+// $modularscale: (
+//   base: 16px,
+//   ratio: $major-second,
+//   375: (
+//     base: 18px
+//   ),
+//   425px: (
+//     base: 16px
+//   )
+// );
+
+
+/**
+ * Text.
+ */
+
+$base-font-size:      ms(0);
+$base-line-height:    1.5;
+
+
+/* Colors.
+  ========================================================================== */
+
+$white:         #fff;
+$grey:          #757575;
+$black:         #263238;
+$dodger-blue:   #3C85F9;
+$radical-red:   #FE2851;
+$emerald:       #44DB5E;
+$curious-blue:  #1F69E1;
+$tiber:         #082834;
+$black_opacity: rgba(0,0,0,0.3);
+$laser:         #5B96FC;
+$cutty-sark:    #546E7A;
+$alabaster:     #fafafa;
+$gull-gray:     #90A4AE;
+$white_opacity: rgba(200,200,200,0.8);
+$athens_gray:   #EFEFF4;
+$alto:          #DEDEDE;
+$geyser:        #CFD8DC;
+$tower_gray:    #B0BEC5;
+$cello:         #1F4E69;
+$azure:         #385AAB;
+$silver:        #BDBDBD;
+
+$supernova:  #FFCD00;
+
+
+$color-primary:    $dodger-blue;
+$color-secondary:  $cello;
+$color-success:    $emerald;
+$color-danger:     $radical-red;
+$color-accent:     $laser;
+$color-light-grey: $alto;
+$color-grey:       $gull-gray;
+$color-base:       $tiber;
+
+
+/**
+ * States.
+ */
+
+
+/**
+ * Color palette modifiers.
+ */
+
+$palettes: (
+  black: (
+    base:       $black,
+    50:         #ECEFF1,
+    100:        #CFD8DC,
+    200:        #B0BEC5,
+    300:        #90A4AE,
+    400:        #78909C,
+    500:        #607D8B,
+    600:        #546E7A,
+    700:        #455A64,
+    800:        #37474F,
+    900:        #263238
+  )
+);
+
+
+/**
+ * Color defaults.
+ */
+
+$base-font-color:     $black;
+
+
+
+
+
+// Client colors
+
+// $client-principal-color:  #05714B; //Watercourse
+// $client-secundary-color:  #F8B456; //Casablanca
+
+// Karrot client
+$client-principal-color:    #009CDE;
+$client-secundary-color:    #EC7E00;
+$client-message-color:      #C8D035;
+$color-svg-base:            #1D1D1D;
+
+/**
+ * Animations.
+ */
+
+$base-duration:       0.4s;
+$base-timing:         ease;
+
+
+
+/**
+ * Z-index list.
+ */
+
+$zindex-navbar:            1000;
+$zindex-dropdown:          1000;
+$zindex-popover:           1060;
+$zindex-tooltip:           1070;
+$zindex-navbar-fixed:      1030;
+$zindex-modal-background:  1040;
+$zindex-modal:             1050;
+$zindex-loading:           1080;

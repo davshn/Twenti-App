@@ -1,0 +1,26 @@
+.container-sub {
+    padding-top: em(16px);
+    padding-left: em(12px);
+
+    @include e(title) {
+        line-height: em(12px, ms(-1));
+        span {
+            font-family: $font-stack;
+            font-style: normal;
+            @include ms-respond(font-size, -1);
+            font-weight: 500;
+            line-height: em(12px, ms(-1));
+            letter-spacing: em(1.8px, ms(-1));
+            color: $color-base;
+            margin-left: em(8px, ms(-1));
+        }
+    }
+
+    @include e(slide-item) {
+        outline: none;
+        display: inline-block;
+        vertical-align: text-top;
+        margin-bottom: em(16px);
+    }
+
+}

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "699291249601",
+    "firebase_url": "https://sportlife-3c8d0.firebaseio.com",
+    "project_id": "sportlife-3c8d0",
+    "storage_bucket": "sportlife-3c8d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699291249601:android:bd286f2c15f98c83",
+        "android_client_info": {
+          "package_name": "com.fusepong.sportlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699291249601-8gdako9bb7pf3amu7s4cr4k5l9b60aqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwzqkuw3U_zFZU_kfL11taRv4YVjkFkWs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,20 @@
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.996 20">
+    <g id="list" transform="translate(20.046 20) rotate(180)">
+      <g id="Group_18" data-name="Group 18" transform="translate(0.05)">
+        <path id="Path_27" data-name="Path 27" fill="#000" d="M6.86,0H.9A.855.855,0,0,0,.05.851v6A.855.855,0,0,0,.9,7.7H6.86a.877.877,0,0,0,.851-.81V.851A.855.855,0,0,0,6.86,0ZM6.009,6.041h-4.3V1.661h4.3Z" transform="translate(-0.05)"/>
+        <path id="Path_28" data-name="Path 28" fill="#000" d="M253.7,21.5h7.955a.851.851,0,0,0,0-1.7H253.7a.851.851,0,0,0,0,1.7Z" transform="translate(-242.511 -18.99)"/>
+        <path id="Path_29" data-name="Path 29" fill="#000" d="M261.66,125.9H253.7a.851.851,0,0,0,0,1.7h7.955a.851.851,0,0,0,0-1.7Z" transform="translate(-242.511 -120.751)"/>
+        <path id="Path_30" data-name="Path 30" fill="#000" d="M6.86,300.7H.9a.855.855,0,0,0-.851.851v6A.855.855,0,0,0,.9,308.4H6.86a.877.877,0,0,0,.851-.81v-6.041A.853.853,0,0,0,6.86,300.7Zm-.851,6.041h-4.3v-4.38h4.3Z" transform="translate(-0.05 -288.401)"/>
+        <path id="Path_31" data-name="Path 31" fill="#000" d="M261.66,320.4H253.7a.851.851,0,0,0,0,1.7h7.955a.851.851,0,0,0,0-1.7Z" transform="translate(-242.511 -307.296)"/>
+        <path id="Path_32" data-name="Path 32" fill="#000" d="M261.66,426.6H253.7a.851.851,0,1,0,0,1.7h7.955a.855.855,0,0,0,.851-.851A.847.847,0,0,0,261.66,426.6Z" transform="translate(-242.511 -409.152)"/>
+      </g>
+    </g>
+  </svg>
+
+</template>
+
+<script>
+export default {
+}
+</script>

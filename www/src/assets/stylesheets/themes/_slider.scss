@@ -1,0 +1,52 @@
+.categories {
+    padding-top: em(24px);
+    @include e(title) {
+      @include ms-respond(font-size, -1);
+      font-weight: 500;
+      line-height: em(12px, ms(-1));
+      letter-spacing: em(1.8px, ms(-1));
+      margin-left: em(16px, ms(-1));
+    }
+
+    @include e(carousel) {
+      // overflow: visible;
+      margin-top: em(12px);
+
+      @include m(instance) {
+        margin-top: 0;
+        margin-right: em(-16px);
+        margin-left: em(-16px);
+      }
+
+    }
+
+    @include e(view-all) {
+      fill: $color-light-grey;
+        @include ms-respond(font-size, -3);
+        margin-right: em(16px, ms(-3));
+        line-height: em(12px, ms(-3));
+        letter-spacing: em(1.4px, ms(-3));
+        color: $color-light-grey;
+
+        svg {
+          margin-left: em(2px, ms(-3));
+          height: em(11px, ms(-3));
+          width: em(11px, ms(-3));
+          transform: rotate(180deg);
+        }
+    }
+
+    @include e(slide-item) {
+        outline: none;
+        display: inline-block;
+    }
+
+}
+
+
+.slick {
+
+  &-list {
+    overflow: visible !important;
+  }
+}

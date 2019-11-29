@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.027 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1d;
+      }
+    </style>
+  </defs>
+  <g id="ico_bell" transform="translate(-25.25)">
+    <g id="Group_11" data-name="Group 11" transform="translate(31.603)">
+      <g id="Group_10" data-name="Group 10">
+        <path id="Path_18" data-name="Path 18" class="cls-1" d="M190.551,0a2.664,2.664,0,0,0-2.661,2.661v.8h1.376v-.8a1.285,1.285,0,0,1,2.569,0v.8h1.376v-.8A2.664,2.664,0,0,0,190.551,0Z" transform="translate(-187.89)"/>
+      </g>
+    </g>
+    <g id="Group_13" data-name="Group 13" transform="translate(31.006 16.766)">
+      <g id="Group_12" data-name="Group 12">
+        <path id="Path_19" data-name="Path 19" class="cls-1" d="M177.762,429.2a1.86,1.86,0,0,1-1.858,1.858h-.046A1.86,1.86,0,0,1,174,429.2h-1.376a3.238,3.238,0,0,0,3.234,3.234h.046a3.238,3.238,0,0,0,3.234-3.234Z" transform="translate(-172.624 -429.205)"/>
+      </g>
+    </g>
+    <g id="Group_15" data-name="Group 15" transform="translate(25.25 2.546)">
+      <g id="Group_14" data-name="Group 14">
+        <path id="Path_20" data-name="Path 20" class="cls-1" d="M43.168,79.137,41.213,76.1v-3.9a6.95,6.95,0,1,0-13.9,0v3.9l-1.955,3.041a.688.688,0,0,0,.579,1.06H42.589a.688.688,0,0,0,.579-1.06ZM27.2,78.821l1.383-2.151a.688.688,0,0,0,.109-.372V72.192a5.574,5.574,0,1,1,11.147,0V76.3a.688.688,0,0,0,.109.372l1.383,2.151H27.2Z" transform="translate(-25.25 -65.174)"/>
+      </g>
+    </g>
+  </g>
+</svg>
