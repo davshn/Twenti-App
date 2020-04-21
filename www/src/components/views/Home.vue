@@ -1,85 +1,8 @@
 <template>
-
     <div class="grid-container home">
-
-      <!-- <div class="grid-y grid-frame">
-        <div class="cell auto">
-          <div class="grid-y grid-frame">
-            <div class="home__logoWrapper">
-
-
-              <div class="home__title">
-                  <img src="https://s3-us-west-2.amazonaws.com/fuserewards/karrot.png" class="home__image_home">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cell shrink">
-          <app-loader></app-loader>
-          <div class="grid-x">
-            <div class="cell small-12">
-              <div class="grid-x">
-                <div class="cell small-offset-1 small-10">
-                  <p class="home__text">
-                      {{$t("common.home_message")}}
-                  </p>
-                </div>
-                <div class="cell small-12">
-                  <div class="home__carousel home__carousel-right">
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/2.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/3.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/4.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/2.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                  </div>
-                  <div class="col-xs-12 home__carousel home__carousel-left no-padding" dir="rtl">
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/6.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/7.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/1.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                      <div class="home__carousel_item">
-                          <img class="carrousel__img" src="./src/assets/images/restaurants/2.jpg" alt="" />
-                          <div class="carrousel__blend"></div>
-                          <p class="home__carousel_text">STORE</p>
-                      </div>
-                  </div>
-                </div>
-              </div> -->
-
-              <div class="grid-x">
-                <app-login-form></app-login-form>
-              </div>
-            <!-- </div>
-          </div>
-        </div>
-      </div> -->
+      <div class="grid-x">
+        <app-login-form></app-login-form>
+      </div>
     </div>
 </template>
 
