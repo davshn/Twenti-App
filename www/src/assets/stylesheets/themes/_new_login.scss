@@ -83,26 +83,27 @@
         background-position: 95% 50%;
       }
       input{
-        background-color: #fff;
+        background-color: transparent;
         width: 100%;
         border-radius: 2px;
-        -webkit-box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
-        -moz-box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
-        box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
+        // -webkit-box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
+        // -moz-box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
+        // box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
+        border-bottom: 1px solid #E5E5E5;
         height: 46px;
         font-size: 15px;
         padding: 0 15px;
         &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-          color: #DCDEE2;
+          color:#999999;
         }
         &::-moz-placeholder { /* Firefox 19+ */
-          color: #DCDEE2;
+          color:#999999;
         }
         &:-ms-input-placeholder { /* IE 10+ */
-          color: #DCDEE2;
+          color:#999999;
         }
         &:-moz-placeholder { /* Firefox 18- */
-          color: #DCDEE2;
+          color:#999999;
         }
       }
 
@@ -155,26 +156,30 @@
     }
     @include m(forget_password){
       text-decoration: underline;
-      margin-top: 15px;
+      margin: 15px auto!important;
       font-size: 13px;
+      color:#DE0D12;
     }
     @include m(login_button){
-      margin-top: 15px;
+      // margin-top: 15px;
       background-color: #DCDEE2;
       -webkit-box-shadow: 5px 5px 10px 0px rgba(220,222,226,1);
       -moz-box-shadow: 5px 5px 10px 0px rgba(220,222,226,1);
       box-shadow: 5px 5px 10px 0px rgba(220,222,226,1);
-      border-radius: 2px;
+      border-radius: 9px;
       height: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      text-transform: uppercase;
-      font-size: 12px;
+      text-transform: capitalize;
+      font-size: 14px;
       font-weight: 700;
+      max-width: 200px;
+      width: 200px;
+      margin: 15px auto;
       &.active{
-        background-color: $client-principal-color;
+        background-color: #FF0202;
         -webkit-box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
         -moz-box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
         box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
@@ -182,15 +187,14 @@
     }
   }
   @include e(links){
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 30px auto;
     width: 100%;
     margin-top: 100px;
     // position: absolute;
     // left: 0;
     // bottom: 35px;
     p{
+      color: #999999;
       text-align: center;
       font-size: 15px;
       span{
@@ -198,6 +202,20 @@
         text-decoration: underline;
         color: $client-principal-color;
       }
+    }
+    @include m(button){
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 46px;
+      color: #DE0D12;
+      font-size: 14px;
+      margin: 30px auto;
+      -webkit-box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
+      -moz-box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
+      box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
+      border-radius: 9px;
     }
   }
 }

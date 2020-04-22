@@ -8,29 +8,19 @@
       class="new__login__header grid-x">
       <div
         class="cell shrink">
-        <div
-          @click="redirect_back();">
-            <svg-arrow-left></svg-arrow-left>
-        </div>
       </div>
     </section>
     <section
-      class="new_login__client_logo grid-x">
+      class="new_login__client_logo grid-x" style="text-align:center">
       <img
-        src="https://s3-us-west-2.amazonaws.com/karrottsportlife/logo.svg"
-        class="home__image_home">
+        src="https://twenti.s3-us-west-2.amazonaws.com/Tweni.jpg"
+        class="home__image_home"
+        style="margin: 0 auto!important">
     </section>
     <section
       class="new_login__content grid-x">
-      <p
-        class="new_login__content--title small-12">¡Bienvenido!</p>
-      <p
-        class="new_login__content--text small-12">
-        Por favor inicia sesión para continuar
-      </p>
       <div
         class="new_login__content--input_section small-12">
-        <label class="label-text">Correo electrónico o RUT</label>
         <input
           data-vv-delay="0"
           v-validate="'required'"
@@ -39,10 +29,9 @@
           id="validation"
           @input="validation()"
           type="text"
-          placeholder="Correo electrónico o RUT">
+          placeholder="Correo Electrónico">
       </div>
       <div class="new_login__content--input_section  small-12">
-        <label for="">Contraseña</label>
         <input
             name="password"
             v-model="data.attributes.password"
@@ -62,22 +51,29 @@
             id="visibility"/>
 
       </div>
-      <span
-        class="new_login__content--forget_password">
-        <a @click="$router.push({name: 'recoverpassword'})">Olvidé mi contraseña</a>
-
-      </span>
-      <div
-        class="new_login__content--login_button small-12"
-        :class="{'active': (email_checked || rut_checked) && data.attributes.password != '' }"
-        @click="submit_form()">
-        Ingresar
+      <div class="" style="display flex; align-items: center; justify-content: center; width: 100%">
+        <div
+          class="new_login__content--login_button small-12"
+          :class="{'active': (email_checked || rut_checked) && data.attributes.password != '' }"
+          @click="$router.push({name: 'categories'})">
+          Acceder
+        </div>
       </div>
+      <div class="" style="display flex; align-items: center; justify-content: center; width: 100%; text-align: center">
+        <span
+        class="new_login__content--forget_password">
+          Olvidé mi contraseña
+        </span>
+      </div>
+
     </section>
     <section class="new_login__links">
       <p>
-        ¿No tienes una cuenta aún? <span @click="$router.push({name: 'sign_up'})">Regístrate</span>
+        ¿No tienes una cuenta?
       </p>
+      <div class="new_login__links--button"  @click="$router.push({name: 'categories'})" class="">
+        <b>Regístrate</b>
+      </div>
     </section>
   </article>
 </template>

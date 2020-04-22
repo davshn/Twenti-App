@@ -12,14 +12,13 @@
     </section>
     <section class="without_rut__section">
       <section
-        class="new_login__client_logo grid-x without_rut__logo">
+        class="new_login__client_logo grid-x" style="text-align:center">
         <img
-          src="https://s3-us-west-2.amazonaws.com/karrottsportlife/logo.svg"
-          class="home__image_home">
+          src="https://twenti.s3-us-west-2.amazonaws.com/Tweni.jpg"
+          class="home__image_home"
+          style="margin: 0 auto!important">
       </section>
       <p class="without_rut__principal_text">
-        Bienvenido <br>
-        <span>a Sportlife</span>
       </p>
       <div
         class="new_login__content--input_section small-12">

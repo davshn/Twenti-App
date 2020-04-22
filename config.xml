@@ -79,21 +79,16 @@
         <icon height="40" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-20x20@2x.png" width="40" />
         <icon height="80" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-40x40@2x.png" width="80" />
         <icon height="120" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-40x40@3x.png" width="120" />
-        <!-- <icon height="57" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_57x57.png" width="57" /> -->
-        <!-- <icon height="114" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_114x114.png" width="114" /> -->
         <icon height="29" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_29x29@1x.png" width="29" />
         <icon height="76" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-76x76@1x.png" width="76" />
         <icon height="152" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-76x76@2x.png" width="152" />
         <icon height="167" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-83.5@2x.png" width="167" />
-        <!-- <icon height="72" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_72x72.png" width="72" /> -->
-        <!-- <icon height="144" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_144x144.png" width="144" /> -->
         <icon height="1024" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-marketing-1024x1024.png" width="1024" />
         <splash height="480" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage~iphone-320x480.png" width="320" />
         <splash height="960" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage~iphone_640x960.png" width="640" />
         <splash height="1136" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage-568h@2x~iphone_640x1136.png" width="640" />
         <splash height="1334" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage-750@2x~iphone6-portrait_750x1334.png" width="750" />
         <splash height="2208" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage-1242@3x~iphone6s-portrait_1242x2208.png" width="1242" />
-        <!-- <splash height="2436" platform="ios" src="res/iOS/LaunchImage.launchimage/splash_1225x2436.png" width="1225" /> -->
         <splash height="1024" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage-Portrait~ipad_768x10244.png" width="768" />
         <splash height="768" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage-Landscape~ipad_1024x768.png" width="1024" />
         <splash height="2048" platform="ios" src="res/iOS/LaunchImage.launchimage/LaunchImage-Portrait@2x~ipad_1536x2048.png" width="1536" />
