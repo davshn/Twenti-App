@@ -62,7 +62,6 @@
         <preference name="SplashShowOnlyFirstTime" value="false" />
         <preference name="android-minSdkVersion" value="19" />
         <preference name="android-targetSdkVersion" value="28" />
-        <!-- <resource-file src="google-services.json" target="/app/google-services.json" /> -->
         <config-file parent="/manifest" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -97,7 +96,6 @@
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="StatusBarBackgroundColor" value="#000000" />
         <preference name="StatusBarStyle" value="lighttranslucent" />
-        <resource-file src="GoogleService-Info.plist" />
         <plugin name="cordova-plugin-barcodescanner" spec="^0.7.4" />
     </platform>
     <icon height="1024" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-marketing-1024x1024.png" width="1024" />
@@ -125,13 +123,6 @@
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
-    <plugin name="cordova-plugin-facebook4" spec="4.2.1">
-        <variable name="APP_ID" value="2128577704127876" />
-        <variable name="APP_NAME" value="Sportlife" />
-        <variable name="FACEBOOK_HYBRID_APP_EVENTS" value="false" />
-        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.40.0" />
-    </plugin>
-    <plugin name="phonegap-plugin-push" spec="^2.2.3" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-android-support-gradle-release" spec="^3.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.2" />
