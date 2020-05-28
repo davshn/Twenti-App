@@ -55,7 +55,7 @@
         <div
           class="new_login__content--login_button small-12"
           :class="{'active': (email_checked || rut_checked) && data.attributes.password != '' }"
-          @click="$router.push({name: 'categories'})">
+          @click="login()">
           Acceder
         </div>
       </div>
@@ -71,7 +71,7 @@
       <p>
         ¿No tienes una cuenta?
       </p>
-      <div class="new_login__links--button"  @click="$router.push({name: 'categories'})" class="">
+      <div class="new_login__links--button"  @click="$router.push({name: 'sign_up'})" class="">
         <b>Regístrate</b>
       </div>
     </section>
@@ -113,65 +113,32 @@ export default{
     toggle_password_view () {
       this.show_password = !this.show_password;
     },
-    submit_form () {
-      var vm = this;
-      navigator.geolocation.getCurrentPosition(vm.findPosition);
-      if($(event.target).hasClass('active')){
-        if(this.rut_checked){
-          this.data.attributes.rut = this.data.attributes.rut.replace(/-/g, '').toUpperCase()
-        }
-        try{
-          console.log("Device ID");
-          console.log(this.buildDeviceId());
-          if(this.data.attributes.password != "" &&
-            (this.data.attributes.email != "" || this.data.attributes.rut != "") ){
-            this.$http.post("users/sign_in", {
-              data: this.encrypt(this.data).toString()
-            }, {
-              headers: {
-                "X-Device-ID" : this.buildDeviceId(),
-                "FCM-ID" : this.getFcmId(),
-                "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-              }
-            }).then(function(response){
-                if(response.body.meta != undefined && response.body.meta != null){
-                  if(response.body.meta.uuid != undefined &&
-                     response.body.meta.uuid != null){
-                    this.updateUserIdEncrypt(response.body.meta.uuid);
-                  }
-                  if(response.body.meta.authentication_token != undefined &&
-                    response.body.meta.authentication_token != null){
-                    this.checkToken(response.body.meta.authentication_token)
-                    // this.deleteSession('home', false);
-                    this.create_user_db(this, this.getDB(), response);
-                  }
-                  if(response.body.data.attributes.user_info_type == "Agent"){
-                    this.updateRole(response.body.data.attributes.user_info_type)
-                    this.updateAgentId(response.body.data.attributes.user_info_id)
-                    this.$router.push({name: 'waiter_index'})
-                  } else {
-                    this.updateUserInfoId(response.body.included[0].id);
-                    this.updateUserId(response.body.data.id);
-                    if(response.body.included[0].attributes.picture.url != null){
-                      this.updateProfilePicture(this.getServerImage() + response.body.included[0].attributes.picture.thumb.url)
-                    }
-                    this.$router.push({name: 'offers_index'})
-                  }
-                }
-            }, function(response){
-              if(response.body.meta != undefined && response.body.meta != null){
-                if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-                  this.checkToken(response.body.meta.authentication_token)
-                }
-              }
-              this.show_error_modal(response.body.errors[0].details);
-            });
-          }else{
-            this.show_error_modal(this.$t("common.required_fields"));
+    login(){
+      if(this.email != "" && this.password != ""){
+        try {
+          this.$http.post('find_user', {
+            data:this.data
           }
-        }catch(e){
-          this.show_error_modal(e.message);
+          ).then(function(response){
+            console.log("Create Session");
+            console.log(response);
+            this.updateLogin(false)
+            this.$router.push({name: 'categories'})
+          },function(response){
+            console.log("Error");
+            console.log(response);
+            this.updateLogin(true)
+            alert('Por favor, verifique los valores indexados')
+          })
+        } catch (e) {
+          console.log("Error");
+          console.log(e);
+          this.updateLogin(true)
+          alert('Por favor, verifique los valores indexados')
         }
+      } else {
+        this.updateLogin(true)
+        alert('Por favor, verifique los valores indexados')
       }
     },
     validation(){

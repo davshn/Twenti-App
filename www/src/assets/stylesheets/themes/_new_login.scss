@@ -11,20 +11,6 @@
     position: relative;
     @include flex(center);
     height: fit-content;
-    input{
-      &:last-of-type{
-        margin-left: 40px;
-        width: 20%;
-      }
-    }
-    &:after{
-      content: '-';
-      color: #263238;
-      position: absolute;
-      right: 15%;
-      font-size: 36px;
-      transform: translateX(-20px);
-    }
   }
   @include e(header){
     // height: fit-content;
@@ -42,6 +28,8 @@
   }
   @include e(content){
     margin-top: 20px;
+    @include flex(felx-start, center);
+    flex-wrap: wrap;
     @include m(title){
       font-size: 18px;
       font-weight: 600;
@@ -61,6 +49,7 @@
     @include m(input_section){
       margin-bottom: 10px;
       position: relative;
+      width: calc(50% - 10px);
       label{
         font-size: 14px;
         color: #000000;
@@ -116,7 +105,7 @@
         width: 100%;
       }
       .button_selector{
-        width: calc(50% - 3px);
+        width: calc(33%);
         background-color: #fff;
         -webkit-box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
         -moz-box-shadow: 5px 5px 10px 0px rgba(240,243,247,1);
@@ -127,24 +116,16 @@
         justify-content: center;
         border: 0.5px solid #AFAFAF !important;
         p{
-          color: #4E4E4E;
+          color: #FF0202;
           font-size: 15px;
         }
         &.active{
-          background-color: $client-principal-color;
+          background-color: #FF0202;
           -webkit-box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
           -moz-box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
           box-shadow: 5px 5px 10px 0px rgba(52,155,243,0.15);
           color: #FFF;
           position: relative;
-          &::after{
-            content: url('https://s3-us-west-2.amazonaws.com/fuserewards/check.svg');
-            width: 13px;
-            position: absolute;
-            right: 30%;
-            top: 50%;
-            transform: translateY(-50%) translateX(150%);
-          }
         }
       }
     }

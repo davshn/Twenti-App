@@ -1,210 +1,120 @@
 <template>
   <article
-    class="without_rut"
-    v-if="!finded_rut">
-    <schedule-loader v-if="charging"></schedule-loader>
-    <section
-      class="new_login__header grid-x without_rut__header">
-      <div
-        @click="redirect_back();">
-          <svg-arrow-left></svg-arrow-left>
-      </div>
-    </section>
-    <section class="without_rut__section">
-      <section
-        class="new_login__client_logo grid-x" style="text-align:center">
-        <img
-          src="https://twenti.s3-us-west-2.amazonaws.com/Tweni.jpg"
-          class="home__image_home"
-          style="margin: 0 auto!important">
-      </section>
-      <p class="without_rut__principal_text">
-      </p>
-      <div
-        class="new_login__content--input_section small-12">
-        <p class="without_rut__label">Digita tu RUT</p>
-        <div class="new_login__rut_content">
-          <input
-            data-vv-delay="0"
-            name="rut"
-            v-validate="'alpha_num'"
-            class="form__input without_rut__input"
-            type="text"
-            v-model="data.attributes.rut"
-            placeholder="RUT">
-          <input type="text"
-            data-vv-delay="0"
-            name="validador"
-            v-validate="'alpha_num|length:1'"
-            class="form__input without_rut__input"
-            v-model="validator ">
-        </div>
-        <span
-          style="color:red; font-size:12px"
-          v-show="errors.has('rut')"
-          class="showError">{{ errors.first('rut') }}</span>
-        <span
-          style="color:red; font-size:12px"
-          v-show="errors.has('validador')"
-          class="showError">{{ errors.first('validador') }}</span>
-      </div>
-    </section>
-    <section class="without_rut__section">
-      <div
-        class="new_login__content--login_button small-12 active without_rut__button"
-        @click="findRut()">
-        Continuar
-      </div>
-      <div class="without_rut__link">
-        <span @click="finded_rut = true">Saltar paso</span>
-      </div>
-    </section>
-  </article>
-
-  <article
-    class="new_login new_signup with_rut"
-    v-else>
+    class="new_login new_signup with_rut">
     <div class="header__loader">
       <app-loader class="header__loader--element"></app-loader>
     </div>
     <section
       class="new_login__header grid-x without_rut__header">
       <div
-        @click="returnBack()">
+        @click="$router.push({name: 'log_in'})">
           <svg-arrow-left></svg-arrow-left>
       </div>
     </section>
     <section
       class="new_login__content grid-x with_rut__content">
-      <div class="with_rut__content--container">
+      <div class="with_rut__content--container" style="width: 100%;">
         <p
           class="new_login__content--title with_rut__title"
-          style="text-align: center;">Confirma o actualiza tus datos</p>
+          style="text-align: center; font-size: 20px;">Registro</p>
         <div
-          class="new_login__content--input_section small-12"
+          class="new_login__content--input_section small-6"
           style="margin-top: 30px;">
-          <label for="">RUT</label>
+          <label for="">Primer nombre<span class="new_login__content--text__red">*</span></label>
           <div class="new_login__rut_content">
             <input
               data-vv-delay="0"
-              name="rut"
-              v-validate="'alpha_num'"
-              class="form__input without_rut__input"
+              name="nombre"
+              v-validate="'alpha_spaces|min:3'"
+              class="form__input "
               type="text"
-              v-model="data.attributes.rut"
-              placeholder="RUT">
-            <input type="text"
-              data-vv-delay="0"
-              name="validador"
-              v-validate="'alpha_num|length:1'"
-              class="form__input without_rut__input"
-              v-model="validator ">
+              v-model="data.attributes.first_name"
+              placeholder="Primer nombre">
+              <span
+                style="color:red; font-size:12px"
+                v-show="errors.has('nombre')"
+                class="showError">{{ errors.first('nombre') }}</span>
           </div>
-          <span
-            style="color:red; font-size:12px"
-            v-show="errors.has('rut')"
-            class="showError">{{ errors.first('rut') }}</span>
-          <span
-            style="color:red; font-size:12px"
-            v-show="errors.has('validador')"
-            class="showError">{{ errors.first('validador') }}</span>
         </div>
         <div
-          class="new_login__content--input_section small-12">
-          <label class="label-text-signup">Correo electrónico<span class="new_login__content--text__red">*</span></label>
-          <input
-            data-vv-delay="0"
-            v-validate="'required|email'"
-            name="email"
-            class="form__input with_rut__input"
-            id="validation"
-            @input="validation()"
-            type="email"
-            placeholder="Correo electrónico"
-            v-model="data.attributes.email">
-            <span
-              style="color:red; font-size:12px"
-              v-show="errors.has('email')"
-              class="showError">{{ errors.first('email') }}</span>
-        </div>
-        <div
-          class="new_login__content--input_section small-12">
-          <label for="">Nombre</label>
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label for="">Segundo Nombre</label>
           <input
             data-vv-delay="0"
             name="nombre"
-            v-validate="'alpha_spaces|min:3'"
-            class="form__input with_rut__input"
+            class="form__input "
             type="text"
-            v-model="data.attributes.user_info_attributes.name"
-            placeholder="Nombre">
-            <span
-              style="color:red; font-size:12px"
-              v-show="errors.has('nombre')"
-              class="showError">{{ errors.first('nombre') }}</span>
+            v-model="data.attributes.second_name"
+            placeholder="Segundo nombre">
         </div>
         <div
-          class="new_login__content--input_section small-12">
-          <label for="">Apellido</label>
-          <input
-            data-vv-delay="0"
-            v-validate="'alpha_spaces|min:3'"
-            name="apellido"
-            class="form__input with_rut__input"
-            type="text"
-            v-model="data.attributes.user_info_attributes.last_name"
-            placeholder="Apellido">
-            <span
-              style="color:red; font-size:12px"
-              v-show="errors.has('apellido')"
-              class="showError">{{ errors.first('apellido') }}</span>
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label for="">Primer apellido<span class="new_login__content--text__red">*</span></label>
+          <div class="new_login__rut_content">
+            <input
+              data-vv-delay="0"
+              name="primer apellido"
+              v-validate="'alpha_spaces|min:3'"
+              class="form__input "
+              type="text"
+              v-model="data.attributes.last_name"
+              placeholder="Primer apellido">
+              <span
+                style="color:red; font-size:12px"
+                v-show="errors.has('nombre')"
+                class="showError">{{ errors.first('nombre') }}</span>
+          </div>
         </div>
         <div
-          class="new_login__content--input_section small-12">
-          <label for="">Teléfono</label>
-          <input
-            data-vv-delay="0"
-            pattern="\d*"
-            name="telefono"
-            v-validate="'numeric'"
-            class="form__input with_rut__input"
-            type="number"
-            v-model="data.attributes.user_info_attributes.phone"
-            placeholder="Número de teléfono">
-            <span
-              style="color:red; font-size:12px"
-              v-show="errors.has('telefono')"
-              class="showError">{{ errors.first('telefono') }}</span>
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label for="">Segundo apellido</label>
+          <div class="new_login__rut_content">
+            <input
+              data-vv-delay="0"
+              name="segundo apellido"
+              class="form__input "
+              type="text"
+              v-model="data.attributes.last_second_name"
+              placeholder="Segundo apellido">
+              <span
+                style="color:red; font-size:12px"
+                v-show="errors.has('nombre')"
+                class="showError">{{ errors.first('nombre') }}</span>
+          </div>
         </div>
         <div
-          class="new_login__content--input_section small-12">
-          <label for="">Fecha de nacimiento</label>
-          <input
-            name="xyz"
-            :value="this.date()"
-            type="hidden">
-          <input
-            data-vv-delay="0"
-            name="birthday"
-            data-vv-as="Birth day"
-            class="form__input with_rut__input"
-            type="text"
-            placeholder="DD/MM/AAAA"
-            v-model="data.attributes.user_info_attributes.birthday"
-            onfocus="(this.type='date')"
-            >
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label for="">Nombre de usuario<span class="new_login__content--text__red">*</span></label>
+          <div class="new_login__rut_content">
+            <input
+              data-vv-delay="0"
+              name="nombre de usuario"
+              v-validate="'alpha_spaces|min:3'"
+              class="form__input "
+              type="text"
+              v-model="data.attributes.user_name"
+              placeholder="Nombre de usuario">
+              <span
+                style="color:red; font-size:12px"
+                v-show="errors.has('nombre')"
+                class="showError">{{ errors.first('nombre') }}</span>
+          </div>
         </div>
-      </div>
-      <section class="with_rut__container">
-        <p class="without_rut__label"><b>Crea tu contraseña</b></p>
-        <div class="new_login__content--input_section  small-12">
-          <label for="">Contraseña (6 caracteres)<span class="new_login__content--text__red">*</span></label>
+
+        <div
+          class="new_login__content--input_section  small-6"
+          style="margin-top: 30px;">
+          <label for="">Contraseña<span class="new_login__content--text__red">*</span></label>
           <input
               name="contraseña"
               v-model="data.attributes.password"
               v-validate="'required|alpha_num|min:6'"
               data-vv-delay="0"
-              class="form__input with_rut__input"
+              class="form__input "
               id="user_password"
               type="password"
               placeholder="Contraseña">
@@ -220,64 +130,110 @@
               id="visibility"/>
 
         </div>
-        <div class="new_login__content--input_section small-12">
-          <label for="">Selecciona la sede de tu preferencia<span class="new_login__content--text__red">*</span></label>
-          <select
-              class="with_rut__input"
-              name="sede"
-              v-model="data.attributes.user_info_attributes.location_id"
-              v-validate="'required'"
-              :style="data.attributes.user_info_attributes.location_id=='' ? 'color:#dcdee2;' : ''">
-            <option value='' selected disabled>Selecciona la sede de tu preferencia<span class="new_login__content--text__red">*</span></option>
-            <option v-for="location in locations" :value="location.id">{{location.attributes.name}}</option>
-            <option value='158'>Otro</option>
-          </select>
-          <span
-            style="color:red; font-size:12px"
-            v-show="errors.has('sede')"
-            class="showError">{{ errors.first('sede') }}</span>
+
+        <div
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label class="label-text-signup">Correo electrónico<span class="new_login__content--text__red">*</span></label>
+          <input
+            data-vv-delay="0"
+            v-validate="'required|email'"
+            name="email"
+            class="form__input "
+            id="validation"
+            @input="validation()"
+            type="email"
+            placeholder="Correo electrónico"
+            v-model="data.attributes.email">
+            <span
+              style="color:red; font-size:12px"
+              v-show="errors.has('email')"
+              class="showError">{{ errors.first('email') }}</span>
+        </div>
+
+        <div
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label for="">Celular</label>
+          <input
+            data-vv-delay="0"
+            pattern="\d*"
+            name="telefono"
+            v-validate="'numeric'"
+            class="form__input "
+            type="number"
+            v-model="data.attributes.phone"
+            placeholder="Celular">
+            <span
+              style="color:red; font-size:12px"
+              v-show="errors.has('telefono')"
+              class="showError">{{ errors.first('telefono') }}</span>
         </div>
         <div
-          class="new_login__content--input_section small-12">
-          <label for="">Soy</label>
+          class="new_login__content--input_section small-6"
+          style="margin-top: 30px;">
+          <label for="">Fecha de nacimiento</label>
+          <input
+            name="xyz"
+            :value="this.date()"
+            type="hidden">
+          <input
+            data-vv-delay="0"
+            name="birthday"
+            data-vv-as="Birth day"
+            class="form__input "
+            type="text"
+            placeholder="DD/MM/YYYY"
+            v-model="data.attributes.birthday"
+            onfocus="(this.type='date')"
+            >
+        </div>
+      </div>
+      <section class="with_rut__container" style="width: 100%">
+        <div
+          class="new_login__content--input_section small-12"
+          style="display: flex; align-items: center; justify-content: space-between; width: 100%">
           <div
-            class="new_login__content--input_buttons">
+            class="new_login__content--input_buttons" style="display: flex; align-items: center; justify-content: space-between; width: 100%">
+            <p>Género</p>
             <div
               class="button_selector"
               :data-gender="$t('profile.gender_female')"
               @click="selectGender()">
-              Mujer
+              Femenino
             </div>
             <div
               class="button_selector"
               :data-gender="$t('profile.gender_male')"
               @click="selectGender()">
-              Hombre
+              Masculino
             </div>
           </div>
         </div>
-        <p class="new_signup__terms_and_conditions">
+        <!-- <p class="new_signup__terms_and_conditions">
           Al tocar el botón “Crear cuenta” aceptas <span @click="updateTermsAndConditions(true)">términos y condiciones</span> de uso.
-        </p>
-
+        </p> -->
+<!--
         <p class="with_rut__details">
           Los campos con asterístico (<span class="new_login__content--text__red">*</span>) son obligatorios.
-        </p>
+        </p> -->
 
         <div
           class="new_login__content--login_button small-12 active"
-          v-if="email_checked &&
-                data.attributes.password != '' &&
-                data.attributes.user_info_attributes.location_id!=''"
           @click="submit_form()">
-          Confirmar Datos
+          Crear cuenta
         </div>
-        <div
+        <p
+          style="text-decoration: underline; color: #DE0D12; text-align: center; font-size: 11px"
+          @click="$router.push({name: 'log_in'})">
+          Ya tengo una cuenta
+        </p>
+        <!-- <div
           class="new_login__content--login_button small-12"
           v-else
           @click="$validator.validateAll()">
-          Confirmar Datos
-        </div>
+          Crear cuenta
+        </div> -->
 
       </section>
 
@@ -315,25 +271,39 @@
                     email: '@gmail.com'
                 },
                 data: {
-                    attributes: {
-                        password: '',
-                        'password-confirmation': '',
-                        mobile: '',
-                        email: '',
-                        rut: '',
-                        user_info_type: 'Client',
-                        user_info_attributes:{
-                          name: "",
-                          last_name: "",
-                          gender: "",
-                          birthday: "",
-                          location_id: ""
-                        }
-                    }
+                  attributes: {
+                    password: '',
+                    'password-confirmation': '',
+                    phone: '',
+                    email: '',
+                    first_name: "",
+                    second_name:"",
+                    last_name: "",
+                    last_second_name: "",
+                    user_name:"",
+                    genre: "",
+                    birthday: ""
+                  }
                 }
             }
         },
         methods: {
+          validateFields(){
+            if(this.data.attributes.password != '' &&
+              this.data.attributes.phone != '' &&
+              this.data.attributes.email != '' &&
+              this.data.attributes.first_name != "" &&
+              this.data.attributes.second_name !="" &&
+              this.data.attributes.last_name != "" &&
+              this.data.attributes.last_second_name != "" &&
+              this.data.attributes.user_name !="" &&
+              this.data.attributes.genre != "" &&
+              this.data.attributes.birthday != ""){
+              return true
+            } else {
+              return false
+            }
+          },
           findRut(){
             console.log(this.finded_rut);
             console.log("Change finded rut");
@@ -405,7 +375,7 @@
             selectGender(){
               $('.button_selector').removeClass('active');
               $(event.target).addClass('active');
-              this.data.attributes.user_info_attributes.gender = $(event.target).attr('data-gender')
+              this.data.attributes.genre = $(event.target).attr('data-gender')
             },
             toggle_password_view(){
                 this.show_password = !this.show_password;
@@ -431,90 +401,39 @@
                     $(event.target).prev().focus().click();
                 }
             },
+
             submit_form(){
-              console.log(this.getUserRegistrationId());
-              console.log(this.data.attributes);
-              var rut = this.data.attributes.rut;
-              if(this.data.attributes.user_info_attributes.location_id==''){
-                this.data.attributes.user_info_attributes.location_id=null
+              if(this.validateFields()){
+                this.data.attributes["password-confirmation"] = this.data.attributes.password
+                try{
+                  console.log('entra a validator')
+                  this.$http.post("create_user", {
+                      data: this.data
+                  // }, {
+                    // headers: {
+                    //   "X-Device-ID" : this.buildDeviceId(),
+                    //   "FCM-ID" : this.getFcmId(),
+                    //   "Geolocation" : "lat: " + this.getLatitude() + ", long: " + this.getLongitude()
+                    // }
+                  }).then(function(response){
+                    console.log(response);
+                    console.log("Usuario creado");
+                    this.updateLogin(false)
+                    this.$router.push({name: 'categories'})
+                  }, function(response){
+                    console.log(response);
+                    console.log("Error");
+                    this.updateLogin(true)
+                    alert("El usuario no pudo ser creado, revise la información suministrada")
+                  });
+                }catch(e){
+                  this.updateLogin(true)
+                  alert("El usuario no pudo ser creado, revise la información suministrada")
+                }
+              }else{
+                this.updateLogin(true)
+                alert("Revise los campos solicitados")
               }
-              this.$validator.validateAll().then((result) => {
-                if(rut != ''){
-                  if(this.validator == this.validateRut(rut)){
-                    this.data.attributes.rut = this.data.attributes.rut + this.validator
-                    this.validate_rut = true
-                  } else {
-                    this.validate_rut = false
-                    // alert("El Rut no es correcto, este es el validador correcto " + this.validateRut(rut))
-                    this.updateShowToast(true)
-                  }
-                }else{
-                  this.validate_rut = true
-                  this.data.attributes.rut = null
-                }
-                if(this.data.attributes.user_info_attributes.location_id == "empty"){
-                  this.data.attributes.user_info_attributes.location_id = null
-                }
-                if(this.validate_rut){
-                  try{
-                      if (result) {
-                        console.log('entra a validator')
-                        this.$http.post("users", {
-                            data: this.encrypt(this.data).toString()
-                        }, {
-                          headers: {
-                            "X-Device-ID" : this.buildDeviceId(),
-                            "FCM-ID" : this.getFcmId(),
-                            "Geolocation" : "lat: " + this.getLatitude() + ", long: " + this.getLongitude()
-                          }
-                        }).then(function(response){
-                          if(response.body.meta != undefined && response.body.meta != null){
-                            if(response.body.meta.uuid != undefined &&
-                               response.body.meta.uuid != null){
-                              this.updateUserIdEncrypt(response.body.meta.uuid);
-                            }
-                            if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-                              this.checkToken(response.body.meta.authentication_token)
-                            }
-                            this.updateUserId(response.body.data.id)
-                            this.updateUserEmail(response.body.data.attributes.email)
-                            this.updateUserMobile(response.body.data.attributes.mobile)
-                            this.updateUserName(response.body.included[0].attributes.name)
-                            this.updateUserLastName(response.body.included[0].attributes.last_name)
-                            this.updateUserRut(response.body.data.attributes.rut)
-                            this.updateLocationUser(response.body.included[0].attributes.location_id)
-                            this.updateUserInfoId(response.body.included[0].id);
-                            this.create_user_db(this, this.getDB(), response);
-                            this.$router.push({name: 'offers_index'})
-                          }
-                        }, function(response){
-                          if(response.body.meta != undefined && response.body.meta != null){
-                            if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-                              this.checkToken(response.body.meta.authentication_token)
-                            }
-                          }
-                          if(typeof response.body.errors[0].details != "object"){
-                            this.data.attributes.rut = this.data.attributes.rut.slice(0, -1);
-                            this.show_error_modal(response.body.errors[0].details);
-                          }else{
-                            let message = []
-                            for(var key in response.body.errors[0].details){
-                              message.push(response.body.errors[0].details[key])
-                            }
-                            if(this.data.attributes.rut != '' &&
-                               this.data.attributes.rut != undefined &&
-                               this.data.attributes.rut != null){
-                              this.data.attributes.rut = this.data.attributes.rut.slice(0, -1);
-                            }
-                            this.show_error_modal(message);
-                          }
-                        });
-                    }
-                  }catch(e){
-                    this.show_error_modal(e.message);
-                  }
-                }
-              });
             },
             create_email(array){
                 var event = array[0];
@@ -581,45 +500,7 @@
             }
         },
         mounted(){
-          var vm = this;
-          navigator.geolocation.getCurrentPosition(vm.findPosition);
-          console.log(typeof this.date());
-            // this.setupPush();
-            // this.init_db();
-            try{
-                // vm.$http.get(vm.getServer()+"/v1/outlets/my_favorites?page="+vm.actual_page_favourites, {
-                this.$http.get("app/locations?page=1&classes=true",
-                ).then(function(response){
-                    this.locations=response.body.data.filter(location => location.attributes.location_type == 'Centro Deportivo');
-                }, function(response){
 
-                })
-            }catch(e){
-
-            }
-            // this.check_user();
-            // var headerHeight = this.$el.children[0].offsetHeight;
-            // this.resize_body(this.$el.children[1], this.$el.children[1], [
-            //     headerHeight
-            // ]);
-            // for(var key in countries){
-            //     this.countries.push(countries[key]);
-            // }
-            // var maxHeight = $("#content").children().first().height() +
-            //     this.$el.children[0].clientHeight;
-            // if(maxHeight < document.documentElement.clientHeight){
-            //     $("#content").children().first().addClass("center");
-            // };
-            // this.data.attributes.email = this.getUserEmailSignup();
-            // this.data.attributes.mobile = this.getUserMobileSignup();
-            // this.data.attributes.password = this.getUserPassword();
-            var vue = this;
-            $("#validation").focusin(function(){
-                vue.focus = true;
-            })
-            $("#validation").focusout(function(){
-                vue.focus = false;
-            })
         }
     }
 </script>

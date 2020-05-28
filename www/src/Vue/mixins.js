@@ -152,7 +152,8 @@ Vue.mixin({
             "updateCodeModal",
             "updateProfilePicture",
             "updateScheduleLoading",
-            "updateUserIdEncrypt"
+            "updateUserIdEncrypt",
+            "updateLogin"
         ]),
         ...mapGetters([
             "getUserToken",
@@ -213,7 +214,8 @@ Vue.mixin({
             "getCodeModal",
             "getProfilePicture",
             "getScheduleLoading",
-            "getUserIdEncrypt"
+            "getUserIdEncrypt",
+            "getLogin"
         ]),
         checkRut(){
           console.log("Este es el RUT!!!!!!!!!!");

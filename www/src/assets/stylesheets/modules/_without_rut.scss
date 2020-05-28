@@ -76,6 +76,7 @@
 
 
 .with_rut{
+
   padding: 20px 0!important;
   @include e(input){
     border: 0.5px solid #AFAFAF !important;
@@ -86,13 +87,16 @@
     @include m(container){
       padding-left: 25px!important;
       padding-right: 25px!important;
+      @include flex(flex-start, space-between);
+      flex-wrap: wrap;
     }
   }
   @include e(container){
     background: #fff;
     padding: 25px 25px 0!important;
-    border-top: 0.5px solid #AFAFAF !important;
     margin-top: 20px;
+    width: 100%;
+
   }
   @include e(title){
     width: 100%;

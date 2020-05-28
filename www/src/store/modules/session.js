@@ -56,7 +56,10 @@ const state = {
     code_modal: false,
     profile_picture: './src/assets/images/backgrounds/menu_foto.svg',
     schedule_loading: false,
-    user_id_encrypt: null
+    user_id_encrypt: null,
+
+
+    login: false
 };
 const getters = {
     getUserToken: function(state){
@@ -222,6 +225,9 @@ const getters = {
     },
     getUserIdEncrypt(state){
       return state.user_id_encrypt
+    },
+    getLogin(state){
+      return state.login
     }
 };
 const mutations = {
@@ -378,6 +384,9 @@ const mutations = {
     },
     setUserIdEncrypt(state, payload){
       state.user_id_encrypt = payload
+    },
+    setLogin(state, payload){
+      state.login = payload
     }
 };
 const actions = {
@@ -534,6 +543,9 @@ const actions = {
     },
     updateUserIdEncrypt({commit}, payload) {
       commit('setUserIdEncrypt', payload)
+    },
+    updateLogin({commit}, payload) {
+      commit('setLogin', payload)
     }
 }
 

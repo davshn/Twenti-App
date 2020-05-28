@@ -7,7 +7,7 @@
         class=""
         v-for="(category, index) in categories">
         <div class="" style="width: 100%; height: 66px; background-color:#FFDF8E; border-radius:10px; ">
-          <img :src="'http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com' + category.image.url" alt="">
+          <img :src="category.image.url" alt="">
         </div>
         <p style="font-size: 10px; text-align: center;">{{category.name}}</p>
       </div>
