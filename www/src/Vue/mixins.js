@@ -217,6 +217,28 @@ Vue.mixin({
             "getUserIdEncrypt",
             "getLogin"
         ]),
+
+
+        goBack(){
+          window.history.back()
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         checkRut(){
           console.log("Este es el RUT!!!!!!!!!!");
           console.log(this.getUserRut());

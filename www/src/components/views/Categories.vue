@@ -5,7 +5,8 @@
       <div
         style="width: calc(30% - 20px); margin: 15px 10px; "
         class=""
-        v-for="(category, index) in categories">
+        v-for="(category, index) in categories"
+        @click="$router.push({name: 'instance_category'})">
         <div class="" style="width: 100%; height: 66px; background-color:#FFDF8E; border-radius:10px; ">
           <img :src="category.image.url" alt="">
         </div>
