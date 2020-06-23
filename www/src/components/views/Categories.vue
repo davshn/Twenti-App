@@ -1,7 +1,49 @@
-<template lang="html">
-  <article class="" style="width: 100vw; height: 100vh;">
-    <p style="margin: 30px; text-align: center; color: #FF0202;">Categorias</p>
-    <section style="width: 100%; padding: 0 45px; display: flex; align-items: flex-start; justify-content: center; flex-wrap: wrap">
+<template >
+  <article class="categories" style="width: 100vw; height: 100vh;">
+    <div
+      class="drawer_background"
+      v-if="getShowDrawer()"
+      @click="updateShowDrawer(false)">
+    </div>
+    <transition
+      name="slide">
+      <v-touch
+        @swipeleft="toggle_drawer()"
+        tag="app-drawer"
+        :margin_top="margin_top"
+        v-if="getShowDrawer()"
+        ></v-touch>
+    </transition>
+    <section class="coupon__nav" style="padding: 30px 28px 0;">
+      <img
+        src="https://twenti.s3-us-west-2.amazonaws.com/demo/menu.jpg"
+        alt=""
+        @click="updateShowDrawer(true)">
+      <p style="text-align: center; color: #FF0202; font-size: 14px; font-weight: bold">Busca tu descuento Juan</p>
+      <img
+        src="https://twenti.s3-us-west-2.amazonaws.com/demo/bell.svg"
+        alt=""
+        @click="$router.push({name: 'notifications'})">
+    </section>
+    <section class="categories__search_bar">
+      <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/search.png" alt="">
+      <input type="text" name="search" placeholder="Busca por comercio, producto o servicio">
+    </section>
+    <section class="categories__tabs">
+      <div
+        class="categories__tabs--tab"
+        :class="{'active' : selected == 'Productos'}"
+        @click="selected = 'Productos'">
+        Productos
+      </div>
+      <div
+        class="categories__tabs--tab"
+        :class="{'active' : selected == 'Servicios'}"
+        @click="selected = 'Servicios'">
+        Servicios
+      </div>
+    </section>
+    <section class="categories__container">
       <div
         style="width: calc(30% - 20px); margin: 15px 10px; "
         class=""
@@ -13,6 +55,9 @@
         <p style="font-size: 10px; text-align: center;">{{category.name}}</p>
       </div>
     </section>
+    <section class="category__banner" @click="$router.push({name: 'coupon'})">
+      <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/Home_banner.jpg" alt="">
+    </section>
   </article>
 </template>
 
@@ -20,7 +65,8 @@
 export default {
   data(){
     return{
-      categories: []
+      categories: [],
+      selected: 'Productos'
     }
   },
   methods:{
@@ -28,7 +74,7 @@ export default {
       try {
         this.$http.get('categories',
         ).then(function(response){
-          this.categories = response.body.data
+          this.categories = response.body.data.slice(0, 9);
           console.log("Congrats");
           console.log(response);
         },function(response){

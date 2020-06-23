@@ -1,0 +1,52 @@
+.categories{
+  @include e(search_bar){
+    width: 70%;
+    margin: 13px auto 20px;
+    @include flex(center);
+    background: #F5F5F5;
+    border-radius: 18px;
+    height: 35px;
+    padding: 0 15px;
+    input{
+      margin-left: 10px;
+      font-size: 11px;
+      height: 100%;
+      outline: none;
+      border: none;
+      background: transparent;
+    }
+  }
+  @include e(tabs){
+    @include flex(center, space-between);
+    border-top: 1px solid #F4F4F4;
+    border-bottom: 1px solid #F4F4F4;
+    margin-bottom: 30px;
+    @include m(tab){
+      width: 50%;
+      position: relative;
+      color: #999999;
+      text-align: center;
+      padding: 7px 0;
+      font-weight: bold;
+      &.active{
+        color:#FF0202;
+        &::after{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          content: "";
+          height: 2px;
+          background-color: #FF0202;
+          transform: translateY(50%);
+        }
+      }
+    }
+  }
+  @include e(container){
+    width: 100%;
+    padding: 0 45px;
+    @include flex(flex-start, center)
+    flex-wrap: wrap;
+  }
+}

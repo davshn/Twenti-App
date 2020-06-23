@@ -10,7 +10,7 @@
         alt=""
         @click="$router.push({name: 'notifications'})">
     </section>
-    <section class="category__banner">
+    <section class="category__banner" @click="$router.push({name: 'coupon'})">
       <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/Home_banner.jpg" alt="">
     </section>
     <section class="category__info">

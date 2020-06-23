@@ -1,5 +1,5 @@
 .categories {
-    padding-top: em(24px);
+    // padding-top: em(24px);
     @include e(title) {
       @include ms-respond(font-size, -1);
       font-weight: 500;
