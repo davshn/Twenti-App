@@ -127,18 +127,23 @@ export default{
           },function(response){
             console.log("Error");
             console.log(response);
-            this.updateLogin(true)
-            alert('Por favor, verifique los valores indexados')
+            // this.updateLogin(true)
+            // alert('Por favor, verifique los valores indexados')
+            this.updateLogin(false)
+            this.$router.push({name: 'categories'})
           })
         } catch (e) {
           console.log("Error");
           console.log(e);
-          this.updateLogin(true)
-          alert('Por favor, verifique los valores indexados')
+          // this.updateLogin(true)
+          // alert('Por favor, verifique los valores indexados')
+          this.updateLogin(false)
+          this.$router.push({name: 'categories'})
         }
       } else {
         this.updateLogin(true)
         alert('Por favor, verifique los valores indexados')
+
       }
     },
     validation(){
