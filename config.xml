@@ -69,6 +69,9 @@
         </config-file>
         <preference name="android-build-tool" value="gradle" />
         <plugin name="cordova-plugin-qrscanner" spec="^3.0.1" />
+         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+             <application android:usesCleartextTraffic="true" />
+         </edit-config>
     </platform>
     <platform name="ios">
         <icon height="180" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_180x180.png" width="180" />
