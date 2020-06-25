@@ -30,7 +30,6 @@
         <allow-navigation href="http://*/*" />
         <allow-navigation href="https://*/*" />
         <allow-intent href="market:*" />
-        <preference name="android-usesCleartextTraffic" value="true" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -69,10 +68,10 @@
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         </config-file>
         <preference name="android-build-tool" value="gradle" />
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
         <plugin name="cordova-plugin-qrscanner" spec="^3.0.1" />
-         <!-- <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-             <application android:usesCleartextTraffic="true" />
-         </edit-config> -->
     </platform>
     <platform name="ios">
         <icon height="180" platform="ios" src="res/iOS/AppIcon.appiconset/Icon_180x180.png" width="180" />
