@@ -1,6 +1,6 @@
 <template>
   <article class="coupon__container">
-    <article class="coupon" v-if="charged && !show_camera">
+    <article class="coupon" v-if="charged" v-show="!show_camera">
       <section class="coupon__nav">
         <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/arrow.svg" alt="" @click="goBack()">
         <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/bell.svg" alt="" @click="$router.push({name: 'notifications'})">
@@ -29,7 +29,7 @@
         <p v-html="coupon.attributes.terms_and_conditions"></p>
       </section>
     </article>
-    <section class="coupon__redemption" v-if="!show_camera">
+    <section class="coupon__redemption" v-show="!show_camera">
       <p class="coupon__redemption--title">
         ¿Cómo redimir esta promoción?
       </p>
