@@ -153,7 +153,22 @@ Vue.mixin({
             "updateProfilePicture",
             "updateScheduleLoading",
             "updateUserIdEncrypt",
-            "updateLogin"
+            "updateLogin",
+
+
+            "updateEmail",
+            "updateBirthday",
+            "updateFirstName",
+            "updateLastName",
+            "updateSecondName",
+            "updateLastSecondName",
+            "updateGenre",
+            "updatePhone",
+            "updateUserName",
+
+
+
+
         ]),
         ...mapGetters([
             "getUserToken",
@@ -215,7 +230,17 @@ Vue.mixin({
             "getProfilePicture",
             "getScheduleLoading",
             "getUserIdEncrypt",
-            "getLogin"
+            "getLogin",
+
+            "getEmail",
+            "getBirthday",
+            "getFirstName",
+            "getLastName",
+            "getSecondName",
+            "getLastSecondName",
+            "getGenre",
+            "getPhone",
+            "getUserName",
         ]),
 
 
@@ -223,7 +248,33 @@ Vue.mixin({
           window.history.back()
         },
 
-
+        saveUserData(data){
+          this.updateUserId(data.id)
+          this.updateEmail(data.attributes.email)
+          this.updateBirthday(data.attributes.birthday)
+          this.updateFirstName(data.attributes.first_name)
+          this.updateLastName(data.attributes.last_name)
+          this.updateSecondName(data.attributes.second_name)
+          this.updateLastSecondName(data.attributes.last_second_name)
+          this.updateGenre(data.attributes.genre)
+          this.updatePhone(data.attributes.phone)
+          this.updateUserName(data.attributes.user_name)
+          this.$router.push({name: 'categories'})
+        },
+        closeSession(){
+          this.updateUserId('')
+          this.updateEmail('')
+          this.updateBirthday('')
+          this.updateFirstName('')
+          this.updateLastName('')
+          this.updateSecondName('')
+          this.updateLastSecondName('')
+          this.updateGenre('')
+          this.updatePhone('')
+          this.updateUserName('')
+          this.updateLogin(true);
+          this.$router.push({name: 'log_in'})
+        },
 
 
 

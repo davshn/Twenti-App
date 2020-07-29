@@ -7,15 +7,13 @@
     <section class="commerce__info">
       <div class="commerce__info--logo">
         <img
-          src="https://twenti.s3-us-west-2.amazonaws.com/demo/instancia_comercio.jpg"
+          :src="commerce.attributes.image.url"
           alt="">
       </div>
       <p class="commerce__info--title">
-        Éxito
+        {{commerce.attributes.name}}
       </p>
-      <p class="commerce__info--text">
-        Descripción del comercio. Consectetuer adipiscing elit, sed diam nonummy
-         nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      <p class="commerce__info--text" v-html="commerce.attributes.description">
       </p>
     </section>
     <section class="commerce__coupons">
@@ -32,7 +30,7 @@
           <span v-for="(category, index) in coupon.categories" @click="$router.push({name: 'instance_category'})">{{category}}</span>
         </p>
         <div class="commerce__coupons--image">
-          <img :src="coupon.image" alt="">
+          <img :src="coupon.image.url" alt="">
         </div>
         <p class="commerce__coupons--title">
           {{coupon.title}}
@@ -42,7 +40,7 @@
         </p>
         <div
           class="commerce__coupons--button"
-          @click="$router.push({name: 'coupon'})">
+          @click="$router.push({name: 'coupon', params:{id: coupon.id}})">
           <p>¡Lo quiero!</p>
         </div>
       </section>
@@ -54,6 +52,8 @@
 export default {
   data(){
     return{
+      charged: false,
+      commerce: {},
       coupons:[
         {
           categories: ["Tecnología"],
@@ -81,7 +81,31 @@ export default {
         }
       ]
     }
+  },
+  methods:{
+    findCommerce(){
+      try {
+        this.$http.get('commerces/'+this.$route.params.id,
+        ).then(function(response){
+          this.commerce = response.body.data
+          this.coupons = response.body.data.attributes.offers
+          console.log(response);
+          console.log("Congrats");
+          this.charged = true
+        },function(response){
+          console.log("Error");
+          console.log(response);
+        })
+      } catch (e) {
+        console.log("Error");
+        console.log(e);
+      }
+    },
+  },
+  mounted(){
+    this.findCommerce()
   }
+
 }
 </script>
 

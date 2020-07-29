@@ -218,7 +218,8 @@
         </div>
 
         <div
-          class="new_login__content--login_button small-12 active">
+          class="new_login__content--login_button small-12 active"
+          @click="submit_form()">
           Guardar
         </div>
       </section>
@@ -259,15 +260,15 @@
                   attributes: {
                     password: '',
                     'password-confirmation': '',
-                    phone: '3102345678',
-                    email: 'juan123@gmail.com',
-                    first_name: "Juan",
-                    second_name:"Carlos",
-                    last_name: "Ramirez",
-                    last_second_name: "Castro",
-                    user_name:"Juan123",
-                    genre: "Male",
-                    birthday: "12/08/1980"
+                    phone: this.getPhone(),
+                    email: this.getEmail(),
+                    first_name: this.getFirstName(),
+                    second_name:this.getSecondName(),
+                    last_name: this.getLastName(),
+                    last_second_name: this.getLastSecondName(),
+                    user_name:this.getUserName(),
+                    genre: this.getGenre(),
+                    birthday: this.getBirthday()
                   }
                 }
             }
@@ -392,7 +393,7 @@
                 this.data.attributes["password-confirmation"] = this.data.attributes.password
                 try{
                   console.log('entra a validator')
-                  this.$http.post("create_user", {
+                  this.$http.put(this.getUserId() + "/update_user", {
                       data: this.data
                   // }, {
                     // headers: {
@@ -404,7 +405,8 @@
                     console.log(response);
                     console.log("Usuario creado");
                     this.updateLogin(false)
-                    this.$router.push({name: 'categories'})
+                    this.saveUserData(response.body.data)
+                    // this.$router.push({name: 'categories'})
                   }, function(response){
                     console.log(response);
                     console.log("Error");

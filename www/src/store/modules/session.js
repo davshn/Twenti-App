@@ -4,6 +4,17 @@
 
 const state = {
     email: '',
+    birthday: '',
+    first_name: "",
+    last_name: "",
+    second_name: "",
+    last_second_name:"",
+    gender: "",
+    phone:"",
+    login: false,
+    user_name: "",
+
+
     token: '',
     mobile: '',
     device_token: '',
@@ -12,9 +23,6 @@ const state = {
     user_id: '',
     registrationId: '',
     notifications: 0,
-    name: "",
-    lastname: "",
-    gender: "",
     age: null,
     picture: "",
     user_email: "",
@@ -31,7 +39,6 @@ const state = {
     show_drawer: false,
     agent_id: null,
     current_offer: null,
-    birthday: '',
     in_blocks: true,
     fcm_id: '',
     nationality: '',
@@ -58,8 +65,6 @@ const state = {
     schedule_loading: false,
     user_id_encrypt: null,
 
-
-    login: false
 };
 const getters = {
     getUserToken: function(state){
@@ -97,9 +102,6 @@ const getters = {
     },
     getNotifications: function(state){
         return state.notifications;
-    },
-    getUserName: function(state){
-        return state.name;
     },
     getUserLastName: function(state){
         return state.lastname;
@@ -228,7 +230,37 @@ const getters = {
     },
     getLogin(state){
       return state.login
-    }
+    },
+
+
+
+    getEmail(state){
+      return state.email
+    },
+    getBirthday(state){
+      return state.birthday
+    },
+    getFirstName(state){
+      return state.first_name
+    },
+    getLastName(state){
+      return state.last_name
+    },
+    getSecondName(state){
+      return state.second_name
+    },
+    getLastSecondName(state){
+      return state.last_second_name
+    },
+    getGenre(state){
+      return state.gender
+    },
+    getPhone(state){
+      return state.phone
+    },
+    getUserName(state){
+      return state.user_name
+    },
 };
 const mutations = {
     setUserToken: function(state, payload){
@@ -387,7 +419,43 @@ const mutations = {
     },
     setLogin(state, payload){
       state.login = payload
-    }
+    },
+
+
+
+
+
+
+    setEmail(state, payload){
+      state.email = payload
+    },
+    setBirthday(state, payload){
+      state.birthday = payload
+    },
+    setFirstName(state, payload){
+      state.first_name = payload
+    },
+    setLastName(state, payload){
+      state.last_name = payload
+    },
+    setSecondName(state, payload){
+      state.second_name = payload
+    },
+    setLastSecondName(state, payload){
+      state.last_second_name = payload
+    },
+    setGenre(state, payload){
+      state.gender = payload
+    },
+    setPhone(state, payload){
+      state.phone = payload
+    },
+    setUserName(state, payload){
+      state.user_name = payload
+    },
+
+
+
 };
 const actions = {
     updateUserToken: function({commit}, payload){
@@ -546,7 +614,39 @@ const actions = {
     },
     updateLogin({commit}, payload) {
       commit('setLogin', payload)
-    }
+    },
+
+
+
+
+    updateEmail({commit}, payload){
+      commit('setEmail', payload)
+    },
+    updateBirthday({commit}, payload){
+      commit('setBirthday', payload)
+    },
+    updateFirstName({commit}, payload){
+      commit('setFirstName', payload)
+    },
+    updateLastName({commit}, payload){
+      commit('setLastName', payload)
+    },
+    updateSecondName({commit}, payload){
+      commit('setSecondName', payload)
+    },
+    updateLastSecondName({commit}, payload){
+      commit('setLastSecondName', payload)
+    },
+    updateGenre({commit}, payload){
+      commit('setGenre', payload)
+    },
+    updatePhone({commit}, payload){
+      commit('setPhone', payload)
+    },
+    updateUserName({commit}, payload){
+      commit('setUserName', payload)
+    },
+
 }
 
 

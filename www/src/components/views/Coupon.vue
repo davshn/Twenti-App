@@ -1,16 +1,15 @@
 <template>
   <article class="coupon__container">
-    <article class="coupon">
+    <article class="coupon" v-if="charged && !show_camera">
       <section class="coupon__nav">
         <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/arrow.svg" alt="" @click="goBack()">
         <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/bell.svg" alt="" @click="$router.push({name: 'notifications'})">
       </section>
       <section class="coupon__gallery">
-        <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/instancia_cupon.jpg" alt="">
+        <img :src="coupon.attributes.image.url" alt="">
       </section>
       <section class="coupon__header">
-        <p class="coupon__header--principal">
-          Hasta 25% de descuento en Iphone XS
+        <p class="coupon__header--principal" v-html="coupon.attributes.title">
         </p>
         <p class="coupon__header--secondary">
           Martes a Jueves de 9 a 12
@@ -20,25 +19,17 @@
         </p>
       </section>
       <section class="coupon__description">
-        <p class="coupon__description--text">
-          Descripción del cupón. Consectetuer adipiscing elit, sed diam nonummy
-          nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-          Ut wisi enim ad minim veniam, quis nos.
+        <p class="coupon__description--text" v-html="coupon.attributes.description">
         </p>
       </section>
       <section class="coupon__terms_and_conditions">
         <p>
           Términos y condiciones
         </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nos. Lorem ipsum dolor
-          sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-        </p>
+        <p v-html="coupon.attributes.terms_and_conditions"></p>
       </section>
     </article>
-    <section class="coupon__redemption">
+    <section class="coupon__redemption" v-if="!show_camera">
       <p class="coupon__redemption--title">
         ¿Cómo redimir esta promoción?
       </p>
@@ -50,14 +41,298 @@
       <img
         src="https://twenti.s3-us-west-2.amazonaws.com/demo/instancia_cupon_qr.svg"
         alt=""
-        class="coupon__redemption--icon">
+        class="coupon__redemption--icon"
+        @click="scanQR()">
     </section>
+    <div
+      class="instance__qr_lector"
+      v-show="show_camera">
+      <p class="instance__qr_lector--text">
+        Coloque el código en el centro de la pantalla
+      </p>
+      <section class="instance__qr_lector--section">
+        <div class="qr_lector__indicator">
+          <section class="qr_lector__indicator--top_corner">
+          </section>
+          <section class="qr_lector__indicator--top_corner">
+          </section>
+        </div>
+        <div class="qr_lector__indicator">
+          <section class="qr_lector__indicator--bottom_corner">
+          </section>
+          <section class="qr_lector__indicator--bottom_corner">
+          </section>
+        </div>
+      </section>
+    </div>
   </article>
 
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      charged:false,
+      coupon:{},
+      show_camera: false,
+      scanner_params: {
+        text_title: "", // Android only
+        text_instructions: "Coloque el código en el centro de la pantalla", // Android only
+        // camera: "front" || "back", // defaults to "back"
+        // flash: "on" || "off" || "auto", // defaults to "auto". See Quirks
+        drawSight: true //|| false //defaults to true, create a red sight/line in the center of the scanner view.
+      }
+    }
+  },
+  mounted(){
+    this.findCoupon()
+  },
+  beforeDestroy(){
+    var vm = this
+    QRScanner.destroy(function(status){
+      vm.show_camera = false
+    });
+    vm.$el.style.background="#FFFFFF"
+  },
+  methods:{
+    findCoupon(){
+      try {
+        this.$http.get('offers/'+this.$route.params.id,
+        ).then(function(response){
+          this.coupon = response.body.data
+          console.log(response);
+          console.log("Congrats");
+          this.charged = true
+        },function(response){
+          console.log("Error");
+          console.log(response);
+        })
+      } catch (e) {
+        console.log("Error");
+        console.log(e);
+      }
+    },
+
+    scanQR() {
+      var vm = this;
+      // vm.offers = []
+      // if(this.getUserToken() != '' && this.getUserToken() != undefined && this.getUserToken() != null){
+      //   if(this.getUserRut() != '' && this.getUserRut() != undefined && this.getUserRut() != null){
+      //     this.updateRutValidator(false)
+      //     try {
+      //       this.$http.get('app/offers/' + this.offer.id + "/redeem_scan",{
+      //         headers:
+      //         this.getUserToken() != '' ?
+      //         {
+      //             "Authorization": "Bearer " + this.getUserToken(),
+      //             "X-Device-ID" : this.buildDeviceId(),
+      //             "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
+      //         } :
+      //         {
+      //           "X-Device-ID" : this.buildDeviceId()
+      //         }
+      //       }).then(function(response){
+      //         if(response.status == 200){
+      //           if(response.body.meta != undefined && response.body.meta != null){
+      //             if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
+      //               this.checkToken(response.body.meta.authentication_token)
+      //             }
+      //             if(response.body.meta.voucher_id != undefined && response.body.meta.voucher_id != null){
+      //               this.voucher_id = response.body.meta.voucher_id
+      //             }
+      //           }
+      //           if(this.getUserRut() != '' &&
+      //              this.getUserRut() != null &&
+      //              this.getUserRut() != undefined){
+      //             this.updateRutValidator(false)
+      //             if(cordova.plugins != undefined && cordova.plugins != null){
+      //               this.scanQRTemp()
+      //             }else{
+      //               var vm = this
+      //               // cloudSky.zBar.scan(vm.scanner_params, vm.onSuccess, vm.onFailure)
+      //               var callback = function(err, contents){
+      //                 if(err){
+      //                   alert(err._message);
+      //                 }
+      //                 // alert('The QR Code contains: ' + contents);
+      //                 vm.onSuccess(contents)
+      //                 QRScanner.destroy(function(status){
+      //                   vm.show_camera = false
+      //                   vm.$el.style.background="#fafafa"
+      //                 });
+      //
+      //               };
+      //               QRScanner.show(function(status){
+      //                 vm.$el.style.background ="transparent"
+      //                 vm.show_camera = true
+      //                 QRScanner.scan(callback)
+      //               });
+      //             }
+      //           }else{
+      //             this.updateRutValidator(true)
+      //           }
+      //
+      //         }else{
+      //           this.show_error_modal(response.body.errors[0].details, '', 'Regresar')
+      //         }
+      //
+      //       }, function(response){
+      //         if(response.body.meta != undefined && response.body.meta != null){
+      //           if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
+      //             this.checkToken(response.body.meta.authentication_token)
+      //           }
+      //         }
+      //         if (response.status==401) {
+      //           // this.show_error_modal(response.body.errors[0].details, "Un momento...");
+      //           this.show_error_modal("Tienes una sesión abierta en otro dispositivo.", "Un momento...");
+      //         }else{
+      //           this.show_error_modal(response.body.errors[0].details, '', 'Regresar');
+      //         }
+      //       })
+      //     } catch (e) {
+      //       this.show_error_modal(response.body.errors[0].details)
+      //     }
+      //   }else{
+      //     this.updateRutValidator(true)
+      //   }
+      // }else{
+      //   this.$router.push({name: 'log_in'})
+      // }
+      if(cordova.plugins != undefined && cordova.plugins != null){
+        this.scanQRTemp()
+      }else{
+        // cloudSky.zBar.scan(vm.scanner_params, vm.onSuccess, vm.onFailure)
+        var callback = function(err, contents){
+          if(err){
+            alert(err._message);
+          }
+          // alert('The QR Code contains: ' + contents);
+          vm.onSuccess(contents)
+          QRScanner.destroy(function(status){
+            vm.show_camera = false
+            vm.$el.style.background="#FFFFFF"
+          });
+
+        };
+        QRScanner.show(function(status){
+          vm.$el.style.background ="transparent"
+          vm.show_camera = true
+          QRScanner.scan(callback)
+        });
+      }
+    },
+    onSuccess(result){
+      console.log("Ok Scan");
+      console.log(result);
+      var vm = this
+      // vm.offers = []
+      this.show_camera = false
+      alert(result)
+      // try{
+      //   var temp = {
+      //     voucher_id: Number(vm.voucher_id),
+      //     offer_id: Number(vm.offer.id),
+      //     location_id: Number(result)
+      //   }
+      //   vm.$http.post("app/offers/scan_location_qr",{
+      //     data: vm.encrypt(temp).toString()
+      //   },{
+      //     headers:
+      //     vm.getUserToken() != '' ?
+      //     {
+      //         "Authorization": "Bearer " + vm.getUserToken(),
+      //         "X-Device-ID" : vm.getDeviceId(),
+      //         "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
+      //     } :
+      //     {
+      //       "X-Device-ID" : vm.getDeviceId(),
+      //       "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
+      //     }
+      //   }
+      //   ).then(function(response){
+      //     console.log(response);
+      //     if(response.body.meta != undefined && response.body.meta != null){
+      //       if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
+      //         this.checkToken(response.body.meta.authentication_token)
+      //       }
+      //     }
+      //     // this.$router.push({name: "offers_index"})
+      //     this.show_camera = false
+      //   }, function(response){
+      //     this.show_error_modal(response.body.errors[0].details);
+      //   })
+      //
+      // }catch(e){
+      //     vm.show_error_modal(e.message);
+      // }
+    },
+    onFailure(result){
+      console.log("Error");
+      console.log(result);
+      alert(result)
+      // this.show_error_modal(result);
+    },
+    scanQRTemp() {
+        var vm = this;
+        vm.offers = []
+        cordova.plugins.barcodeScanner.scan(
+          function (result) {
+              // try{
+              //     if( result.format == "QR_CODE" ){
+              //       let qr_object = JSON.parse(result.text)
+              //       var params = {
+              //         voucher_id: Number(vm.voucher_id),
+              //         offer_id: Number(vm.offer.id),
+              //         location_id: Number(qr_object)
+              //       }
+              //       vm.$http.post("app/offers/scan_location_qr",{
+              //         data: vm.encrypt(params).toString()
+              //       },{
+              //         headers:
+              //         vm.getUserToken() != '' ?
+              //         {
+              //             "Authorization": "Bearer " + vm.getUserToken(),
+              //             "X-Device-ID" : vm.getDeviceId(),
+              //             "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
+              //         } :
+              //         {
+              //           "X-Device-ID" : vm.getDeviceId(),
+              //           "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
+              //         }
+              //       }
+              //       ).then(function(response){
+              //         console.log(response);
+              //         if(response.body.meta != undefined && response.body.meta != null){
+              //           if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
+              //             this.checkToken(response.body.meta.authentication_token)
+              //           }
+              //         }
+              //         // this.$router.push({name:"offers_index"})
+              //       }, function(response){
+              //         this.show_error_modal(response.body.errors[0].details);
+              //       })
+              //     }
+              // }catch(e){
+              //     vm.show_error_modal(e.message);
+              // }
+              alert(result)
+          },
+          function (error) {
+            alert(error)
+          }
+        );
+    },
+
+
+
+
+
+
+
+
+
+  }
 }
 </script>
 

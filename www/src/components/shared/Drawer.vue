@@ -4,7 +4,7 @@
         <section class="drawer__header">
           <div>
             <div class="drawer__header--principal">
-              <p>Juan Ramirez</p>
+              <p>{{(getFirstName() != '' && getLastName() != '') && (getFirstName() != null && getLastName() != null) ? (getFirstName() + ' ' + getLastName()) : getEmail()}}</p>
             </div>
             <p class="drawer__header--city">Bogotá</p>
           </div>
@@ -39,6 +39,12 @@
             @click="toggle_drawer(); $router.push({name: 'support'})">
             <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/support.jpg" alt="">
             <p>Soporte</p>
+          </div>
+          <div
+            class="drawer__content--section"
+            @click="toggle_drawer(); closeSession()">
+            <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/support.jpg" alt="">
+            <p>Cerrar Sesión</p>
           </div>
         </section>
     </div>

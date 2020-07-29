@@ -123,7 +123,7 @@ export default{
             console.log("Create Session");
             console.log(response);
             this.updateLogin(false)
-            this.$router.push({name: 'categories'})
+            this.saveUserData(response.body.data)
           },function(response){
             console.log("Error");
             console.log(response);
