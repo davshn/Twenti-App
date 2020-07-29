@@ -199,7 +199,10 @@ export default {
       // }else{
       //   this.$router.push({name: 'log_in'})
       // }
-      if(cordova.plugins != undefined && cordova.plugins != null){
+      if(cordova.plugins != undefined &&
+         cordova.plugins != null &&
+         cordova.plugins.barcodeScanner != undefined &&
+         cordova.plugins.barcodeScanner != null){
         this.scanQRTemp()
       }else{
         // cloudSky.zBar.scan(vm.scanner_params, vm.onSuccess, vm.onFailure)
