@@ -1,7 +1,8 @@
 const state = {
     // server:"http://192.168.0.13:3000",
     // server:"http://192.168.1.128:3000", //local mechas
-    server:"http://192.168.1.120:4000", //local yo
+    /* server:"http://192.168.1.120:4000",  *///local yo
+    server:"http://192.168.0.110:3000", //local yo
     // server:"http://192.168.1.016:4000", //local wicho
     // server:"http://ec2-34-220-30-9.us-west-2.compute.amazonaws.com",
     // server: 'http://ec2-35-160-148-232.us-west-2.compute.amazonaws.com',
