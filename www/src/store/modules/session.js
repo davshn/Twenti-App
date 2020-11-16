@@ -64,6 +64,7 @@ const state = {
     profile_picture: './src/assets/images/backgrounds/menu_foto.svg',
     schedule_loading: false,
     user_id_encrypt: null,
+    modal_filter_search: false,
 
 };
 const getters = {
@@ -261,6 +262,9 @@ const getters = {
     getUserName(state){
       return state.user_name
     },
+    getModalFilterSearch(state){
+      return state.modal_filter_search
+    },
 };
 const mutations = {
     setUserToken: function(state, payload){
@@ -453,9 +457,9 @@ const mutations = {
     setUserName(state, payload){
       state.user_name = payload
     },
-
-
-
+    setModalFilterSearch(state, payload){
+      state.modal_filter_search = payload
+    },
 };
 const actions = {
     updateUserToken: function({commit}, payload){
@@ -646,7 +650,9 @@ const actions = {
     updateUserName({commit}, payload){
       commit('setUserName', payload)
     },
-
+    updateModalFilterSearch({commit}, payload){
+      commit('setModalFilterSearch', payload)
+    },
 }
 
 

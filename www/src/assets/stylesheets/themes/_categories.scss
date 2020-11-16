@@ -16,6 +16,23 @@
       background: transparent;
     }
   }
+  @include e(note){
+    background-color: $blue_one;
+    @include flex(center, center);
+    height: 30px;
+    width: 100%;
+    @include m(text){
+      font-weight: 400;
+      font-size: 9px;
+      text-align: center;
+      color: $white;
+    }
+    @include m(img){
+      width: 32px;
+      height: 32px;
+      margin-left: 10px;
+    }
+  }
   @include e(tabs){
     @include flex(center, space-between);
     border-top: 1px solid #F4F4F4;
@@ -46,7 +63,93 @@
   @include e(container){
     width: 100%;
     padding: 0 45px;
-    @include flex(flex-start, center)
+    @include flex(flex-start, center);
     flex-wrap: wrap;
   }
+  @include e(search_title){
+    height: 56px;
+    width: 100%;
+    padding: 0 28px;
+    @include flex(center,space-between);
+    border: 1px solid $grey_four;
+    margin-top: -30px;
+    @include m(title){
+      font-size: 12px;
+      color: $grey_two;
+      font-weight: 700;
+    }
+    @include m(button){
+      cursor: pointer;
+      @include flex(center,flex-start);
+      & p {
+        font-size: 11px;
+        font-weight: 700;
+        color: $grey_three;
+        line-height: 11px;
+        margin-bottom: -2px;
+      }
+    }
+  }
+  @include e(search_content){
+    height: 60px;
+    width: 100%;
+    padding: 0 28px;
+    border-bottom: 1px solid $grey_four;
+    @include flex(center,flex-start);
+    @include m(img){
+      @include flex(center,flex-start);
+      & div:first-child{
+        width: 29px;
+        height: 29px;
+        border: 0.5px solid rgba(220, 220, 220, 0.5);
+        border-radius: 50%;
+        @include flex(center,center);
+        & span {
+          font-weight: 800;
+          font-size: 9px;
+          color: $red_one;
+        }
+      }
+      & div:last-child{
+        width: 48px; 
+        height: 42px; 
+        background-color:$yellow_one; 
+        border-radius: 8px; 
+        margin-left: 16px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        background-position: top;
+        /* background-size: cover; */
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+    }
+    @include m(text){
+      flex-direction: column;
+      @include flex(flex-start,center);
+      margin-left: 17px;
+      & h6 {
+        font-size: 12px;
+        font-weight: 700;
+        color: $grey_two;
+      }
+      & p {
+        font-size: 10px;
+        font-weight: 400;
+        color: $grey_two;  
+      }
+    }
+  }
 }
+
+
+
+/*
+width: 100%;
+height: 400px;
+background-position: top;
+background-size: cover;
+background-repeat: no-repeat;
+background-color:  $color-white;
+border-radius: 5px;
+margin-top: 1.25em; 
+*/
