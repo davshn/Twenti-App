@@ -33,7 +33,7 @@
 					<div
 						:class="{'modal_filter_search__filter--card_active': brand.active}" 
 						class="modal_filter_search__filter--card" 
-						@click="brands.forEach(b => b.active = false); brand.active = true;"
+						@click="brands.forEach(b => b.active = false); brand.active = true;id_seller_selected=brand.id;"
 						v-for="(brand, index_brand) in brands" :key="index_brand">
 						{{ brand.name }}
 					</div>
@@ -48,7 +48,8 @@
 						{{ filter.name }}
 					</div>
 				</div>
-				<button class="modal_filter_search__button_filter">
+				<button class="modal_filter_search__button_filter"
+					@click="handleApply()">
 					Aplicar
 				</button>
 			</div> 
@@ -78,13 +79,23 @@
 				filters: [
 					{ name: 'Mayor descuento primero', active: false },	
 					{ name: 'Vencen pronto primero', active: false },
-				]
+				],
+				id_seller_selected: null,
 			}
+		},
+		mounted(){
+			this.brands = this.getSellers().map(function(s,index) {
+				return { id: s.id, name: s.name, active: false } 
+			})
 		},
 		methods: {
 			handleCancel(){
 				this.$emit('handle-cancel-modal-filter-search', false)
 			},
+			handleApply(f_seller){
+				this.$emit('handle-apply-modal-filter-search', { id:  this.id_seller_selected,active: false })	
+			}
+
 		}
   }
 </script>

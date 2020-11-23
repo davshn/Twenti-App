@@ -166,6 +166,7 @@ Vue.mixin({
             "updatePhone",
             "updateUserName",
             "updateModalFilterSearch",
+            "updateSellers",
         ]),
         ...mapGetters([
             "getUserToken",
@@ -239,6 +240,7 @@ Vue.mixin({
             "getPhone",
             "getUserName",
             "getModalFilterSearch",
+            "getSellers",
         ]),
 
 

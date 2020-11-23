@@ -73,17 +73,6 @@
     <section v-if="current_search.length <= 0" class="category__banner" @click="$router.push({name: 'coupon'})">
       <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/Home_banner.jpg" alt="">
     </section>
-    <section v-if="current_search.length <= 0">
-      <p class="text_collet">Valor a pagar</p>
-      <input 
-        v-model="value"
-        class="input_collet" type="text"> 
-      <div class="content_btn_colect">
-        <button class="button_collet"
-                @click="createPurchace()">pagar
-        </button>
-      </div>
-    </section>
     <section v-if="current_search.length > 0">
       <div class="categories__search_title">
         <p class="categories__search_title--title">
@@ -99,26 +88,33 @@
         v-for="(search, index) in searchs" :key="index">
         <div class="categories__search_content--img">
           <div>
-            <span >-{{ search.attributes.discount_value }}%</span>
+            <span >-{{ search.discount_value }}%</span>
           </div>
-          <div  :style="{backgroundImage: 'url(' + search.attributes.image.url +')'}">
+          <div  :style="{backgroundImage: 'url(' + search.image.url +')'}">
           </div>
         </div>
         <div class="categories__search_content--text">
-          <h6>{{ search.attributes.title }}</h6>
-          <p>{{ search.attributes.description }}</p>
+          <h6>{{ search.title }}</h6>
+          <p>{{ search.description }}</p>
         </div>
       </div>
     </section>
     <modal-filter-search 
       @handle-cancel-modal-filter-search="cancelModalFilterSearch"
+      @handle-apply-modal-filter-search="applyModalFilterSearch"
       v-if="getModalFilterSearch()">
     </modal-filter-search> 
+    <modal-payment
+      v-if="active_modal_payment"
+      @handle-cancel-modal-payment="cancelModalPayment"
+    > 
+    <modal-payment> 
   </article>
 </template>
 
 <script>
 import ModalFilterSearch from './ModalFilterSearch.vue'
+import ModalPayment from './ModalPayment.vue'
 import _ from 'lodash';
 
 export default {
@@ -191,17 +187,19 @@ export default {
         },
       ], */
       current_search: '',
+      last_current_search: '',
       current_page: 1,
       curren_comerce: '',
       searchs: [],
       searchs_all: [],
-      total_results: 0
+      total_results: 0,
+      active_modal_payment: false,
     }
   },
   components: {
-    'modal-filter-search' :ModalFilterSearch  
+    'modal-filter-search' :ModalFilterSearch,  
+    'modal-payment': ModalPayment,
   },
-
   methods:{
     findCategories(current_route){
       console.log(current_route);
@@ -211,6 +209,7 @@ export default {
           this.categories = response.body.data.slice(0, 9);
           console.log("Congrats");
           console.log(response);
+          this.active_modal_payment = true;
         },function(response){
           console.log("Error");
           console.log(response);
@@ -220,52 +219,11 @@ export default {
         console.log(e);
       }
     },
-    createPurchace(){
-      var vm = this;
-      var temp = {
-          attributes: {
-            state: "CREADO",
-            client_id: Number('1'),
-          }
-        }
-      try{
-        vm.$http.post("purchaces",{
-          data: temp,
-          value: this.value
-        },{
-          headers:
-          vm.getUserToken() != '' ?
-          {
-              "Authorization": "Bearer " + vm.getUserToken(),
-              "X-Device-ID" : vm.getDeviceId(),
-              "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-          } :
-          {
-            "X-Device-ID" : vm.getDeviceId(),
-            "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-          }
-        }
-        ).then(function(response){
-          window.open(response.body.url,'_system')
-          if(response.body.meta != undefined && response.body.meta != null){
-            if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-              this.checkToken(response.body.meta.authentication_token)
-            }
-          }
-          // this.$router.push({name: "offers_index"})
-          this.show_camera = false
-        }, function(response){
-          this.show_error_modal(response.body.errors[0].details);
-          window.open(response.body.url,'_system')
-        })
-
-      }catch(e){
-          vm.show_error_modal(e.message);
-          
-      }
-    },
     cancelModalFilterSearch(){
       this.updateModalFilterSearch(false);
+    },
+    cancelModalPayment(){
+      this.active_modal_payment=false;
     },
     sendSearch(){
       var vm = this;
@@ -297,7 +255,12 @@ export default {
             }).then(function(response){
                 this.searchs_all =  response.body.data
                 this.searchs = this.searchs_all
-                console.log('searchs_all ', this.searchs_all)
+                this.total_results = response.body.hits
+                if (this.last_current_search === '' && this.last_current_search !== this.current_search) {
+                  this.updateSellers(response.body.sellers)
+                }
+                this.last_current_search = this.current_search
+                console.log('ALL ___ ', response.body)
                 this.total_results = response.body.meta.results
                 if(response.body.meta != undefined && response.body.meta != null){
                   if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
@@ -318,6 +281,11 @@ export default {
             // this.errors_handler(e.message);
         }
     },
+    applyModalFilterSearch(f_value){
+      this.updateModalFilterSearch(f_value.active)
+      this.curren_comerce = f_value.id 
+      this.sendSearch()
+    }
   },
   watch:{
     selected(){
@@ -333,9 +301,13 @@ export default {
       console.log('current_search ', this.current_search)
       console.log('current_page ', this.current_page)
       console.log('curren_comerce ', this.curren_comerce)
+      console.log('last_current_search ', this.last_current_search)
+      this.curren_comerce = ''
       if (this.current_search.length > 0){
         this.sendSearch();
+        this.last_current_search = ''
       } 
+     
       /* this.companies = this.companies_all */
     },1000),
   },

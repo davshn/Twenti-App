@@ -65,7 +65,7 @@ const state = {
     schedule_loading: false,
     user_id_encrypt: null,
     modal_filter_search: false,
-
+    sellers: [],
 };
 const getters = {
     getUserToken: function(state){
@@ -265,6 +265,9 @@ const getters = {
     getModalFilterSearch(state){
       return state.modal_filter_search
     },
+    getSellers(state){
+      return state.sellers
+    }
 };
 const mutations = {
     setUserToken: function(state, payload){
@@ -460,6 +463,9 @@ const mutations = {
     setModalFilterSearch(state, payload){
       state.modal_filter_search = payload
     },
+    setSellers(state, payload){
+      state.sellers = payload
+    }
 };
 const actions = {
     updateUserToken: function({commit}, payload){
@@ -652,6 +658,9 @@ const actions = {
     },
     updateModalFilterSearch({commit}, payload){
       commit('setModalFilterSearch', payload)
+    },
+    updateSellers({commit}, payload){
+      commit('setSellers', payload)
     },
 }
 
