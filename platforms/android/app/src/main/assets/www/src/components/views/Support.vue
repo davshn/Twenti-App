@@ -32,7 +32,7 @@
     </section>
     <section class="support__other">
       <p class="support__other--text">¿No resolvimos tus dudas?</p>
-      <div class="support__other--button">
+      <div class="support__other--button" @click="openContactChat()">
         <p>Comunícate con un asesor</p>
       </div>
     </section>
@@ -44,6 +44,9 @@ export default {
   methods:{
     selectItem(index){
       this.current_question == index ? this.current_question = null : this.current_question = index
+    },
+    openContactChat(){
+      window.open('https://api.whatsapp.com/send?phone=3232431010&text=', '_blank');
     }
   },
   data(){

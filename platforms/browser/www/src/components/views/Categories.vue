@@ -209,7 +209,7 @@ export default {
           this.categories = response.body.data.slice(0, 9);
           console.log("Congrats");
           console.log(response);
-          this.active_modal_payment = true;
+          this.active_modal_payment = false;
         },function(response){
           console.log("Error");
           console.log(response);
