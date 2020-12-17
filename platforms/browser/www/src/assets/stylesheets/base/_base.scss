@@ -1,0 +1,88 @@
+
+/*
+ Form stayles.
+ */
+
+label {
+  margin: 0;
+  font-weight: 400;
+}
+
+input {
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  // background: #fafafa!important;
+}
+
+html,
+body {
+  // width: 100%;
+  // height: 100%;
+  // margin: 0px;
+  // padding: 0px;
+  overflow-x: hidden;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+svg {
+  display: block;
+}
+
+p + p {
+  margin-top: 0 !important;
+  text-indent: 0 !important;
+}
+
+
+.swiper-wrapper{
+    margin-left: 0px !important;
+}
+
+.bar{
+  width: 100vw;
+  height: 20pt;
+  background-color: #000000;
+  display: none;
+}
+
+
+.heart{
+  &.active{
+    fill: $client-secundary-color!important;
+  }
+}
+
+.svg_black{
+  fill: #1D1D1D!important;
+}
+
+.no-padding{
+  padding: 0 !important;
+}
+
+.no_max_height{
+  max-height: 100%!important;
+}
+
+.vue_body{
+  background: #fafafa;
+}

@@ -1,0 +1,32 @@
+.referrals{
+  position: relative;
+  @include e(header){
+    padding: 20px 20px 0;
+  }
+  @include e(image){
+    width: 100%;
+  }
+  @include e(form){
+    padding: 15px 20px;
+    @include m(content){
+      margin-top: 15px;
+      input{
+        border: 1px dashed #009CDE !important;
+        padding: 0 15px;
+      }
+    }
+    @include m(title){
+      font-size: 21px;
+      font-weight: bold;
+    }
+    @include m(text){
+      font-size: 13px;
+      span{
+        font-weight: bold;
+      }
+    }
+  }
+  .offer_style__button{
+    bottom: 20px;
+  }
+}

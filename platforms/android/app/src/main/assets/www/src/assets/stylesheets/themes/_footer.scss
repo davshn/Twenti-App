@@ -1,0 +1,56 @@
+.footer {
+
+  @include e(wrapper) {
+    width: 100%;
+  }
+
+  @include e(icon) {
+    height: em(24px);
+    width: em(24px);
+    margin: auto;
+    margin-top: em(12px);
+    fill: $white;
+    opacity: .48;
+    @extend %transition;
+  }
+
+  @include e(placeholder) {
+    @include ms-respond(font-size, -4);
+    text-align: center;
+    line-height: em(16px, ms(-4));
+    color: $white;
+    opacity: .48;
+    margin-top: em(6px, ms(-4));
+    margin-bottom: em(6px, ms(-4));
+    letter-spacing: em(.24px, ms(-4));
+    @extend %transition;
+  }
+
+  @include e(icon_float) {
+      height: em(24px);
+      width: em(24px);
+      margin: auto;
+      margin-top: em(12px);
+      fill: $white;
+      @extend %transition;
+  }
+}
+
+#footer-user {
+    // background-color: $color-accent;
+    box-shadow: 0 em(-6px) em(16px) 0 rgba($color-secondary, .08);
+    .active,
+    .router-link-exact-active {
+        p,
+        svg {
+            opacity: 1;
+        }
+    }
+}
+
+.badge {
+    position: absolute;
+    top: -35px;
+    right: 20px;
+    background: #F00;
+}

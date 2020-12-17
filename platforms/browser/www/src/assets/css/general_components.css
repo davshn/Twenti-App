@@ -1,0 +1,276 @@
+/*body *{
+    outline: none;
+}
+
+.gold-text{
+  color: #5B96FC;
+}
+
+.no-padding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+input.gold-button{
+    border: none;
+    background-color: #5B96FC;
+    box-shadow: 0 4px 8px 0 rgba(189,189,189,0.54);
+    font-family: "Work Sans Regular";
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.btn-facebook{
+    background-color: #3B5998;
+    box-shadow: 0 4px 8px 0 rgba(189,189,189,0.54);
+    padding: 12px;
+    color: #FFFFFF;
+    font-family: "Work Sans Medium";
+    font-size: 16px;
+}
+
+.vertical-center{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.v-h-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+}
+
+.without-opacity{
+    opacity: 0;
+}
+
+.with-opacity{
+    opacity: 1;
+}
+
+.bottom-text{
+    font-family: "Work Sans Regular";
+    font-size: 11px;
+    text-align: center;
+    line-height: 16px;
+    color: #212121;
+    margin-top: 16px;
+}
+
+.no-left-padding{
+    padding-left: 0px;
+}
+
+.no-right-padding{
+    padding-right: 0px;
+}
+
+.view-all{
+    font-family: "Work Sans Medium";
+    font-size: 11px;
+    font-weight: 500;
+    text-align: right;
+    line-height: 20px;
+    color: #9E9E9E;
+}
+
+.circle{
+    border-radius: 50%;
+}
+
+div.app-form-group .form-input{
+    background-color: rgba(200, 176, 120, 0.1);
+    border-radius: 8px;
+}
+
+div.app-form-group input.square-input{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(200, 176, 120, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+div.app-form-group img#visibility{
+    margin-top: 4px;
+    opacity: 0.3;
+}
+
+a:focus, a:active, a:hover{
+    color: #FFF;
+    text-decoration: none;
+}*/
+
+
+
+body *{
+    outline: none;
+}
+
+.gold-text{
+  color: #5B96FC;
+}
+
+.no-padding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+input.gold-button{
+    border: none;
+    background-color: #5B96FC;
+    box-shadow: 0 4px 8px 0 rgba(189,189,189,0.54);
+    font-family: "Work Sans";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.gold-button{
+    /*-webkit-appearance: none !important;
+    background-color: #5B96FC;
+    box-shadow: 0 4px 8px 0 rgba(189,189,189,0.54);
+    font-family: "Work Sans";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;*/
+}
+
+.btn-facebook{
+    background-color: #3B5998;
+    box-shadow: 0 4px 8px 0 rgba(189,189,189,0.54);
+    padding: 12px;
+    color: #FFFFFF;
+    font-family: "Work Sans";
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.vertical-center{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.v-h-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+}
+
+.without-opacity{
+    opacity: 0;
+}
+
+.with-opacity{
+    opacity: 1;
+}
+
+.bottom-text{
+    font-family: "Work Sans";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11px;
+    text-align: center;
+    line-height: 16px;
+    color: #212121;
+    margin-top: 16px;
+}
+
+.no-left-padding{
+    padding-left: 0px;
+}
+
+.no-right-padding{
+    padding-right: 0px;
+}
+
+.view-all{
+    font-family: "Work Sans";
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: right;
+    line-height: 20px;
+    color: #9E9E9E;
+}
+
+.circle{
+    border-radius: 50%;
+}
+
+div.app-form-group{
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 9px;
+    margin-bottom: 16px;
+}
+
+div.app-form-group .form-input{
+    background-color: rgba(200, 176, 120, 0.1);
+    border-radius: 8px;
+}
+
+div.app-form-group input{
+    border: none;
+    padding: 3px;
+    font-family: "Work Sans";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 24px;
+    color: #212121;
+}
+
+div.app-form-group input.square-input{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(200, 176, 120, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+div.app-form-group small{
+    font-family: "Work Sans";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 11px;
+    line-height: 16px;
+    color: #9E9E9E;
+}
+
+div.app-form-group img#visibility{
+    margin-top: 4px;
+    opacity: 0.3;
+}
+
+a:focus, a:active, a:hover{
+    color: #FFF;
+    text-decoration: none;
+}

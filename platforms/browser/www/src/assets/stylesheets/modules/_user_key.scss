@@ -1,0 +1,116 @@
+.user_key{
+  position: fixed;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, .5);
+  @include flex(center, center);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include e(container){
+    padding: 0;
+    width: calc( 100% - 20px);
+    // min-height: calc(100vh - 20px);
+    background-color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    @include flex(center, flex-start);
+    flex-direction: column;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translateX(-50%) translateY(-50%);
+  }
+  @include e(touch_line){
+    width: 55px;
+    height: 5px;
+    border-top-left-radius: 2.5px;
+    border-top-right-radius: 2.5px;
+    border-bottom-left-radius: 2.5px;
+    border-bottom-right-radius: 2.5px;
+    background-color: #F0F3F7;
+  }
+  @include e(title){
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+  }
+  @include e(text){
+    font-size: 15px;
+    text-align: center;
+  }
+  @include e(qr){
+    position: relative;
+    width: 100%;
+    // margin: 30px 0;
+    max-height: 110px;
+    min-height: 110px;
+    max-width: 110px;
+    min-width: 110px;
+    @include flex(center);
+    flex-wrap: wrap!important;
+    margin: 5px!important;
+    padding: 0!important;
+    img{
+      margin: 0 auto;
+    }
+    canvas{
+      width: 110px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 110px;
+      min-width: 110px;
+    }
+    @include m(container){
+      min-height: calc(110px + 30px);
+      max-width: 260px;
+      min-width: 110px;
+      position: relative;
+      @include flex(center, center);
+      flex-wrap: wrap;
+      padding: 15px 0 0;
+      max-height: 75vh;
+      margin: 0 auto;
+    }
+  }
+  @include e(no_access){
+    margin: 70px 0;
+    text-align: center;
+    img{
+      margin: 0 auto 30px;
+    }
+    @include m(text){
+      margin-bottom: 30px !important;
+    }
+  }
+  @include e(close){
+    width: 100%;
+    padding: 15px 30px;
+    @include flex(center,center);
+    z-index: 99;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    @include m(button){
+      @include flex(center, center);
+      height: 42px;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid #DCDEE2;
+      border-radius: 2px;
+      color: #AAAEB7;
+      font-size: 12px;
+      font-weight: bold;
+
+    }
+  }
+}

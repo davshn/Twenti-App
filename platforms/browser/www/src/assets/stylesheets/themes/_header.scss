@@ -1,0 +1,154 @@
+.header {
+  position: relative;
+  padding: 0 em(12px);
+  transition: all $base-duration $base-timing;
+  background-color: $white;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  justify-content: space-between;
+  // box-shadow: 0 em(4px) em(24px) 0 rgba($color-secondary, .08); // Hide for new design
+
+  svg {
+    display: block;
+    // fill: $color-accent;
+    fill: $color-svg-base;
+  }
+
+  @include m(fixed) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+  @include e(title){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  @include m(white) {
+    background-color: $white;
+    color: $color-base;
+  }
+
+  @include m(transparent) {
+    box-shadow: none;
+    background: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: em(-32px);
+      left: 0;
+      opacity: .32;
+      background-image: linear-gradient(1deg, rgba(#fff,0) 0%, rgba(#000, .32) 40%, #000 100%);
+      z-index: -1;
+      background-blend-mode: multiply;
+    }
+
+    p {
+      color: #FFF;
+    }
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  @include e(inbox) {
+    position: relative;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // right: em(16px)
+  }
+  @include e(options){
+    @include flex(center);
+  }
+  @include e(badge) {
+    position: absolute;
+    // top: em(-6px);
+    // right: em(-6px);
+    top: 0;
+    right: 0;
+    color: #fff;
+    background: $client-principal-color;
+    min-width: em(18px, ms(-3));
+    height: em(18px, ms(-3));
+    font-weight: 600;
+    padding: 0 em(4px, ms(-3)) 0 em(3.5px, ms(-3));
+    line-height: em(18px, ms(-3));
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: em(ms(0), ms(-3));
+    @include ms-respond(font-size, -3);
+    transform: translateX(35%) translateY(-40%);
+  }
+
+  @include e(title) {
+    @include ms-respond(font-size, -1);
+    line-height: em(24px, ms(-1));
+    letter-spacing: em(1.78px, ms(-1));
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  @include e(image_header){
+    height: 30px;
+  }
+
+  @include e(loader) {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    right: 0;
+    left: 0;
+    @include m(element){
+      margin-top: 3em;
+    }
+  }
+}
+
+#left span{
+    display: none;
+}
+
+
+.loader {
+    height: 4px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ddd;
+    display: none;
+    z-index: 1000;
+}
+
+.loader:before{
+    display: block;
+    position: absolute;
+    content: "";
+    left: -200px;
+    width: 200px;
+    height: 4px;
+    background-color: $client-secundary-color;
+    animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+    from {left: -200px; width: 30%;}
+    50% {width: 30%;}
+    70% {width: 70%;}
+    80% { left: 50%;}
+    95% {left: 120%;}
+    to {left: 100%;}
+}

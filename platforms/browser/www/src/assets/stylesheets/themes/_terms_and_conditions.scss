@@ -1,0 +1,86 @@
+.terms_and_conditions{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  padding: 0 30px;
+  background: linear-gradient(to bottom, rgba(0, 255, 255, 0.85), #0000B8);
+  @media screen and(max-width: 800px){
+    padding: 0;
+  }
+  @include flex(center, center);
+  @include e(parent){
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  @include e(container){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 60px;
+    position: relative;
+    background-color: #ffffff;
+    width: 70%;
+    height: 80%;
+    @media screen and(max-width: 800px){
+      width: 100%;
+      height: 100%;
+      padding: 30px;
+      padding-bottom: 100px;
+    }
+    @include m(close){
+      top: 30px;
+      right: 30px;
+      margin-left: auto;
+      @media screen and(max-width: 800px){
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        border: none;
+      }
+    }
+    @include m(title){
+      font-size: 21px;
+      font-family: Arial!important;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      @media screen and(max-width: 800px){
+        font-size: 15px;
+        line-height: 2;
+      }
+    }
+    @include m(images){
+      width: 100%;
+      @include flex(center, center);
+      img{
+        width: 70%;
+        margin: 0 auto;
+      }
+    }
+    @include m(content){
+      width: 100%;
+      height: 90%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-size: 12px !important;
+      p{
+        font-family: Arial!important;
+        @media screen and(max-width: 800px){
+          font-size: 12px;
+        }
+      }
+      ul{
+        margin-left: 15px;
+      }
+    }
+  }
+}

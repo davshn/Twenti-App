@@ -1,0 +1,157 @@
+/* Typography.
+  ========================================================================== */
+
+
+
+/**
+ * Base.
+ * 1. Light: 300.
+ * 2. Regular: 400.
+ * 3. Bold: 700.
+ */
+
+body {
+  @include text($base-font-size, $base-line-height, normal, $color: $base-font-color);
+  // font-family: $font-stack;
+  font-family: $font-hind;
+  font-kerning: auto;
+  letter-spacing: em(.24px);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+/**
+ * Body text.
+ */
+
+p {
+  @include ms-respond(font-size, 0);
+  line-height: em(24px, ms(0));
+  margin-top: em(24px);
+
+
+
+/**
+ * Margin and indent between paragraphs.
+ */
+
+  & + & {
+    margin-top: em(24px);
+    text-indent: em(24px);
+  }
+
+}
+
+
+/**
+ * Headings.
+ */
+
+%h1 {
+  @include ms-respond(font-size, 6);
+  letter-spacing: em(-1.44px, ms(6));
+  line-height: em(128px, ms(6));
+}
+
+%h2 {
+  @include ms-respond(font-size, 5);
+  letter-spacing: em(-0.64px, ms(5));
+  line-height: em(96px, ms(5));
+}
+
+%h3 {
+  @include ms-respond(font-size, 4);
+  letter-spacing: em(-0.24px, ms(4));
+  line-height: em(80px, ms(4));
+}
+
+%h4 {
+  @include ms-respond(font-size, 3);
+  letter-spacing: em(-0.24px, ms(3));
+  line-height: em(56px, ms(3));
+}
+
+%h5 {
+  @include ms-respond(font-size, 2);
+  letter-spacing: em(-0.24px, ms(2));
+  line-height: em(48px, ms(2));
+}
+
+%h6 {
+  @include ms-respond(font-size, 1);
+  line-height: em(32px, ms(1));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  // font-family: $font-stack;
+  font-family: $font-hind;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+
+h1 {
+  @extend %h1;
+}
+
+h2 {
+  @extend %h2;
+}
+
+h3 {
+  @extend %h3;
+}
+
+h4 {
+  @extend %h4;
+}
+
+h5 {
+  @extend %h5;
+}
+
+h6 {
+  @extend %h6;
+}
+
+
+
+/**
+ * Correct the font size in all browsers.
+ */
+
+%small {
+  display: block;
+  @include ms-respond(font-size, -1);
+  line-height: em(24px, ms(-1));
+  font-weight: 600;
+  letter-spacing: em(1.44px, ms(-1));
+  text-transform: uppercase;
+  text-align: left;
+}
+
+small {
+  @extend %small;
+}
+
+
+i {
+
+}
+
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}

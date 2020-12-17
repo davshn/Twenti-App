@@ -1,0 +1,140 @@
+
+.button {
+  display: flex;
+  justify-content: center;
+  @include ms-respond(font-size, 0);
+  font-weight: 500;
+  text-align: center;
+  line-height: em(24px);
+  // background-color: $color-accent;
+  background-color: $client-secundary-color;
+  color: #fff;
+  padding: em(12px) em(8px);
+  letter-spacing: em(.72px);
+  border-radius: 0;
+  width: 100%;
+
+  // &:focus {
+  //   background-color: rgba($color-accent, .86);
+  // }
+
+  @include e(icon) {
+    background-image: url('./src/assets/svg/camera.svg');
+    background-size: em(144px) em(144px);
+    background-repeat: no-repeat;
+    height: em(24px);
+    width: em(24px);
+    background-position: em(0px) em(0px);
+  }
+
+  @include e(hollow) {
+     display: block;
+    // outline: 2px solid $color-accent;
+    outline: 2px solid $client-secundary-color;
+    outline-offset: -2px;
+    // color: $color-accent;
+    color: $client-secundary-color;
+    background-color: transparent;
+  }
+
+  @include m(float) {
+    position: fixed;
+    right: em(8px);
+    bottom: em(8px);
+    left: em(8px);
+    z-index: 98;
+  }
+
+  @include m(shadow) {
+    border-radius: em(4px);
+    position: relative;
+    display: block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: em(8px);
+      right: em(8px);
+      left: em(8px);
+      bottom: 0;
+      z-index: -1;
+      @extend %box-shadow;
+    }
+  }
+
+  @include e(full) {
+      display: block;
+    //   outline: 2px solid #5B96FC;
+    //   margin-bottom: -2px;
+    //   outline-offset: -2px;
+  }
+
+  &[type="submit"] {
+    border: none;
+  }
+}
+
+.general__button--filter {
+    height: 100%;
+    width: 100%;
+    // background-color: $black_opacity;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        letter-spacing: 0.150em;
+        line-height: ms(2);
+        font-weight: 500;
+
+        span {
+            line-height: ms(2);
+            font-size: ms(-1);
+            font-family: $font-stack-serif;
+            font-weight: normal;
+            font-style: italic;
+            letter-spacing: 0;
+        }
+
+        svg {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+%button_caracteristics {
+    box-shadow: 0 4px 8px 0 rgba(189,189,189,0.54);
+    font-weight: 500;
+    text-align: center;
+    line-height: em(24px, ms(1));
+    letter-spacing: em(0.7px, ms(1));
+    padding-top: em(12px, ms(1));
+    padding-bottom: em(12px, ms(1));
+    border: em(2px, ms(1)) solid $laser;
+    border-radius: 0px;
+}
+
+.button__gold {
+    @extend %button_caracteristics;
+    background-color: $laser;
+    color: $white;
+}
+
+.button__white {
+    @extend %button_caracteristics;
+    background-color: $white;
+    color: $laser;
+}
+
+.favorite_button{
+  &.active{
+    border-color: $client-secundary-color !important;
+    p{
+      color: $client-secundary-color !important;
+    }
+    svg{
+      fill: $client-secundary-color!important;
+    }
+  }
+}

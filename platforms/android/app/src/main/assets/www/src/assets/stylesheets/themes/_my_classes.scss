@@ -1,0 +1,43 @@
+.my_classes{
+  @include e(content){
+    margin-bottom: 50px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @include e(location_content){
+    @include m(info){
+      width: calc( 100% - 120px );
+      @include flex(flex-start, center);
+      flex-direction: column;
+    }
+    @include m(image){
+      width: 120px!important;
+      height: 80px!important;
+    }
+    @include m(no_margin){
+      margin: 0 !important;
+    }
+  }
+  @include e(empty){
+    height: 100%;
+    @include flex(center, center);
+    flex-direction: column;
+    svg{
+      width: 100px!important;
+      height: 91.37px!important;
+      fill: #DCDEE2;
+      margin-bottom: 15px;
+    }
+    @include m(title){
+      font-weight: bold;
+      text-align: center;
+      font-size: 15px;
+    }
+    @include m(text){
+      text-align: center;
+      width: 80%;
+      font-size: 15px;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.coupon{
+  width: 100%;
+  padding: 30px 28px 0;
+  @include e(container){
+    width: 100vw;
+  }
+  @include e(nav){
+    width: 100%;
+    padding-bottom: 18px;
+    @include flex(center,space-between);
+    img{
+      width: 25px;
+    }
+  }
+  @include e(gallery){
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  @include e(header){
+    width: 100%;
+    padding: 25px;
+    border-bottom: 1px solid #F4F4F4;
+    @include m(principal){
+      color: #FF0202;
+      font-size: 21px;
+      font-weight: bold;
+      text-align: center;
+    }
+    @include m(secondary){
+      font-weight: bold;
+      text-align: center;
+      font-size: 17px;
+      color: #FF8C8C;
+    }
+    @include m(sub_text){
+      font-weight: bold;
+      text-align: center;
+      font-size: 11px;
+      color: #FF8C8C;
+    }
+  }
+  @include e(description){
+    padding: 20px 0;
+    width: 100%;
+    border-bottom: 1px solid #F4F4F4;
+    @include m(text){
+      font-size: 14px;
+      color: #353535;
+    }
+  }
+  @include e(terms_and_conditions){
+    padding: 20px 0;
+    p{
+      font-size: 9px;
+      text-align: justify;
+      &:first-of-type{
+        text-align: center;
+        margin-bottom: 10px!important;
+      }
+    }
+  }
+  @include e(redemption){
+    width: 100%;
+    padding: 17px 25px;
+    background-color: #FFEBEB;
+    text-align: center;
+    @include m(title){
+      font-size: 20px;
+      text-align: center;
+      color: #353535;
+      font-weight: bold;
+    }
+    @include m(text){
+      padding: 16px 10px 0;
+      color: #353535;
+      font-size: 11px;
+      text-align: left;
+    }
+    @include m(icon){
+      width: 53px;
+      margin: 0 auto;
+    }
+  }
+}

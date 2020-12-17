@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.333 16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1d;
+      }
+    </style>
+  </defs>
+  <g id="perfil_redenciones" transform="translate(-111 -307)">
+    <path id="Path_4" data-name="Path 4" class="cls-1" d="M18.889,69.778a.444.444,0,0,0,.444-.444V65.778A1.78,1.78,0,0,0,17.556,64H1.778A1.78,1.78,0,0,0,0,65.778v3.556a.444.444,0,0,0,.444.444,2.222,2.222,0,1,1,0,4.444A.444.444,0,0,0,0,74.667v3.556A1.78,1.78,0,0,0,1.778,80H17.556a1.78,1.78,0,0,0,1.778-1.778V74.667a.444.444,0,0,0-.444-.444,2.222,2.222,0,1,1,0-4.444ZM15.778,72a3.116,3.116,0,0,0,2.667,3.079v3.143a.89.89,0,0,1-.889.889H1.778a.89.89,0,0,1-.889-.889V75.079a3.111,3.111,0,0,0,0-6.159V65.778a.89.89,0,0,1,.889-.889H17.556a.89.89,0,0,1,.889.889v3.143A3.116,3.116,0,0,0,15.778,72Z" transform="translate(111 243)"/>
+    <g id="Group_476" data-name="Group 476" transform="translate(116.4 311.8)">
+      <rect id="Rectangle_1088" data-name="Rectangle 1088" class="cls-1" width="1.28" height="8" rx="0.64" transform="matrix(0.788, 0.616, -0.616, 0.788, 7.398, 0)"/>
+      <rect id="Rectangle_1089" data-name="Rectangle 1089" class="cls-1" width="1.28" height="4.8" rx="0.64" transform="translate(0 3.576) rotate(-42)"/>
+    </g>
+  </g>
+</svg>

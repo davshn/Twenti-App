@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.938 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #aaaeb7;
+      }
+    </style>
+  </defs>
+  <g id="perfil_cambiarcontrasena" transform="translate(-52)">
+    <g id="Group_479" data-name="Group 479" transform="translate(52)">
+      <g id="Group_478" data-name="Group 478">
+        <path id="Path_666" data-name="Path 666" class="cls-1" d="M65.594,7.344H64.186V4.132a4.22,4.22,0,0,0-8.438,0V7.344h-1.4A2.346,2.346,0,0,0,52,9.688v7.969A2.346,2.346,0,0,0,54.344,20h11.25a2.346,2.346,0,0,0,2.344-2.344V9.688A2.346,2.346,0,0,0,65.594,7.344ZM57.311,4.132a2.658,2.658,0,0,1,5.313,0V7.344H57.311Zm9.064,13.525a.782.782,0,0,1-.781.781H54.344a.782.782,0,0,1-.781-.781V9.688a.782.782,0,0,1,.781-.781h11.25a.782.782,0,0,1,.781.781Z" transform="translate(-52)"/>
+      </g>
+    </g>
+    <g id="Group_481" data-name="Group 481" transform="translate(58.523 11.172)">
+      <g id="Group_480" data-name="Group 480">
+        <path id="Path_667" data-name="Path 667" class="cls-1" d="M220.445,286a1.445,1.445,0,0,0-.783,2.66v1.715a.781.781,0,0,0,1.563,0v-1.713a1.445,1.445,0,0,0-.78-2.662Z" transform="translate(-219 -286)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,157 @@
+
+.lifestyle{
+    .header__title{
+        color: $white;
+    }
+}
+
+.lifestyle__buttons_container{
+    // height: calc(100vh - 49px);
+    width: 100%;
+}
+
+.lifestyle_one__button{
+    position: relative;
+    margin-bottom: em(2px);
+    background-color: $grey;
+    color: $white;
+    border-radius: 0px;
+    background-size: 100% 100%;
+    background-position: center;
+    &:first-of-type{
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_1/offers.jpg');
+        background-size: 100%;
+        background-position: top;
+    }
+    &:nth-of-type(2){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_1/vouchers.jpg');
+    }
+    &:nth-of-type(3){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_1/discounts.jpg');
+    }
+    &:nth-of-type(4){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_1/favourites.jpg');
+    }
+    &:last-of-type{
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_1/services.jpg');
+        margin-bottom: 0px;
+    }
+    div p{
+        font-family: $font-abrilfatface;
+        font-weight: normal;
+        font-style: normal;
+        font-size: ms(6);
+        line-height: 0.5em;
+        letter-spacing: em(2px,ms(6));
+        span{
+            font-size: ms(-4);
+            font-family: $font-stack;
+            font-weight: 500;
+            font-style: normal;
+            letter-spacing: em(1.1px, ms(1));
+            color: $white;
+            opacity: 0.9;
+        }
+    }
+    .general__button--filter{
+        background-color: $black_opacity;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.lifestyle__padding{
+    padding: em(2px);
+}
+
+%blockbtn{
+    margin: em(2px);
+    height: calc(33.33333333% - 0.25em);
+    background-color: $grey;
+    color: $white;
+    width: calc(50% - 0.25em);
+    border-radius: 0px;
+    background-size: auto 100%;
+    background-position: center;
+    font-family: $font-stack;
+    // Regular
+    font-weight: normal;
+    .general__button--filter p{
+        font-family: $font-stack;
+        // Medium
+        font-weight: 500;
+        line-height: ms(0);
+        letter-spacing: em(1.6px, ms(-1));
+        width: 100%;
+        font-size: ms(-1);
+
+        span{
+            font-size: em(11.2px, ms(0));
+            line-height: em(20px, ms(0));
+            letter-spacing: em(0.2px, ms(0));
+            font-family: $font-stack-serif;
+            font-weight: normal;
+            font-style: italic;
+            color: $white_opacity;
+        }
+    }
+    .general__button--filter{
+        background-color: $black_opacity;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.lifestyle_two__button{
+    @extend %blockbtn;
+    position: relative;
+    &:first-of-type{
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_2/offers.jpg');
+    }
+    &:nth-of-type(2){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_2/vouchers.jpg');
+    }
+    &:nth-of-type(3){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_2/discounts.jpg');
+    }
+    &:nth-of-type(4){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_2/favourites.jpg');
+    }
+    &:last-of-type{
+        background-size:100% 100%;
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_2/services.jpg');
+        width: calc(100% - 0.25em);
+    }
+}
+
+.lifestyle_three__button{
+    @extend %blockbtn;
+    position: relative;
+    &:first-of-type{
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_3/offers.jpg');
+    }
+    &:nth-of-type(2){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_3/vouchers.jpg');
+    }
+    &:nth-of-type(3){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_3/discounts.jpg');
+    }
+    &:nth-of-type(4){
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_3/favourites.jpg');
+    }
+    &:last-of-type{
+        background-size:100% 100%;
+        background-image: url('./src/assets/images/backgrounds/Lifestyle_3/services.jpg');
+        width: calc(100% - 0.25em);
+    }
+}

@@ -1,0 +1,93 @@
+.image_loader {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  max-height: 160px;
+  position: relative;
+  position: relative;
+  @include flex(center, center);
+  @include e(cam){
+    width: 50% !important;
+    height: auto !important;
+    z-index: 1;
+  }
+  @include e(shinning){
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    width: 30%;
+    height: 50%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 20%, #ffffff 10%, rgba(255, 255, 255, 0) 50%);
+    z-index: 3;
+    animation: flash 3s ease infinite;
+    transform: translateY(-50%);
+  }
+
+  .circle{
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid #ccc;
+    transform: translate(-50%, -50%);
+    background: rgba(100, 100, 100, 0.1);
+    animation: ripple 2s ease infinite;
+  }
+  @include e(content){
+    margin: 0 auto;
+    width:100%;
+    height: 100%;
+    max-height: 160px;
+    &.remove_min{
+      .image_loader{
+        min-height: 1px!important;
+      }
+    }
+    &::after{
+      box-shadow: none!important;
+    }
+    &.with_height{
+      height: 100vw;
+    }
+    &.list{
+      width: 100px;
+      height: 100px;
+    }
+    &.location{
+      height: em(150px);
+    }
+    &.venue_image{
+      .image_loader{
+        min-height: auto !important;
+      }
+    }
+  }
+}
+
+@keyframes ripple {
+  from {
+    width: 0.1%;
+    height: 0.1%;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    left: 15%
+  }
+  50% {
+    left: 70%
+  }
+  100%{
+    left: 15%
+  }
+}

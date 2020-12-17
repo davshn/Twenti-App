@@ -1,0 +1,40 @@
+.subcategory {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @include e(slide) {
+        background-color:  $white;
+        width: 100vw;
+        box-shadow: 0 em(8px) em(24px) 0 rgba($color-secondary, .08);
+
+        .slick-current div{
+            // color: $color-accent;
+            color: $client-secundary-color;
+        }
+
+        div{
+            @include ms-respond(font-size, -4);
+            padding-left: em(5px, ms(-4));
+            padding-right: em(5px, ms(-4));
+            font-family: $font-stack;
+            font-weight: normal;
+            font-style: normal;
+            font-weight: 500;
+            line-height: em(24px, ms(-4));
+            color: $silver;
+            letter-spacing: em(0.5px, ms(-4));
+        }
+    }
+
+    @include e(content) {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    @include e(slide-item) {
+        margin-top: em(8px);
+        margin-bottom: em(8px);
+    }
+
+}

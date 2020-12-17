@@ -1,0 +1,132 @@
+.modal_filter_search {
+	width: calc(100% - 60px); 
+	margin: 267px 30px 46px;
+	height: 293px;
+	flex-direction: column;
+	@include flex(center,center);
+	background-color: transparent;
+	@include e(content){
+		padding: 28px 20px 80px 40px;
+		width: 100%; 
+		height: max-content;
+		margin-top: 10px;
+		background-color: $white;
+		flex-direction: column;
+		@include flex(flex-start,flex-start); 
+		box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+		border-radius: 31px;
+		position: relative;
+		@include m(icon_closed){
+				width: 35px;
+				height: 35px; 
+				background-color: $red_two;  
+				@include flex(center,center); 
+				border-radius: 50%;
+				cursor: pointer;
+				top: -12px;
+				right: -12px;
+				position: absolute;
+		}
+		@include m(title){
+				font-size: 17px;
+				font-weight: 700;
+				color: $grey_two;
+				line-height: 23.19px;
+		}
+		@include m(subtitle){
+				font-size: 11px;
+				font-weight: 700;
+				color: $grey_two;
+				margin-top: 10px;
+		}
+	}
+	@include e(commerce){
+		@include flex(center,space-between);
+		@include m(item){
+			flex-direction: column;
+			@include flex(center,flex-start);
+			margin-top: 15px;
+			& div {
+				width: 47px;
+				height: 44px;  
+				font-weight: 800; 
+				color: $grey_three;
+				background: $white;
+				border: 0.5px solid $grey_five;
+				box-sizing: border-box;
+				box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+				border-radius: 10px;
+				@include flex(center,center);
+				font-size: 11px;
+				position: relative;
+				& div {
+					position: absolute;
+					top: -6px;
+					right: -11px;
+					height: 22px;
+					width: 22px;
+					background-color: $blue_one;
+					& img {
+						height: 100%;
+						width: 100%;
+					}
+				}
+			}
+			& p {
+				font-weight: 400;  
+				font-size: 11px;
+				color: $grey_three;
+				margin-top: 8px;
+			}
+		}
+		@include m(line){
+			width: 58px;
+			height: 0px;
+			border: 1px solid $grey_six;
+			transform: rotate(90deg);
+		}
+	}
+	@include e(filter){
+		margin-top: 15px;
+		margin-bottom: 15px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 10px;
+		@include m(card) {
+			font-size: 11px;		
+			line-height: 15px;
+			text-align: center;
+			font-weight: 400;
+			color: $grey_three;
+			background: $white;
+			border: 0.5px solid $grey_five;
+			box-sizing: border-box;
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+			border-radius: 10px;
+			padding: 0 12px;
+			height: 23px;
+			min-width: max-content;
+			@include flex(center,center);
+			cursor: pointer;
+		}
+		@include m(card_active) {
+			background-color: $red_two;
+			color: $white;
+			border: 0.5px solid $red_two;
+		}
+	}
+	@include e(button_filter){
+		margin: 20px auto 80px;
+		width: 62px;
+		height: 27px;
+		background: $white;
+		border: 0.5px solid $grey_five;
+		box-sizing: border-box;
+		box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+		border-radius: 6px;
+		color: $red_two;
+		font-weight: 700;
+		font-size: 11px;
+		line-height: 15px;
+	}
+}

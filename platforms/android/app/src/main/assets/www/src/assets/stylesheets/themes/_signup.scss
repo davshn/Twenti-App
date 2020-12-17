@@ -1,0 +1,114 @@
+.signup {
+
+    .signup_background{
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+        left: 0;
+    }
+    height: 100vh;
+
+
+    .header__title{
+        color: $white;
+    }
+
+    .header{
+        background-color: transparent;
+        #body{
+        	box-shadow: none;
+        }
+    }
+
+    .new_form{
+      padding: 0 !important;
+      margin: 0 !important;
+      .new_label{
+        padding-right: em(10px, ms(0));
+        padding-top: em(8px, ms(0));
+        padding-bottom: em(8px, ms(0));
+        background-color: $alabaster;
+        border-radius: em(4px, ms(0));
+        margin-bottom: em(8px, ms(0));
+      }
+    }
+
+    background-image: url('./src/assets/images/backgrounds/signup_image.jpg');
+    background-size: cover;
+    background-position: center;
+
+    @include e(title) {
+        text-align: center;
+        line-height: 0.9;
+        position: absolute;
+        top: 10%;
+
+        svg {
+          margin: 0 auto;
+        }
+    }
+
+    @include e(text) {
+        p{
+            font-size: ms(-1);
+            color: $white;
+            line-height: em(20px, ms(-1));
+            text-align: center;
+            z-index: 1;
+            margin-bottom: em(16px, ms(-1));
+            font-weight: 500;
+        }
+    }
+
+    @include e(content) {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .profile__user-form {
+        background-color: transparent;
+        color: $tiber;
+    	padding: 0px;
+    	border-bottom: none;
+
+        form{
+            div{
+                padding-left: em(10px, ms(0));
+                padding-right: em(10px, ms(0));
+                padding-top: em(8px, ms(0));
+                padding-bottom: em(8px, ms(0));
+                background-color: $alabaster;
+                border-radius: em(4px, ms(0));
+                margin-bottom: em(8px, ms(0));
+                &:nth-of-type(5) {
+                    width: calc(50% - 4px);
+                    margin-right: em(4px, ms(0));
+                }
+                &.age_field {
+                    width: calc(50% - 4px);
+                    margin-left: em(4px, ms(0));
+                }
+            }
+            input, select {
+                width: 100%;
+            }
+            padding-left: em(12px, ms(0));
+            padding-right: em(12px, ms(0));
+        }
+    }
+
+    @include e(terms) {
+        color: $white;
+        font-size: em(11.2px, ms(0));
+        text-align: center;
+        margin-bottom: em(32px, ms(0));
+    }
+}
+
+.rut_modal{
+  position: fixed;
+  width: 100vw;
+  height: 100vw;
+}

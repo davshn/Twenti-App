@@ -1,0 +1,53 @@
+
+
+.landing {
+    
+    .header__title{
+        color: $white;
+    }
+    @include e(container){
+        text-align: center;
+        height: calc(100vh - 49px);
+        width: 100%;
+    }
+
+    @include e(button) {
+        margin-bottom: em(4px);
+        color: $white;
+        border-radius: 0px;
+        background-size: 100% 100%;
+        background-position: center;
+        height: 25%;
+        &:first-of-type{
+            background-image: url('./src/assets/images/backgrounds/normal.jpg');
+        }
+        &:nth-of-type(2){
+            background-image: url('./src/assets/images/backgrounds/lifestyle_1.jpg');
+        }
+        &:nth-of-type(3){
+            background-image: url('./src/assets/images/backgrounds/lifestyle_2.jpg');
+        }
+        &:last-of-type{
+            background-image: url('./src/assets/images/backgrounds/lifestyle_3.jpg');
+            margin-bottom: 0px;
+        }
+    }
+
+    .general__button--filter{
+        align-items: flex-end;
+
+        p{
+            position: relative;
+            bottom: calc(50% - 1em);
+        }
+
+        img{
+            height: 26vh;
+        }
+
+        .landing__image{
+            width: em(110px, ms(0));
+            height: 21vh;
+        }
+    }
+}

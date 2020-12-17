@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Tweni",
+  "short_name": "Tweni",
+  "version": "com.davshn.tweni",
+  "author": "David Figueroa",
+  "icons": [
+    {
+      "src": "res/iOS/AppIcon.appiconset/Icon-marketing-1024x1024.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "orientation": "portrait",
+  "start_url": "index.html"
+}

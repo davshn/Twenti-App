@@ -1,0 +1,26 @@
+.form_modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include flex(center, center);
+    background-color: transparent;
+    /* background-color: $grey; */
+    z-index: 10;
+    @include e(container){
+      background-color: #fff;
+      width: 100px;
+      height: fit-content;
+      border-radius: 5px;
+      @include m(date){
+        width: 100%;
+        div:first-of-type{
+          width: 100%;
+        }
+      }
+    }
+  }
+  

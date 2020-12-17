@@ -1,0 +1,35 @@
+.facebook_button{
+    width: em(68px);
+    height: em(24px);
+    border-radius: em(4px);
+    padding: em(4px);
+    background-color: $azure;
+    position: absolute;
+    right: em(12px);
+    z-index: 1;
+    right: em(4px);
+    bottom: em(4px);
+
+    a {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @include e(icon) {
+        height: 100%;
+    }
+
+    @include e(text) {
+        font-family: $font-stack;
+        font-weight: 600;
+        font-style: normal;
+        color: $white;
+        font-size: em(12px, ms(0));
+        line-height: em(16px, ms(0));
+        text-align: right;
+        margin-left: em(4px, ms(0));
+    }
+
+}

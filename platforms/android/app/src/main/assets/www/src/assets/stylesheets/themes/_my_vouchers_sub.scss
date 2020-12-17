@@ -1,0 +1,32 @@
+.my-vouchers-sub {
+    @include e(categories) {
+        div {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 7px;
+            margin-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-family: "Work Sans";
+            font-style: normal;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 24px;
+            color: #BDBDBD;
+            display: inline-block;
+        }
+
+        div.active {
+            background-color: rgba(200, 176, 120, 0.16);
+            border-radius: 4px;
+            color: $client-secundary-color;
+        }
+    }
+
+    @include e(body) {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+}

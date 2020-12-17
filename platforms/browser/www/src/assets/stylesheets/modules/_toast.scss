@@ -1,0 +1,31 @@
+.toast{
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  @include flex(center, center);
+  @include e(content){
+    height: 50px;
+    background-color: rgba(0,0,0,.6);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    padding: 0 30px;
+    @include flex(center);
+    p{
+      font-size: 13px;
+      color: #fff!important;
+    }
+  }
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

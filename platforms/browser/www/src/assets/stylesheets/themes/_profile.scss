@@ -1,0 +1,136 @@
+.profile{
+	.header__title{
+        color: $white;
+    }
+
+    .header{
+        background-color: transparent;
+        #body{
+        	box-shadow: none;
+        }
+    }
+
+    color: $white;
+    font-family: $font-stack;
+
+
+	@include e(header){
+		text-align: center;
+		padding-top: em(96px, ms(0));
+		padding-bottom: em(20px, ms(0));
+		background-image: url('./src/assets/images/backgrounds/drawer_background.jpg');
+    	background-size: 100% 100%;
+	}
+
+    @include e(user-photo){
+        background-image: url('./src/assets/images/backgrounds/profile.png');
+        background-size: 100% 100%;
+        border-radius: 50%;
+        height: em(72px, ms(0));
+        width: em(72px, ms(0));
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @include e(user-name){
+        font-size: ms(0);
+        line-height: em(24px, ms(0));
+        letter-spacing: em(0.2px, ms(0));
+        color: $white;
+        font-family: $font-stack;
+        font-weight: 600;
+        font-style: normal;
+        text-align: center;
+
+        span{
+            font-size: em(11.2px, ms(0));
+            line-height: ms(0);
+            letter-spacing: em(0.4px, ms(0));
+            color: $tower_gray;
+            font-weight: normal;
+            font-style: normal;
+        }
+    }
+
+    @include e(rewards-info){
+    	padding-top: em(24px, ms(0));
+    	padding-bottom: em(24px, ms(0));
+    	text-align: center;
+
+    	p{
+			font-size: em(22.8px, ms(0));
+			text-align: center;
+			color: $cello;
+			line-height: em(24px, ms(2));
+			margin: 0px;
+    	}
+    	span{
+				font-size: em(11.2px, ms(0));
+				line-height: em(16px, ms(0));
+				color: $tower_gray;
+    		}
+    }
+
+    @include e(user-form){
+		background-color: $alabaster;
+    	color: $tiber;
+    	padding-top: em(24px, ms(0));
+    	padding-bottom: em(24px, ms(0));
+    	padding-left: em(12px, ms(0));
+    	padding-right: em(12px, ms(0));
+    	border-bottom: 1px solid $athens_gray;
+
+    	p{
+    		font-weight: 500;
+    		font-style: normal;
+    		font-size: em(14.2px, ms(0));
+    		line-height: em(12px, ms(0));
+    		letter-spacing: em(1.8px, ms(0));
+    		margin-bottom: em(24px, ms(0));
+    	}
+
+    	form{
+    		label{
+				font-size: em(11.2px, ms(0));
+				line-height: em(16px, ms(0));
+				color: $tower_gray;
+				letter-spacing: em(0.4px, ms(0));
+				font-weight:normal;
+				font-style: normal;
+    		}
+
+    		input{
+				background-color: $alabaster;
+				font-size: em(16px, ms(0));
+				line-height: em(16px, ms(0));
+				color: $tiber;
+				letter-spacing: em(0.2px, ms(0));
+				font-weight:normal;
+				font-style: normal;
+				border: none;
+				&:active, &:focus{
+					background-color: $white;
+				}
+    		}
+
+			select{
+				font-size: em(16px, ms(0));
+				line-height: em(16px, ms(0));
+				color: $tiber;
+				letter-spacing: em(0.2px, ms(0));
+				font-weight:normal;
+				font-style: normal;
+				border: none;
+				// width: 80%;
+				background: none;
+				-webkit-appearance: none;
+			   	-moz-appearance:    none;
+			   	appearance:         none;
+				// background-color: $alabaster;
+				&:active, &:focus{
+					background-color: $white;
+				}
+			}
+    	}
+    }
+}

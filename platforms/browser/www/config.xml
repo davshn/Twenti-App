@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.davshn.tweni" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Tweni</name>
+    <description>
+    </description>
+    <author email="davshn@gmail.com" href="https://github.com/davshn">
+      David Figueroa
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/*" />
+    <allow-navigation href="http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api*" />
+    <allow-navigation href="*://*ec2-54-191-209-22.us-west-2.compute.amazonaws.com/*" />
+    <allow-navigation href="*://*ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api*" />
+    <allow-intent href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="fb:*" />
+    <allow-intent href="whatsapp:*" />
+    <icon height="1024" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-marketing-1024x1024.png" width="1024" />
+    <hook src="scripts/build.js" type="before_serve" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="phonegap-version" value="cli-8.1.1" />
+    <preference name="android-build-tool" value="gradle" />
+</widget>

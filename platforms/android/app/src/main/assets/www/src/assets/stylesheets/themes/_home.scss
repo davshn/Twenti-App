@@ -1,0 +1,150 @@
+.home {
+    background-color: $alabaster;
+    min-height: 100vh;
+
+    &:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.03;
+    }
+
+    a {
+        &:focus, &:active {
+            text-decoration: none;
+        }
+    }
+
+    @include e(image_home){
+      height: 50px;
+    }
+
+    @include e(logo) {
+
+      &Wrapper {
+        display: flex;
+        justify-content: center;
+        height: auto;
+        margin-top: 20%;
+        margin-bottom: auto;
+      }
+    }
+
+    @include e(title) {
+        margin: auto 0;
+        text-align: center;
+
+        p {
+            color: $tiber;
+            font-size: ms(8);
+            text-align: center;
+        }
+
+        span {
+            font-size: ms(-2);
+            color:$laser;
+            font-family: $font-stack;
+        }
+        svg{
+            path{
+                fill: $tiber;
+            }
+            display: block;
+        }
+        img {
+            display: block;
+            margin-top: em(5px, ms(0));
+        }
+    }
+
+    @include e(text) {
+        text-align: center;
+        color: $cutty-sark;
+        line-height: em(20px, ms(-1));
+        letter-spacing: em(-.16px, ms(-1));
+        margin-bottom: em(16px, ms(-1));
+        @include ms-respond(font-size, -1);
+    }
+
+    @include e(carousel) {
+
+      & + & {
+        margin: em(8px) 0 em(32px);
+      }
+
+    }
+
+    @include e(carousel_item) {
+      position: relative;
+      width: em(120px);
+      height: em(64px);
+
+
+      margin: 0 em(4px);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: em(8px);
+        right: em(8px);
+        bottom: 0;
+        left: em(8px);
+        opacity: 0.32;
+        box-shadow: 0 3px 24px 0 $cello;
+      }
+    }
+
+    @include e(carousel-right) {
+        margin-left: em(20px, ms(0));
+    }
+
+    @include e(carousel_text) {
+        color: $white;
+        @include ms-respond(font-size, -3);
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: em(1px, ms(-3));
+        line-height: em(16px, ms(-3));
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @include e(form) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.carrousel {
+
+  @include e(img) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: em(4px);
+  }
+
+  @include e(blend) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(#000, .25);
+    border-radius: em(4px);
+  }
+}
+
+
+// .slick-list {
+//   overflow: inherit;
+// }
