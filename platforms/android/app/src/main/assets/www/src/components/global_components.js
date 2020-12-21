@@ -65,6 +65,7 @@ import OfferIcon from './shared/icons/Offer_icon.vue'
 import GymIcon from './shared/icons/Gym_icon.vue'
 import CodeModal from './shared/CodeModal.vue'
 import ScheduleLoader from './shared/ScheduleLoader.vue'
+import ModalPayment from './views/ModalPayment.vue'
 
 var components = {
   header: header,
@@ -133,7 +134,8 @@ var components = {
   offerIcon: OfferIcon,
   gymIcon: GymIcon,
   codeModal: CodeModal,
-  scheduleLoader: ScheduleLoader
+  scheduleLoader: ScheduleLoader,
+  modalPayment: ModalPayment
 }
 
 module.exports = components;

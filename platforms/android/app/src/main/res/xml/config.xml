@@ -62,6 +62,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="fb:*" />
     <allow-intent href="whatsapp:*" />
+    <access launch-external="yes" origin="whatsapp:*" />
     <icon height="1024" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-marketing-1024x1024.png" width="1024" />
     <access origin="*" />
     <allow-navigation href="*" />
@@ -85,6 +86,9 @@
     <splash qualifier="port-xhdpi" src="res/android/drawable-xhdpi/screen.png" />
     <splash qualifier="port-xxhdpi" src="res/android/drawable-xxhdpi/screen.png" />
     <splash qualifier="port-xxxhdpi" src="res/android/drawable-xxxhdpi/screen.png" />
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:usesCleartextTraffic="true" />
+    </edit-config>
     <resource-file src="google-services.json" target="/app/google-services.json" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="android-minSdkVersion" value="22" />

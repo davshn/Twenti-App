@@ -24,6 +24,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="fb:*" />
     <allow-intent href="whatsapp:*" />
+    <access launch-external="yes" origin="whatsapp:*" />
     <icon height="1024" platform="ios" src="res/iOS/AppIcon.appiconset/Icon-marketing-1024x1024.png" width="1024" />
     <hook src="scripts/build.js" type="before_serve" />
     <preference name="Orientation" value="portrait" />

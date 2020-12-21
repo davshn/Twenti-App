@@ -24,6 +24,7 @@
     <allow-intent href="geo:*" />
     <allow-intent href="fb:*" />
     <allow-intent href="whatsapp:*" />
+    <access origin="whatsapp:*" launch-external="yes" />
     <platform name="android">
         <access origin="*" />
         <allow-navigation href="*" />
@@ -68,9 +69,9 @@
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         </config-file> -->
         <preference name="android-build-tool" value="gradle" />
-        <!-- <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
-        </edit-config> -->
+        </edit-config>
         <plugin name="cordova-plugin-qrscanner" spec="^3.0.1" />
         <resource-file src="google-services.json" target="/app/google-services.json" />
     </platform>

@@ -71,3 +71,4 @@ Vue.component("code-modal", components.codeModal);
 Vue.component('VZoomer', VueZoomer)
 Vue.component('VZoomerGallery', VueZoomerGallery)
 Vue.component('schedule-loader', components.scheduleLoader)
+Vue.component('modal-payment', components.modalPayment)

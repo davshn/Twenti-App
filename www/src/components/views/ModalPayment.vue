@@ -1,10 +1,10 @@
 <template>
   <article
     class="form_modal">
-    <section 
+    <section
 			style="margin-top: 0px;"
 			class="form_modal__container modal_filter_search">
-			<div 
+			<div
 				style="padding-bottom: 0px;"
 				class="modal_filter_search__content">
 				<div class="modal_filter_search__content--icon_closed"
@@ -12,17 +12,17 @@
 					<img src="./src/assets/images/icon_closed.svg" alt="">
 				</div>
 				<section style="width: 100%;">
-					<h1 class="modal_filter_search__content--title">Valor a pagar</h1>  
-					<h6 class="modal_filter_search__content--subtitle">Ingresa el monto</h6>  
-					<input 
+					<h1 class="modal_filter_search__content--title">Valor a pagar</h1>
+					<h6 class="modal_filter_search__content--subtitle">Ingresa el monto</h6>
+					<input
 							v-model="value"
-							class="input_collet" type="text"> 
+							class="input_collet" type="text">
 				</section>
 				<button class="modal_filter_search__button_filter"
 					@click="createPurchace()">
 					Pagar
 				</button>
-			</div> 
+			</div>
     </section>
   </article>
 </template>
@@ -35,6 +35,9 @@
 				value: null,
 			}
 		},
+    props:[
+      "current_client"
+    ],
 		mounted(){
 		},
 		methods: {
@@ -46,7 +49,7 @@
 				var temp = {
 						attributes: {
 							state: "CREADO",
-							client_id: Number('1'),
+							client_id: vm.current_client,
 						}
 					}
 				try{
@@ -74,7 +77,13 @@
 							}
 						}
 						// this.$router.push({name: "offers_index"})
-						this.show_camera = false
+						// this.show_camera = false
+            this.show_error_modal("Se ha completado tu pago", "Pago exitoso");
+            this.handleCancel()
+            console.log(response);
+            if (response.body.url != '' && response.body.url != null && response.body.url != undefined){
+              window.open(response.body.url,'_system')
+            }
 					}, function(response){
 						this.show_error_modal(response.body.errors[0].details);
 						window.open(response.body.url,'_system')

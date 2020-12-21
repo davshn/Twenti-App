@@ -1,14 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-      "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-      "pluginId": "cordova-plugin-barcodescanner",
-      "clobbers": [
-        "cordova.plugins.barcodeScanner"
-      ]
-    },
-    {
       "id": "cordova-plugin-brightness.Brightness",
       "file": "plugins/cordova-plugin-brightness/www/brightness.js",
       "pluginId": "cordova-plugin-brightness",
@@ -126,11 +118,18 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
+    },
+    {
+      "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+      "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+      "pluginId": "cordova-plugin-barcodescanner",
+      "clobbers": [
+        "cordova.plugins.barcodeScanner"
+      ]
     }
   ];
   module.exports.metadata = {
     "cordova-android-support-gradle-release": "3.0.1",
-    "cordova-plugin-barcodescanner": "0.7.4",
     "cordova-plugin-brightness": "0.1.5",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-console": "1.1.0",
@@ -143,6 +142,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-whitelist": "1.3.4",
-    "phonegap-plugin-multidex": "1.0.0"
+    "phonegap-plugin-multidex": "1.0.0",
+    "cordova-plugin-barcodescanner": "0.7.4"
   };
 });

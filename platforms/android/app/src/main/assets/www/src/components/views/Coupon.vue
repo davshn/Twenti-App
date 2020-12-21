@@ -65,6 +65,10 @@
         </div>
       </section>
     </div>
+    <modal-payment
+      :current_client=current_client
+      @handle-cancel-modal-payment="closePaymentModal"
+      v-if="show_payment_modal"></modal-payment>
   </article>
 
 </template>
@@ -76,6 +80,8 @@ export default {
       charged:false,
       coupon:{},
       show_camera: false,
+      current_client: null,
+      show_payment_modal: false,
       scanner_params: {
         text_title: "", // Android only
         text_instructions: "Coloque el código en el centro de la pantalla", // Android only
@@ -96,6 +102,9 @@ export default {
     vm.$el.style.background="#FFFFFF"
   },
   methods:{
+    closePaymentModal(){
+      this.show_payment_modal = false
+    },
     findCoupon(){
       try {
         this.$http.get('offers/'+this.$route.params.id,
@@ -116,98 +125,17 @@ export default {
 
     scanQR() {
       var vm = this;
-      // vm.offers = []
-      // if(this.getUserToken() != '' && this.getUserToken() != undefined && this.getUserToken() != null){
-      //   if(this.getUserRut() != '' && this.getUserRut() != undefined && this.getUserRut() != null){
-      //     this.updateRutValidator(false)
-      //     try {
-      //       this.$http.get('app/offers/' + this.offer.id + "/redeem_scan",{
-      //         headers:
-      //         this.getUserToken() != '' ?
-      //         {
-      //             "Authorization": "Bearer " + this.getUserToken(),
-      //             "X-Device-ID" : this.buildDeviceId(),
-      //             "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-      //         } :
-      //         {
-      //           "X-Device-ID" : this.buildDeviceId()
-      //         }
-      //       }).then(function(response){
-      //         if(response.status == 200){
-      //           if(response.body.meta != undefined && response.body.meta != null){
-      //             if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-      //               this.checkToken(response.body.meta.authentication_token)
-      //             }
-      //             if(response.body.meta.voucher_id != undefined && response.body.meta.voucher_id != null){
-      //               this.voucher_id = response.body.meta.voucher_id
-      //             }
-      //           }
-      //           if(this.getUserRut() != '' &&
-      //              this.getUserRut() != null &&
-      //              this.getUserRut() != undefined){
-      //             this.updateRutValidator(false)
-      //             if(cordova.plugins != undefined && cordova.plugins != null){
-      //               this.scanQRTemp()
-      //             }else{
-      //               var vm = this
-      //               // cloudSky.zBar.scan(vm.scanner_params, vm.onSuccess, vm.onFailure)
-      //               var callback = function(err, contents){
-      //                 if(err){
-      //                   alert(err._message);
-      //                 }
-      //                 // alert('The QR Code contains: ' + contents);
-      //                 vm.onSuccess(contents)
-      //                 QRScanner.destroy(function(status){
-      //                   vm.show_camera = false
-      //                   vm.$el.style.background="#fafafa"
-      //                 });
-      //
-      //               };
-      //               QRScanner.show(function(status){
-      //                 vm.$el.style.background ="transparent"
-      //                 vm.show_camera = true
-      //                 QRScanner.scan(callback)
-      //               });
-      //             }
-      //           }else{
-      //             this.updateRutValidator(true)
-      //           }
-      //
-      //         }else{
-      //           this.show_error_modal(response.body.errors[0].details, '', 'Regresar')
-      //         }
-      //
-      //       }, function(response){
-      //         if(response.body.meta != undefined && response.body.meta != null){
-      //           if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-      //             this.checkToken(response.body.meta.authentication_token)
-      //           }
-      //         }
-      //         if (response.status==401) {
-      //           // this.show_error_modal(response.body.errors[0].details, "Un momento...");
-      //           this.show_error_modal("Tienes una sesión abierta en otro dispositivo.", "Un momento...");
-      //         }else{
-      //           this.show_error_modal(response.body.errors[0].details, '', 'Regresar');
-      //         }
-      //       })
-      //     } catch (e) {
-      //       this.show_error_modal(response.body.errors[0].details)
-      //     }
-      //   }else{
-      //     this.updateRutValidator(true)
-      //   }
-      // }else{
-      //   this.$router.push({name: 'log_in'})
-      // }
       if(cordova.plugins != undefined &&
          cordova.plugins != null &&
          cordova.plugins.barcodeScanner != undefined &&
-         cordova.plugins.barcodeScanner != null){
+         cordova.plugins.barcodeScanner != null &&
+         cordova.platformId != 'android'){
+           console.log("pluging barcode Scanner");
         this.scanQRTemp()
       }else{
-        // cloudSky.zBar.scan(vm.scanner_params, vm.onSuccess, vm.onFailure)
         var callback = function(err, contents){
           if(err){
+            console.log("ERROR");
             alert(err._message);
           }
           // alert('The QR Code contains: ' + contents);
@@ -232,43 +160,8 @@ export default {
       // vm.offers = []
       this.show_camera = false
       alert(result)
-      // try{
-      //   var temp = {
-      //     voucher_id: Number(vm.voucher_id),
-      //     offer_id: Number(vm.offer.id),
-      //     location_id: Number(result)
-      //   }
-      //   vm.$http.post("app/offers/scan_location_qr",{
-      //     data: vm.encrypt(temp).toString()
-      //   },{
-      //     headers:
-      //     vm.getUserToken() != '' ?
-      //     {
-      //         "Authorization": "Bearer " + vm.getUserToken(),
-      //         "X-Device-ID" : vm.getDeviceId(),
-      //         "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-      //     } :
-      //     {
-      //       "X-Device-ID" : vm.getDeviceId(),
-      //       "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-      //     }
-      //   }
-      //   ).then(function(response){
-      //     console.log(response);
-      //     if(response.body.meta != undefined && response.body.meta != null){
-      //       if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-      //         this.checkToken(response.body.meta.authentication_token)
-      //       }
-      //     }
-      //     // this.$router.push({name: "offers_index"})
-      //     this.show_camera = false
-      //   }, function(response){
-      //     this.show_error_modal(response.body.errors[0].details);
-      //   })
-      //
-      // }catch(e){
-      //     vm.show_error_modal(e.message);
-      // }
+      this.current_client = result
+      this.show_payment_modal = true
     },
     onFailure(result){
       console.log("Error");
@@ -281,44 +174,6 @@ export default {
         vm.offers = []
         cordova.plugins.barcodeScanner.scan(
           function (result) {
-              // try{
-              //     if( result.format == "QR_CODE" ){
-              //       let qr_object = JSON.parse(result.text)
-              //       var params = {
-              //         voucher_id: Number(vm.voucher_id),
-              //         offer_id: Number(vm.offer.id),
-              //         location_id: Number(qr_object)
-              //       }
-              //       vm.$http.post("app/offers/scan_location_qr",{
-              //         data: vm.encrypt(params).toString()
-              //       },{
-              //         headers:
-              //         vm.getUserToken() != '' ?
-              //         {
-              //             "Authorization": "Bearer " + vm.getUserToken(),
-              //             "X-Device-ID" : vm.getDeviceId(),
-              //             "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-              //         } :
-              //         {
-              //           "X-Device-ID" : vm.getDeviceId(),
-              //           "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
-              //         }
-              //       }
-              //       ).then(function(response){
-              //         console.log(response);
-              //         if(response.body.meta != undefined && response.body.meta != null){
-              //           if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
-              //             this.checkToken(response.body.meta.authentication_token)
-              //           }
-              //         }
-              //         // this.$router.push({name:"offers_index"})
-              //       }, function(response){
-              //         this.show_error_modal(response.body.errors[0].details);
-              //       })
-              //     }
-              // }catch(e){
-              //     vm.show_error_modal(e.message);
-              // }
               alert(result)
           },
           function (error) {

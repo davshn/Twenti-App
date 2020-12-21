@@ -46,7 +46,7 @@ export default {
       this.current_question == index ? this.current_question = null : this.current_question = index
     },
     openContactChat(){
-      window.open('https://api.whatsapp.com/send?phone=3232431010&text=', '_blank');
+      window.open("whatsapp://send?phone=573232431010&text=Tengo dudas con el servicio de Tweni", '_system');
     }
   },
   data(){
