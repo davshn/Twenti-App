@@ -3,7 +3,6 @@
     <article class="coupon" v-if="charged" v-show="!show_camera">
       <section class="coupon__nav">
         <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/arrow.svg" alt="" @click="goBack()">
-        <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/bell.svg" alt="" @click="$router.push({name: 'notifications'})">
       </section>
       <section class="coupon__gallery">
         <img :src="coupon.attributes.image.url" alt="">
@@ -29,21 +28,6 @@
         <p v-html="coupon.attributes.terms_and_conditions"></p>
       </section>
     </article>
-    <section class="coupon__redemption" v-show="!show_camera">
-      <p class="coupon__redemption--title">
-        ¿Cómo redimir esta promoción?
-      </p>
-      <p class="coupon__redemption--text">
-        1. Acércate al establecimiento que ofrece éste cupón <br>
-        2. Busca el código QR en el xxx de establecimiento <br>
-        3. Lee el código QR con el lector que incluimos debajo de estos pasos
-      </p>
-      <img
-        src="https://twenti.s3-us-west-2.amazonaws.com/demo/instancia_cupon_qr.svg"
-        alt=""
-        class="coupon__redemption--icon"
-        @click="scanQR()">
-    </section>
     <div
       class="instance__qr_lector"
       v-show="show_camera">

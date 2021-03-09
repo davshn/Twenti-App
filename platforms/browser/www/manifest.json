@@ -1,9 +1,9 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Tweni",
-  "short_name": "Tweni",
-  "version": "com.davshn.tweni",
+  "name": "Tweni Comercios",
+  "short_name": "Tweni Comercios",
+  "version": "com.davshn.tweni_comercios",
   "author": "David Figueroa",
   "icons": [
     {

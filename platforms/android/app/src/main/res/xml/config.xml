@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.davshn.tweni" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.davshn.tweni_comercios" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <feature name="Brightness">
         <param name="android-package" value="org.apache.cordova.plugin.Brightness.BrightnessPlugin" />
     </feature>
@@ -42,7 +42,7 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>Tweni</name>
+    <name>Tweni Comercios</name>
     <description>
     </description>
     <author email="davshn@gmail.com" href="https://github.com/davshn">
@@ -96,6 +96,6 @@
     <preference name="phonegap-version" value="cli-8.1.1" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="android-targetSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="29" />
     <preference name="android-build-tool" value="gradle" />
 </widget>

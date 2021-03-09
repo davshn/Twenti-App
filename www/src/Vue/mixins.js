@@ -167,6 +167,7 @@ Vue.mixin({
             "updateUserName",
             "updateModalFilterSearch",
             "updateSellers",
+            "updateCommerceRef",
         ]),
         ...mapGetters([
             "getUserToken",
@@ -241,6 +242,7 @@ Vue.mixin({
             "getUserName",
             "getModalFilterSearch",
             "getSellers",
+            "getCommerceRef",
         ]),
 
 
@@ -259,7 +261,8 @@ Vue.mixin({
           this.updateGenre(data.attributes.genre)
           this.updatePhone(data.attributes.phone)
           this.updateUserName(data.attributes.user_name)
-          this.$router.push({name: 'categories'})
+          this.updateCommerceRef(data.attributes.commerce_ref)
+          this.$router.push({name: 'coupons'})
         },
         closeSession(){
           this.updateUserId('')
@@ -272,6 +275,7 @@ Vue.mixin({
           this.updateGenre('')
           this.updatePhone('')
           this.updateUserName('')
+          this.updateUserName(null);
           this.updateLogin(true);
           this.$router.push({name: 'log_in'})
         },

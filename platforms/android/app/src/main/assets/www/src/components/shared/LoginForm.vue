@@ -59,22 +59,22 @@
           Acceder
         </div>
       </div>
-      <div class="" style="display flex; align-items: center; justify-content: center; width: 100%; text-align: center">
+      <!-- <div class="" style="display flex; align-items: center; justify-content: center; width: 100%; text-align: center">
         <span
         class="new_login__content--forget_password">
           Olvidé mi contraseña
         </span>
-      </div>
+      </div> -->
 
     </section>
-    <section class="new_login__links">
+    <!-- <section class="new_login__links">
       <p>
         ¿No tienes una cuenta?
       </p>
       <div class="new_login__links--button"  @click="$router.push({name: 'sign_up'})" class="">
         <b>Regístrate</b>
       </div>
-    </section>
+    </section> -->
   </article>
 </template>
 
@@ -116,7 +116,7 @@ export default{
     login(){
       if(this.email != "" && this.password != ""){
         try {
-          this.$http.post('find_user', {
+          this.$http.post('find_client', {
             data:this.data
           }
           ).then(function(response){
@@ -124,6 +124,7 @@ export default{
             console.log(response);
             this.updateLogin(false)
             this.saveUserData(response.body.data)
+            this.$router.push({ name: 'coupons' });
           },function(response){
             console.log("Error");
             console.log(response);
@@ -198,7 +199,7 @@ export default{
                   this.checkToken(response.body.meta.authentication_token)
                 }
               }
-              this.$router.push({ name: 'sign_up' });
+              this.$router.push({ name: 'coupons' });
             }, function(response){
               if(response.body.meta != undefined && response.body.meta != null){
                 if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){

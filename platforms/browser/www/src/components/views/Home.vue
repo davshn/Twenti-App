@@ -10,6 +10,8 @@
     export default {
         data(){
             return {
+                coupons:[],
+                commerce_name: "",
                 categories: [],
                 reverse_categories: [],
                 charged: false
@@ -20,7 +22,7 @@
               var vm = this;
               navigator.geolocation.getCurrentPosition(vm.findPosition);
                 try{
-                    this.$http.get(this.getServer()+"/v1/offers/home_categories", {
+                    this.$http.get(this.getServer()+"/v1/find_coupons", {
                         headers:
                         this.getUserToken() != '' ?
                         {
@@ -33,10 +35,7 @@
                           "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
                         }
                     }).then(function(response){
-                        for(var key in response.body.data){
-                            this.categories.push(response.body.data[key].attributes);
-                        }
-                        this.reverse_categories = this.categories.reverse();
+                        console.log(response);
                         this.charged = true;
                         if(response.body.meta != undefined && response.body.meta != null){
                           if(response.body.meta.authentication_token != undefined && response.body.meta.authentication_token != null){
