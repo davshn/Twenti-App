@@ -1,23 +1,23 @@
 <template>
     <div class="vue_body">
         <!-- <div class="bar"></div> -->
-        <app-error-modal></app-error-modal>
-        <terms-and-conditions></terms-and-conditions>
+        <!-- <app-error-modal></app-error-modal> -->
+        <!-- <terms-and-conditions></terms-and-conditions> -->
         <!-- <keep-alive>
             <router-view v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
         <router-view v-if="!$route.meta.keepAlive"></router-view> -->
         <router-view ref="vueBody" ></router-view>
         <!-- <input-rut v-if="checkRut()"></input-rut> -->
-        <input-location v-if="getLocationUser()==null"></input-location>
-        <input-rut v-if="getRutValidator()"></input-rut>
-        <transition name="fade">
+        <!-- <input-location v-if="getLocationUser()==null"></input-location> -->
+        <!-- <input-rut v-if="getRutValidator()"></input-rut> -->
+        <!-- <transition name="fade">
           <toast-message
             :message="'El RUT no es valido'"
             v-if="getShowToast()"><toast-message>
         </transition>
         <schedule-modal v-if="getScheduleModal()"></schedule-modal>
-        <user-keys v-if="getShowUserKey()"></user-keys>
+        <user-keys v-if="getShowUserKey()"></user-keys> -->
     </div>
 </template>
 

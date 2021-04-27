@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e www/src/main.js -o www/dist/build.js",
-    "serve": "phonegap serve --port 3000",
+    "serve": "phonegap serve --port 8123",
     "dev": "npm-run-all --parallel watchify serve",
     "export_android": "export ANDROID_HOME=/home/fs20163/Android/Sdk && export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools && export PATH=$PATH:$ANDROID_HOME/bin",
     "build": "npm-run-all export_android && cross-env NODE_ENV=production & cordova build --release --device --target=",

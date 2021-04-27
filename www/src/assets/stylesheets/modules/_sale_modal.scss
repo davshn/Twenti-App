@@ -1,0 +1,29 @@
+.sale_modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.7);
+  @include flex(center,center);
+  @include e(content){
+    position: relative;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 5px;
+    height:fit-content;
+    padding: 45px 15px 15px;
+    text-align: center;
+    .new_login__content--input_section{
+      width: 100%!important;
+    }
+  }
+}
+
+.sale_container{
+  @include flex(center, center);
+  flex-direction: column;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background-color: #fafafa;
+}

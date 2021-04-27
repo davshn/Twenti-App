@@ -2,7 +2,7 @@ import Vue from'vue'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource);
-Vue.http.options.root = 'http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api/v1/'
+Vue.http.options.root = 'https://tweni.app/api/v1/'
 // Vue.http.options.root = 'http://192.168.0.110:3000/api/v1/';
 
 
