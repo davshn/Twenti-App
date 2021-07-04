@@ -49,11 +49,9 @@
                         }
                       }
                         this.show_error_modal(response.body.errors[0].details);
-                        // this.errors_handler(response);
                     });
                 }catch(e){
                   this.show_error_modal(e.message);
-                    // this.errors_handler(e.message);
                 }
             },
             create_slick() {
@@ -88,18 +86,9 @@
             }
         },
         mounted(){
-            // this.init_db();
-            // this.send_request();
             if(this.getClientHeight() == null){
-              // if(device.platform == "iOS"){
-              //   this.updateClientHeight(document.documentElement.clientHeight - $('.bar').height());
-              // }else{
                 this.updateClientHeight(document.documentElement.clientHeight);
-              // }
             }
-            // if(this.charged){
-            //     this.create_slick();
-            // }
             this.create_slick();
             navigator.splashscreen.hide
         }
@@ -153,17 +142,6 @@
     a:focus, a:active{
         text-decoration: none;
     }
-    /*.carousel{
-        margin-top: 10px;
-    }
-    .carousel img{
-        width: 110px;
-        height: 104px;
-        box-shadow: 0 2px 8px 0 rgba(189,189,189,0.84);
-        border-radius: 8px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }*/
     .gold-button{
         margin-top: 40px;
     }

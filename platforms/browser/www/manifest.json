@@ -1,9 +1,9 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Tweni Comercios",
-  "short_name": "Tweni Comercios",
-  "version": "com.davshn.tweni_comercios",
+  "name": "Aibai Comercios",
+  "short_name": "Aibai Comercios",
+  "version": "com.davshn.aibai_comercios",
   "author": "David Figueroa",
   "icons": [
     {

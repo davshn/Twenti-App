@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.davshn.tweni_comercios" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Tweni Comercios</name>
+<widget id="com.davshn.aibai_comercios" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Aibai Comercios</name>
     <description>
     </description>
     <author email="davshn@gmail.com" href="https://github.com/davshn">
@@ -11,10 +11,10 @@
     <allow-navigation href="*" />
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
-    <allow-navigation href="http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/*" />
-    <allow-navigation href="http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api*" />
-    <allow-navigation href="*://*ec2-54-191-209-22.us-west-2.compute.amazonaws.com/*" />
-    <allow-navigation href="*://*ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api*" />
+    <allow-navigation href="https://tweni.app/*" />
+    <allow-navigation href="https://tweni.app/api*" />
+    <allow-navigation href="*://*tweni.app/*" />
+    <allow-navigation href="*://*tweni.app/api*" />
     <allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

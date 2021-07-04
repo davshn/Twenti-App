@@ -58,7 +58,7 @@ export default {
       var vm = this;
       navigator.geolocation.getCurrentPosition(vm.findPosition);
         try{
-            this.$http.get(this.getServer()+"find_coupons?id="+this.getCommerceRef(), {
+            this.$http.get("find_coupons?id="+this.getCommerceRef(), {
                 headers: {
                   "X-Device-ID" : this.buildDeviceId(),
                   "Geolocation" : "lat: " + vm.getLatitude() + ", long: " + vm.getLongitude()
@@ -80,11 +80,9 @@ export default {
                 }
               }
                 this.show_error_modal(response.body.errors[0].details);
-                // this.errors_handler(response);
             });
         }catch(e){
           this.show_error_modal(e.message);
-            // this.errors_handler(e.message);
         }
     },
   },

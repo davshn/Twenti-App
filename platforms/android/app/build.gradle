@@ -44,11 +44,8 @@ buildscript {
         ext.kotlin_version = gradlePluginKotlinVersion
     }
 
-    repositories {
-        mavenCentral()
-        google()
-        jcenter()
-    }
+    apply from: 'repositories.gradle'
+    repositories repos
 
     dependencies {
         apply from: '../CordovaLib/cordova.gradle'
@@ -82,10 +79,8 @@ buildscript {
 
 // Allow plugins to declare Maven dependencies via build-extras.gradle.
 allprojects {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
+    apply from: 'repositories.gradle'
+    repositories repos
 }
 
 task wrapper(type: Wrapper) {
@@ -147,9 +142,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-android-support-gradle-release/tweni-cordova-android-support-gradle-release.gradle"
-apply from: "../cordova-plugin-qrscanner/tweni-qrscanner.gradle"
-apply from: "../phonegap-plugin-multidex/tweni-multidex.gradle"
+apply from: "../cordova-android-support-gradle-release/aibai_comercios-cordova-android-support-gradle-release.gradle"
+apply from: "../cordova-plugin-qrscanner/aibai_comercios-qrscanner.gradle"
+apply from: "../phonegap-plugin-multidex/aibai_comercios-multidex.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()

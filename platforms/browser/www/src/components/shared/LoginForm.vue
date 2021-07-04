@@ -13,7 +13,7 @@
     <section
       class="new_login__client_logo grid-x" style="text-align:center">
       <img
-        src="https://twenti.s3-us-west-2.amazonaws.com/Tweni.jpg"
+        src="https://aibai.s3.us-west-2.amazonaws.com/logo_aibai.jpg"
         class="home__image_home"
         style="margin: 0 auto!important">
     </section>
@@ -59,22 +59,7 @@
           Acceder
         </div>
       </div>
-      <!-- <div class="" style="display flex; align-items: center; justify-content: center; width: 100%; text-align: center">
-        <span
-        class="new_login__content--forget_password">
-          Olvidé mi contraseña
-        </span>
-      </div> -->
-
     </section>
-    <!-- <section class="new_login__links">
-      <p>
-        ¿No tienes una cuenta?
-      </p>
-      <div class="new_login__links--button"  @click="$router.push({name: 'sign_up'})" class="">
-        <b>Regístrate</b>
-      </div>
-    </section> -->
   </article>
 </template>
 
@@ -101,15 +86,6 @@ export default{
     redirect_back(){
       this.$router.back();
     },
-    // validateBeforeSubmit () {
-    //   this.$validator.validateAll().then(result => {
-    //     if (result) {
-    //       this.submit_form();
-    //       return;
-    //     }
-    //     $('.is-danger').animateCss('shake');
-    //   });
-    // },
     toggle_password_view () {
       this.show_password = !this.show_password;
     },
@@ -130,16 +106,12 @@ export default{
             console.log(response);
             this.updateLogin(true)
             alert('Por favor, verifique los valores indexados')
-            // this.updateLogin(false)
-            // this.$router.push({name: 'categories'})
           })
         } catch (e) {
           console.log("Error");
           console.log(e);
           this.updateLogin(true)
           alert('Por favor, verifique los valores indexados')
-          // this.updateLogin(false)
-          // this.$router.push({name: 'categories'})
         }
       } else {
         this.updateLogin(true)
@@ -227,8 +199,6 @@ export default{
     }
   },
   mounted(){
-    // this.init_db();
-    // this.check_user();
     var maxHeight = $("#content").children().first().height() +
       this.$el.children[0].clientHeight;
     if(maxHeight < document.documentElement.clientHeight){
