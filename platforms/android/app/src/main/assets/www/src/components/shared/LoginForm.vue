@@ -90,7 +90,7 @@ export default{
       this.show_password = !this.show_password;
     },
     login(){
-      if(this.email != "" && this.password != ""){
+      if(this.data.attributes.email != "" && this.data.attributes.password != ""){
         try {
           this.$http.post('find_client', {
             data:this.data
@@ -100,11 +100,14 @@ export default{
             console.log(response);
             this.updateLogin(false)
             this.saveUserData(response.body.data)
+            this.updateUserPData(this.data.attributes.password)
             this.$router.push({ name: 'coupons' });
           },function(response){
             console.log("Error");
             console.log(response);
             this.updateLogin(true)
+            this.updateUserPData("")
+            this.updateEmail("")
             alert('Por favor, verifique los valores indexados')
           })
         } catch (e) {
@@ -211,6 +214,11 @@ export default{
     $("#validation").focusout(function(){
       vue.focus = false;
     })
+    this.data.attributes.email = this.getEmail()
+    this.data.attributes.password = this.getUserPData()
+    if(this.data.attributes.email != "" && this.data.attributes.password != ""){
+      this.login()
+    }
   }
 }
 </script>

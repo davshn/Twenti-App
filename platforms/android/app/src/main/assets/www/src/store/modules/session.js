@@ -66,7 +66,8 @@ const state = {
     user_id_encrypt: null,
     modal_filter_search: false,
     sellers: [],
-    commerce_ref: null
+    commerce_ref: null,
+    user_p_data: ""
 };
 const getters = {
     getUserToken: function(state){
@@ -271,6 +272,9 @@ const getters = {
     },
     getCommerceRef(state){
       return state.commerce_ref
+    },
+    getUserPData(state){
+      return state.user_p_data
     }
 };
 const mutations = {
@@ -472,6 +476,9 @@ const mutations = {
     },
     setCommerceRef(state, payload){
       state.commerce_ref = payload
+    },
+    setUserPData(state, payload){
+      state.user_p_data = payload
     }
 };
 const actions = {
@@ -672,6 +679,9 @@ const actions = {
     updateCommerceRef({commit}, payload){
       commit('setCommerceRef', payload)
     },
+    updateUserPData({commit}, payload){
+      commit('setUserPData', payload)
+    }
 }
 
 

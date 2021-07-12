@@ -8,7 +8,6 @@ Vue.component("appLoader", components.loader);
 Vue.component("appErrorModal", components.errorModal);
 Vue.component("appPullRefresh", components.pullRefresh);
 Vue.component("appLoginForm", components.loginForm);
-Vue.component("appContainer", components.container);
 Vue.component("qr-icon", components.qrIcon);
 Vue.component("list-icon", components.listIcon);
 Vue.component("table-icon", components.tableIcon);

@@ -2,7 +2,6 @@ import loader from './shared/Loader.vue'
 import errorModal from './shared/ErrorModal.vue'
 import pullRefresh from './shared/PullRefresh.vue'
 import loginForm from './shared/LoginForm.vue'
-import container from './shared/Container.vue'
 import arrowLeft from './shared/svg/ArrowLeft.vue'
 import close from './shared/svg/Close.vue'
 import QRIcon from './shared/icons/QR_icon.vue'
@@ -18,7 +17,6 @@ var components = {
   errorModal: errorModal,
   pullRefresh: pullRefresh,
   loginForm: loginForm,
-  container: container,
   arrowLeft: arrowLeft,
   close: close,
   qrIcon: QRIcon,

@@ -1,12 +1,23 @@
 <template>
-  <article class="" v-if="charged" style="padding: 30px 0; min-height: 100vh; background-color: #fafafa">
-
+  <article class="" v-if="charged" style="padding: 40px 0 30px; min-height: 100vh; background-color: #fafafa; position: relative">
+    <span
+      @click="closeSession()"
+      style="position: absolute; top: 15px; right: 15px;">Cerrar Sesión</span>
     <section>
       <div class="" style="display flex; align-items: center; justify-content: center; width: 100%">
         <div
           class="new_login__content--login_button small-12 active"
           @click="$router.push({name:'validate_sale'})">
           Validar Compra
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="" style="display flex; align-items: center; justify-content: center; width: 100%">
+        <div
+          class="new_login__content--login_button small-12 active"
+          @click="openQR()">
+          QR del comercio
         </div>
       </div>
     </section>
@@ -41,6 +52,18 @@
         </section>
       </section>
     </section>
+    <section v-if="show_qr_modal" class="sale_modal">
+      <div class="sale_modal__content" style="padding-bottom: 30px;">
+        <span
+          @click="close_modal() "
+          style="position: absolute; top: 15px; right: 15px;">Cerrar</span>
+        <div
+            class="col-xs-12 text-center"
+            id="qrvalidate"
+            v-show="qr == false">
+        </div>
+      </div>
+    </section>
   </article>
 </template>
 
@@ -48,12 +71,18 @@
 export default {
   data(){
     return{
+      qr: true,
+      show_qr_modal: false,
       coupons:[],
       commerce_name:'',
       charged: false
     }
   },
   methods:{
+    close_modal(){
+      this.qr = true;
+      this.show_qr_modal=false;
+    },
     send_request(){
       var vm = this;
       navigator.geolocation.getCurrentPosition(vm.findPosition);
@@ -84,6 +113,19 @@ export default {
         }catch(e){
           this.show_error_modal(e.message);
         }
+    },
+    openQR(){
+      var vm = this;
+      this.show_qr_modal = true
+      setTimeout(function(){
+        var qrcode = new QRCode(document.getElementById("qrvalidate"));
+        qrcode.makeCode(vm.getCommerceRef().toString());
+        vm.qr = !vm.qr;
+        $("canvas").width("90%");
+        $("canvas").css({"margin-left":"auto", "margin-right": "auto"});
+        $("#qrvalidate img").css({"margin-left":"auto", "margin-right": "auto"});
+      }, 500);
+      // qrcode.makeCode('{"data":{"id_user":'+this.getUserId()+',"id_offer":'+this.offer.id+'}}');
     },
   },
   mounted(){
