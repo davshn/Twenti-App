@@ -66,6 +66,7 @@ const state = {
     user_id_encrypt: null,
     modal_filter_search: false,
     sellers: [],
+    user_p_data: ""
 };
 const getters = {
     getUserToken: function(state){
@@ -267,6 +268,9 @@ const getters = {
     },
     getSellers(state){
       return state.sellers
+    },
+    getUserPData(state){
+      return state.user_p_data
     }
 };
 const mutations = {
@@ -465,6 +469,9 @@ const mutations = {
     },
     setSellers(state, payload){
       state.sellers = payload
+    },
+    setUserPData(state, payload){
+      state.user_p_data = payload
     }
 };
 const actions = {
@@ -661,6 +668,9 @@ const actions = {
     },
     updateSellers({commit}, payload){
       commit('setSellers', payload)
+    },
+    updateUserPData({commit}, payload){
+      commit('setUserPData', payload)
     },
 }
 

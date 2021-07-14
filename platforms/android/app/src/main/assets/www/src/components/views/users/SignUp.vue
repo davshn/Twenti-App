@@ -293,78 +293,13 @@
               this.data.attributes.phone != '' &&
               this.data.attributes.email != '' &&
               this.data.attributes.first_name != "" &&
-              this.data.attributes.second_name !="" &&
               this.data.attributes.last_name != "" &&
-              this.data.attributes.last_second_name != "" &&
               this.data.attributes.user_name !="" &&
               this.data.attributes.genre != "" &&
               this.data.attributes.birthday != ""){
               return true
             } else {
               return false
-            }
-          },
-          findRut(){
-            console.log(this.finded_rut);
-            console.log("Change finded rut");
-            var rut = this.data.attributes.rut;
-            if(rut != ''){
-              if(this.validator == this.validateRut(rut)){
-                this.data.attributes.rut = this.data.attributes.rut + this.validator
-                this.validate_rut = true
-              } else {
-                this.validate_rut = false
-                // alert("El Rut no es correcto, este es el validador correcto " + this.validateRut(rut))
-                this.updateShowToast(true)
-              }
-            }else{
-              this.validate_rut = true
-              this.data.attributes.rut = null
-            }
-
-            if(this.validate_rut){
-              this.charging = true
-              console.log(this.charging);
-              try {
-                this.$http.get('app/users/check_user_in_deporwin', {
-                  headers: {
-                    "X-Device-ID" : this.getDeviceId(),
-                    "Geolocation" : "lat: " + this.getLatitude() + ", long: " + this.getLongitude()
-                  },
-                  params:{
-                    rut: this.data.attributes.rut
-                  }
-                }).then(function(response){
-                  this.charging = false
-                  this.finded_rut = true
-                  console.log(this.finded_rut);
-                  if(response.body['Personas'].length > 0){
-                    var data = response.body['Personas'][0]
-                    this.data.attributes.email = data["Email"]
-                    this.data.attributes.user_info_attributes.phone = data["TelefonoMovil"]
-                    this.data.attributes.user_info_attributes.name = data["Nombre"]
-                    this.data.attributes.user_info_attributes.last_name = data["Apellido1"]
-                    // this.data.attributes.user_info_attributes.gender = data["Apellido1"]
-                    this.data.attributes.user_info_attributes.birthday = data["FechaNacimiento"]
-                    this.validation()
-                  }else{
-                    this.show_error_modal("No te hemos encontrado en los registros de sportlife", "Lo sentimos")
-                  }
-                  this.data.attributes.rut = this.data.attributes.rut.substring(0, this.data.attributes.rut.length - 1);
-                }, function(response){
-                  this.charging = false
-                  this.show_error_modal("No te hemos encontrado en los registros de sportlife", "Lo sentimos")
-                  this.finded_rut = true
-                  this.data.attributes.email = ""
-                  this.data.attributes.user_info_attributes.phone = ""
-                  this.data.attributes.user_info_attributes.name = ""
-                  this.data.attributes.user_info_attributes.last_name = ""
-                  this.data.attributes.user_info_attributes.birthday = ""
-                  this.data.attributes.rut = this.data.attributes.rut.substring(0, this.data.attributes.rut.length - 1);
-                })
-              } catch (e) {
-
-              }
             }
           },
           returnBack(){

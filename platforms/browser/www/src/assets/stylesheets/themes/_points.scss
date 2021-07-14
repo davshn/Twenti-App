@@ -1,0 +1,20 @@
+.points{
+  min-width: 100vw;
+  padding: 30px 28px 0;
+  background: #FAFAFA;
+  @include e(container){
+    width: 100%;
+    min-height: 100vh;
+  }
+  @include e(head){
+    @include m(text){
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      color: #353535;
+    }
+    @include m(points){
+      color: $red_two;
+    }
+  }
+}

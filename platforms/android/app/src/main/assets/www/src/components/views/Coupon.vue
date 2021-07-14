@@ -66,7 +66,8 @@
       </section>
     </div>
     <modal-payment
-      :current_client=current_client
+      :current_client="current_client"
+      :offer_id="$route.params.id"
       @handle-cancel-modal-payment="closePaymentModal"
       v-if="show_payment_modal"></modal-payment>
   </article>
@@ -159,7 +160,7 @@ export default {
       var vm = this
       // vm.offers = []
       this.show_camera = false
-      alert(result)
+      // alert(result)
       this.current_client = result
       this.show_payment_modal = true
     },

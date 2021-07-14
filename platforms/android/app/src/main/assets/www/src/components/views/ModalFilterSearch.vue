@@ -7,12 +7,12 @@
 					@click="handleCancel()">
 					<img src="./src/assets/images/icon_closed.svg" alt="">
 				</div>
-				<h1 class="modal_filter_search__content--title">Búsqueda avanzada</h1>  
-				<h6 class="modal_filter_search__content--subtitle">Filtrar por tipo de comercio</h6>  
+				<h1 class="modal_filter_search__content--title">Búsqueda avanzada</h1>
+				<h6 class="modal_filter_search__content--subtitle">Filtrar por tipo de comercio</h6>
 				<div class="modal_filter_search__commerce">
 					<div class="modal_filter_search__commerce--item">
 						<div>
-							Tweni
+							Aibai
 						</div>
 						<p>Comercio físico</p>
 					</div>
@@ -20,7 +20,7 @@
 					</div>
 					<div class="modal_filter_search__commerce--item">
 						<div>
-							Tweni
+							Aibai
 							<div>
 								<img src="./src/assets/images/icono_flecha_completa.svg" alt="">
 							</div>
@@ -28,21 +28,21 @@
 						<p>Comercio en línea</p>
 					</div>
 				</div>
-				<h6 class="modal_filter_search__content--subtitle">Filtrar por nombre del comercio</h6> 
+				<h6 class="modal_filter_search__content--subtitle">Filtrar por nombre del comercio</h6>
 				<div class="modal_filter_search__filter">
 					<div
-						:class="{'modal_filter_search__filter--card_active': brand.active}" 
-						class="modal_filter_search__filter--card" 
+						:class="{'modal_filter_search__filter--card_active': brand.active}"
+						class="modal_filter_search__filter--card"
 						@click="brands.forEach(b => b.active = false); brand.active = true;id_seller_selected=brand.id;"
 						v-for="(brand, index_brand) in brands" :key="index_brand">
 						{{ brand.name }}
 					</div>
 				</div>
-				<h6 class="modal_filter_search__content--subtitle">Ordenar por</h6> 
+				<h6 class="modal_filter_search__content--subtitle">Ordenar por</h6>
 				<div class="modal_filter_search__filter">
-					<div 
-						:class="{'modal_filter_search__filter--card_active': filter.active}" 
-						class="modal_filter_search__filter--card" 
+					<div
+						:class="{'modal_filter_search__filter--card_active': filter.active}"
+						class="modal_filter_search__filter--card"
 						@click="filter.active === false ? filter.active = true : filter.active = false"
 						v-for="(filter, index_filter) in filters" :key="index_filter">
 						{{ filter.name }}
@@ -52,7 +52,7 @@
 					@click="handleApply()">
 					Aplicar
 				</button>
-			</div> 
+			</div>
     </section>
   </article>
 </template>
@@ -77,7 +77,7 @@
 					{name: 'Lorem', active: false },
 				],
 				filters: [
-					{ name: 'Mayor descuento primero', active: false },	
+					{ name: 'Mayor descuento primero', active: false },
 					{ name: 'Vencen pronto primero', active: false },
 				],
 				id_seller_selected: null,
@@ -85,7 +85,7 @@
 		},
 		mounted(){
 			this.brands = this.getSellers().map(function(s,index) {
-				return { id: s.id, name: s.name, active: false } 
+				return { id: s.id, name: s.name, active: false }
 			})
 		},
 		methods: {
@@ -93,7 +93,7 @@
 				this.$emit('handle-cancel-modal-filter-search', false)
 			},
 			handleApply(f_seller){
-				this.$emit('handle-apply-modal-filter-search', { id:  this.id_seller_selected,active: false })	
+				this.$emit('handle-apply-modal-filter-search', { id:  this.id_seller_selected,active: false })
 			}
 
 		}

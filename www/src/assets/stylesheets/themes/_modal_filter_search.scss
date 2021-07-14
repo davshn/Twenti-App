@@ -1,5 +1,5 @@
 .modal_filter_search {
-	width: calc(100% - 60px); 
+	width: calc(100% - 60px);
 	margin: 267px 30px 46px;
 	height: 293px;
 	flex-direction: column;
@@ -7,20 +7,20 @@
 	background-color: transparent;
 	@include e(content){
 		padding: 28px 20px 80px 40px;
-		width: 100%; 
+		width: 100%;
 		height: max-content;
 		margin-top: 10px;
 		background-color: $white;
 		flex-direction: column;
-		@include flex(flex-start,flex-start); 
+		@include flex(flex-start,flex-start);
 		box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 		border-radius: 31px;
 		position: relative;
 		@include m(icon_closed){
 				width: 35px;
-				height: 35px; 
-				background-color: $red_two;  
-				@include flex(center,center); 
+				height: 35px;
+				background-color: $red_two;
+				@include flex(center,center);
 				border-radius: 50%;
 				cursor: pointer;
 				top: -12px;
@@ -48,8 +48,8 @@
 			margin-top: 15px;
 			& div {
 				width: 47px;
-				height: 44px;  
-				font-weight: 800; 
+				height: 44px;
+				font-weight: 800;
 				color: $grey_three;
 				background: $white;
 				border: 0.5px solid $grey_five;
@@ -73,7 +73,7 @@
 				}
 			}
 			& p {
-				font-weight: 400;  
+				font-weight: 400;
 				font-size: 11px;
 				color: $grey_three;
 				margin-top: 8px;
@@ -93,7 +93,7 @@
 		flex-wrap: wrap;
 		gap: 6px 10px;
 		@include m(card) {
-			font-size: 11px;		
+			font-size: 11px;
 			line-height: 15px;
 			text-align: center;
 			font-weight: 400;
@@ -128,5 +128,13 @@
 		font-weight: 700;
 		font-size: 11px;
 		line-height: 15px;
+	}
+	@include e(button_cancel){
+		color: $grey_three;
+		background-color: $grey_six;
+	}
+	@include e(button_container){
+		@include flex(center, space-around);
+		width: 100%;
 	}
 }

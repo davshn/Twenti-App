@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.davshn.tweni" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.davshn.aibai" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <feature name="Brightness">
         <param name="android-package" value="org.apache.cordova.plugin.Brightness.BrightnessPlugin" />
     </feature>
@@ -42,17 +42,17 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>Tweni</name>
+    <name>Aibai</name>
     <description>
     </description>
     <author email="davshn@gmail.com" href="https://github.com/davshn">
       David Figueroa
     </author>
     <content src="index.html" />
-    <allow-navigation href="http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/*" />
-    <allow-navigation href="http://ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api*" />
-    <allow-navigation href="*://*ec2-54-191-209-22.us-west-2.compute.amazonaws.com/*" />
-    <allow-navigation href="*://*ec2-54-191-209-22.us-west-2.compute.amazonaws.com/api*" />
+    <allow-navigation href="https://tweni.app/*" />
+    <allow-navigation href="https://tweni.app/api*" />
+    <allow-navigation href="*://*tweni.app/*" />
+    <allow-navigation href="*://*tweni.app/api*" />
     <allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -69,23 +69,17 @@
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-intent href="market:*" />
-    <icon density="mdpi" qualifier="mdpi" src="res/android/drawable-mdpi/icon.png" />
-    <icon density="hdpi" qualifier="hdpi" src="res/android/drawable-hdpi/icon.png" />
-    <icon density="xhdpi" qualifier="xhdpi" src="res/android/drawable-xhdpi/icon.png" />
-    <icon density="xxhdpi" qualifier="xxhdpi" src="res/android/drawable-xxhdpi/icon.png" />
-    <icon density="xxxhdpi" qualifier="xxxhdpi" src="res/android/drawable-xxxhdpi/icon.png" />
-    <splash qualifier="land-ldpi" src="res/android/drawable-land-ldpi/screen_ant.png" />
-    <splash qualifier="land-mdpi" src="res/android/drawable-land-mdpi/screen_ant.png" />
-    <splash qualifier="land-hdpi" src="res/android/drawable-land-hdpi/screen_ant.png" />
-    <splash qualifier="land-xhdpi" src="res/android/drawable-land-xhdpi/screen_ant.png" />
-    <splash qualifier="land-xxhdpi" src="res/android/drawable-land-xxhdpi/screen_ant.png" />
-    <splash qualifier="land-xxxhdpi" src="res/android/drawable-land-xxxhdpi/screen_ant.png" />
-    <splash qualifier="port-ldpi" src="res/android/drawable-ldpi/screen_ant.png" />
-    <splash qualifier="port-mdpi" src="res/android/drawable-mdpi/screen_ant.png" />
-    <splash qualifier="port-hdpi" src="res/android/drawable-hdpi/screen_ant.png" />
-    <splash qualifier="port-xhdpi" src="res/android/drawable-xhdpi/screen_ant.png" />
-    <splash qualifier="port-xxhdpi" src="res/android/drawable-xxhdpi/screen_ant.png" />
-    <splash qualifier="port-xxxhdpi" src="res/android/drawable-xxxhdpi/screen_ant.png" />
+    <icon density="mdpi" qualifier="mdpi" src="res/icon/android/mdpi.png" />
+    <icon density="hdpi" qualifier="hdpi" src="res/icon/android/hdpi.png" />
+    <icon density="xhdpi" qualifier="xhdpi" src="res/icon/android/xhdpi.png" />
+    <icon density="xxhdpi" qualifier="xxhdpi" src="res/icon/android/xxhdpi.png" />
+    <icon density="xxxhdpi" qualifier="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+    <splash qualifier="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
+    <splash qualifier="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
+    <splash qualifier="port-hdpi" src="res/screen/android/splash-port-hdpi.png" />
+    <splash qualifier="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
+    <splash qualifier="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
+    <splash qualifier="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
     <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
         <application android:usesCleartextTraffic="true" />
     </edit-config>

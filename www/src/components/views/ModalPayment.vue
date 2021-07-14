@@ -4,7 +4,26 @@
     <section
 			style="margin-top: 0px;"
 			class="form_modal__container modal_filter_search">
+      <div
+        v-if="confirmation_message"
+				style="padding-bottom: 0px;"
+				class="modal_filter_search__content">
+				<section style="width: 100%;">
+					<p>¿Esta seguro que desea pagar $ {{value}} ?</p>
+				</section>
+        <div class="modal_filter_search__button_container">
+          <button class="modal_filter_search__button_cancel modal_filter_search__button_filter"
+            @click="confirmation_message = false">
+            Cancelar
+          </button>
+          <button class="modal_filter_search__button_filter"
+            @click="createPurchace()">
+            Pagar
+          </button>
+        </div>
+			</div>
 			<div
+        v-else
 				style="padding-bottom: 0px;"
 				class="modal_filter_search__content">
 				<div class="modal_filter_search__content--icon_closed"
@@ -19,10 +38,11 @@
 							class="input_collet" type="text">
 				</section>
 				<button class="modal_filter_search__button_filter"
-					@click="createPurchace()">
+					@click="confirmation_message = true">
 					Pagar
 				</button>
 			</div>
+
     </section>
   </article>
 </template>
@@ -32,16 +52,18 @@
   export default {
 		data(){
 			return {
+        confirmation_message: false,
 				value: null,
 			}
 		},
     props:[
-      "current_client"
+      "current_client", "offer_id"
     ],
 		mounted(){
 		},
 		methods: {
 			handleCancel(){
+        this.confirmation_message = false
 				this.$emit('handle-cancel-modal-payment', false)
       },
 			createPurchace(){
@@ -49,7 +71,9 @@
 				var temp = {
 						attributes: {
 							state: "CREADO",
-							client_id: vm.current_client,
+							client_id: vm.getUserId(),
+              offer_id: vm.offer_id,
+              commerce_id: vm.current_client
 						}
 					}
 				try{

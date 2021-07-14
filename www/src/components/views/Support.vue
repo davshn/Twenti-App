@@ -46,7 +46,7 @@ export default {
       this.current_question == index ? this.current_question = null : this.current_question = index
     },
     openContactChat(){
-      window.open("whatsapp://send?phone=573232431010&text=Tengo dudas con el servicio de Tweni", '_system');
+      window.open("whatsapp://send?phone=573232431010&text=Tengo dudas con el servicio de Aibai", '_system');
     }
   },
   data(){

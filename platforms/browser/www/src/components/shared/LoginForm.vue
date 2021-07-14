@@ -13,7 +13,7 @@
     <section
       class="new_login__client_logo grid-x" style="text-align:center">
       <img
-        src="https://twenti.s3-us-west-2.amazonaws.com/Tweni.jpg"
+        src="https://aibai.s3.us-west-2.amazonaws.com/logo_aibai.jpg"
         class="home__image_home"
         style="margin: 0 auto!important">
     </section>
@@ -101,20 +101,11 @@ export default{
     redirect_back(){
       this.$router.back();
     },
-    // validateBeforeSubmit () {
-    //   this.$validator.validateAll().then(result => {
-    //     if (result) {
-    //       this.submit_form();
-    //       return;
-    //     }
-    //     $('.is-danger').animateCss('shake');
-    //   });
-    // },
     toggle_password_view () {
       this.show_password = !this.show_password;
     },
     login(){
-      if(this.email != "" && this.password != ""){
+      if(this.data.attributes.email != "" && this.data.attributes.password != ""){
         try {
           this.$http.post('find_user', {
             data:this.data
@@ -123,22 +114,19 @@ export default{
             console.log("Create Session");
             console.log(response);
             this.updateLogin(false)
+            this.updateUserPData(this.data.attributes.password)
             this.saveUserData(response.body.data)
           },function(response){
             console.log("Error");
             console.log(response);
             this.updateLogin(true)
             alert('Por favor, verifique los valores indexados')
-            // this.updateLogin(false)
-            // this.$router.push({name: 'categories'})
           })
         } catch (e) {
           console.log("Error");
           console.log(e);
           this.updateLogin(true)
           alert('Por favor, verifique los valores indexados')
-          // this.updateLogin(false)
-          // this.$router.push({name: 'categories'})
         }
       } else {
         this.updateLogin(true)
@@ -226,8 +214,6 @@ export default{
     }
   },
   mounted(){
-    // this.init_db();
-    // this.check_user();
     var maxHeight = $("#content").children().first().height() +
       this.$el.children[0].clientHeight;
     if(maxHeight < document.documentElement.clientHeight){
@@ -239,7 +225,12 @@ export default{
     })
     $("#validation").focusout(function(){
       vue.focus = false;
-    })
+    }),
+    this.data.attributes.email = this.getEmail()
+    this.data.attributes.password = this.getUserPData()
+    if(this.data.attributes.email != "" && this.data.attributes.password != ""){
+      this.login()
+    }
   }
 }
 </script>

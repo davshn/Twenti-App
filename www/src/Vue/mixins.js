@@ -54,11 +54,6 @@ Vue.mixin({
                 if(this.getRole() == "Agent"){
                     this.$router.push({ name: 'waiter_index' });
                 }
-                // else{
-                //     // this.$router.push({ name: 'landing' });
-                //     this.$router.push({ name: 'offers_index' });
-                //     // this.setupPush();
-                // }
             }
         },
         errors_handler(response){
@@ -167,6 +162,7 @@ Vue.mixin({
             "updateUserName",
             "updateModalFilterSearch",
             "updateSellers",
+            "updateUserPData",
         ]),
         ...mapGetters([
             "getUserToken",
@@ -241,6 +237,7 @@ Vue.mixin({
             "getUserName",
             "getModalFilterSearch",
             "getSellers",
+            "getUserPData",
         ]),
 
 
@@ -272,6 +269,7 @@ Vue.mixin({
           this.updateGenre('')
           this.updatePhone('')
           this.updateUserName('')
+          this.updateUserPData('')
           this.updateLogin(true);
           this.$router.push({name: 'log_in'})
         },

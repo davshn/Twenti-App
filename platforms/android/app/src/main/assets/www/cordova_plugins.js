@@ -118,14 +118,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
-    },
-    {
-      "id": "cordova-plugin-barcodescanner.BarcodeScanner",
-      "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
-      "pluginId": "cordova-plugin-barcodescanner",
-      "clobbers": [
-        "cordova.plugins.barcodeScanner"
-      ]
     }
   ];
   module.exports.metadata = {
@@ -142,7 +134,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-splashscreen": "5.0.4",
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-whitelist": "1.3.4",
-    "phonegap-plugin-multidex": "1.0.0",
-    "cordova-plugin-barcodescanner": "0.7.4"
+    "phonegap-plugin-multidex": "1.0.0"
   };
 });

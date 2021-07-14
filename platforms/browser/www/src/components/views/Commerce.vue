@@ -22,7 +22,7 @@
         v-for="(coupon, index) in coupons">
         <div class="commerce__coupons--favorite">
           <p>
-            Tweni descuento
+            Aibai descuento
           </p>
           <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/heart.svg" alt="">
         </div>

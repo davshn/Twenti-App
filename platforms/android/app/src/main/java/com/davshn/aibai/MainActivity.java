@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.davshn.tweni;
+package com.davshn.aibai;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

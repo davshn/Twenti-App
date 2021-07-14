@@ -1,9 +1,9 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Tweni",
-  "short_name": "Tweni",
-  "version": "com.davshn.tweni",
+  "name": "Aibai",
+  "short_name": "Aibai",
+  "version": "com.davshn.aibai",
   "author": "David Figueroa",
   "icons": [
     {
