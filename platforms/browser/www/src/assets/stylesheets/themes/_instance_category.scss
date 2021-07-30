@@ -18,6 +18,7 @@
     }
     @include m(content){
       @include flex(center, space-between);
+      flex-wrap: wrap;
     }
     @include m(section){
       width: calc(50% - 8.5px);

@@ -66,7 +66,8 @@ const state = {
     user_id_encrypt: null,
     modal_filter_search: false,
     sellers: [],
-    user_p_data: ""
+    user_p_data: "",
+    user_favorites: []
 };
 const getters = {
     getUserToken: function(state){
@@ -271,6 +272,9 @@ const getters = {
     },
     getUserPData(state){
       return state.user_p_data
+    },
+    getUserFavorites(state){
+      return state.user_favorites
     }
 };
 const mutations = {
@@ -472,6 +476,9 @@ const mutations = {
     },
     setUserPData(state, payload){
       state.user_p_data = payload
+    },
+    setUserFavorites(state, payload){
+      state.user_favorites = payload
     }
 };
 const actions = {
@@ -671,6 +678,9 @@ const actions = {
     },
     updateUserPData({commit}, payload){
       commit('setUserPData', payload)
+    },
+    updateUserFavorites({commit}, payload){
+      commit('setUserFavorites', payload)
     },
 }
 

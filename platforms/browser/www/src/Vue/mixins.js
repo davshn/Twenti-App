@@ -163,6 +163,7 @@ Vue.mixin({
             "updateModalFilterSearch",
             "updateSellers",
             "updateUserPData",
+            "updateUserFavorites",
         ]),
         ...mapGetters([
             "getUserToken",
@@ -238,6 +239,7 @@ Vue.mixin({
             "getModalFilterSearch",
             "getSellers",
             "getUserPData",
+            "getUserFavorites",
         ]),
 
 
@@ -270,10 +272,25 @@ Vue.mixin({
           this.updatePhone('')
           this.updateUserName('')
           this.updateUserPData('')
+          this.updateUserFavorites([])
           this.updateLogin(true);
           this.$router.push({name: 'log_in'})
         },
-
+        saveToFavorites(id){
+          try {
+            this.$http.post('save_favorites', {offer_id: id, user_id:this.getUserId()}
+            ).then(function(response){
+              console.log("Congrats");
+              console.log(response);
+              this.updateUserFavorites(response.body.user_favorites)
+            }, function(response){
+              console.log("Error");
+              console.log(response);
+            })
+          } catch (e) {
+            console.log(e);
+          }
+        },
 
 
 

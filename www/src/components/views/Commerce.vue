@@ -20,11 +20,13 @@
       <section
         class="commerce__coupons--section"
         v-for="(coupon, index) in coupons">
-        <div class="commerce__coupons--favorite">
+        <div
+          @click.stop="saveToFavorites(coupon.id)"
+          class="commerce__coupons--favorite" style="z-index: 10">
           <p>
             Aibai descuento
           </p>
-          <img src="https://twenti.s3-us-west-2.amazonaws.com/demo/heart.svg" alt="">
+          <favorite-icon :color="getUserFavorites().includes(coupon.id.toString()) ? '#FF0202' : 'none'"></favorite-icon>
         </div>
         <p class="commerce__coupons--categories">
           <span v-for="(category, index) in coupon.categories" @click="$router.push({name: 'instance_category'})">{{category}}</span>

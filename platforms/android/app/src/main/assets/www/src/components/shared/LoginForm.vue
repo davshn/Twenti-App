@@ -115,6 +115,7 @@ export default{
             console.log(response);
             this.updateLogin(false)
             this.updateUserPData(this.data.attributes.password)
+            this.updateUserFavorites(response.body.data.attributes.favorite_offers)
             this.saveUserData(response.body.data)
           },function(response){
             console.log("Error");

@@ -22,16 +22,22 @@
           v-if="section.published">
           <div class="category_section__header">
             <div class="category_section__header--container">
-              <div class="category_section__header--discount">
+              <!-- <div class="category_section__header--discount">
                 <p>
                   {{'-'+section.discount_value+'%'}}
                 </p>
-              </div>
+              </div> -->
               <img :src="section.image.url" alt="">
+              <!-- <div class="">
+                {{section.name}}
+                <div class="">
+                  {{section.score}}
+                </div>
+              </div> -->
             </div>
             <div class="category_section__header--title">
               <p>
-                {{section.title}}
+                {{section.name}}
               </p>
             </div>
           </div>
@@ -40,7 +46,7 @@
           </p>
           <div
             class="category_section__button"
-            @click="$router.push({name: 'commerce', params:{id: section.commerce_id}})">
+            @click="$router.push({name: 'commerce', params:{id: section.id}})">
             <p>Ver más del comercio</p>
           </div>
         </section>
@@ -142,7 +148,7 @@ export default {
         this.$http.get('categories/'+this.$route.params.id,
         ).then(function(response){
           this.category = response.body.data
-          this.destacados = response.body.data.attributes.offers
+          this.destacados = response.body.data.attributes.commerces
           console.log(response);
           console.log("Congrats");
           this.charged = true
